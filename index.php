@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <!-- Our custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/custom.css">
+    <link rel="stylesheet" type="text/css" href="website/css/custom.css">
 
     <title>Εύδοξος</title>
   </head>
@@ -20,7 +20,7 @@
     <!-- First navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#">
-        <img src="../pics/eudoxuslogo.png" width="auto" height="auto" alt="Logo not found">
+        <img src="website/pics/eudoxuslogo.png" width="auto" height="auto" alt="Logo not found">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
             <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
             <span class="input-group-append">
                 <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    <img src="../pics/search.png">
+                    <img src="website/pics/search.png">
                 </button>
               </span>
         </div>
@@ -99,7 +99,7 @@
                 <a class="dropdown-item" href="#">Αναφορές</a>
               </div>
             </div>
-          </li>        
+          </li>
           <li class="nav-item">
             <div class="dropdown">
               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,7 +141,7 @@
         <div class="card-deck">
           <div class="col-md-6">
             <a href="#" class="card zoom">
-              <img class="card-img-top" src="../pics/students.jpg" alt="Image not found" height="365">
+              <img class="card-img-top" src="website/pics/students.jpg" alt="Image not found" height="365">
               <div class="card-img-overlay">
                 <h1 class="card-title text-left" id="student"><span>Φοιτητές</span></h1>
               </div>
@@ -150,13 +150,13 @@
           <div class="col-md-6">
             <div class="row">
               <a href="#" class="card zoom">
-                <img class="card-img-top" src="../pics/publisher.jpg" alt="Image not found" height="180">
+                <img class="card-img-top" src="website/pics/publisher.jpg" alt="Image not found" height="180">
                 <div class="card-img-overlay">
                   <h3 class="card-title text-center" id="publisher"><span>Εκδότες</span></h3>
                 </div>
               </a>
               <a href="#" class="card zoom">
-                <img class="card-img-top" src="../pics/secretaries.jpg" alt="Image not found" height="180">
+                <img class="card-img-top" src="website/pics/secretaries.jpg" alt="Image not found" height="180">
                 <div class="card-img-overlay">
                   <h4 class="card-title text-center" id="secretary"><span>Γραμματείες<br>Τμημάτων</span></h4>
                 </div>
@@ -164,13 +164,13 @@
             </div>
             <div class="row">
               <a href="#" class="card zoom">
-                <img class="card-img-top" src="../pics/libraries.jpg" alt="Image not found" height="180">
+                <img class="card-img-top" src="website/pics/libraries.jpg" alt="Image not found" height="180">
                 <div class="card-img-overlay">
                   <h3 class="card-title text-center" id="library"><span>Βιβλιοθήκες</span></h3>
                 </div>
               </a>
               <a href="#" class="card zoom">
-                <img class="card-img-top" src="../pics/distribution_point.png" alt="Image not found" height="180">
+                <img class="card-img-top" src="website/pics/distribution_point.png" alt="Image not found" height="180">
                 <div class="card-img-overlay">
                   <h4 class="card-title text-center" id="point"><span>Σημεία Διανομής</span></h4>
                 </div>
@@ -187,7 +187,7 @@
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img class="d-block w-100" src="../pics/extra_time.jpg" alt="First slide" width="534" height="200">
+                  <img class="d-block w-100" src="website/pics/extra_time.jpg" alt="First slide" width="534" height="200">
                   <a href="#">
                     <div style="background-color: black;opacity: 0.6;" class="carousel-caption d-none d-md-block">
                       <h5>Παράταση Δηλώσεων</h5>
@@ -195,7 +195,7 @@
                   </a>
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="../pics/signup_error.png" alt="Second slide" width="534" height="200">
+                  <img class="d-block w-100" src="website/pics/signup_error.png" alt="Second slide" width="534" height="200">
                   <a href="#">
                     <div style="background-color: black; opacity: 0.6;" class="carousel-caption d-none d-md-block">
                       <h5>Προβλήματα Εγγραφής</h5>
@@ -203,7 +203,7 @@
                   </a>
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="../pics/androidapp.png" alt="Second slide" width="534" height="200">
+                  <img class="d-block w-100" src="website/pics/androidapp.png" alt="Second slide" width="534" height="200">
                   <a href="#">
                     <div style="background-color: black;opacity: 0.6;" class="carousel-caption d-none d-md-block">
                       <h5>Εφαρμογή Android</h5>
@@ -231,7 +231,7 @@
 
         <div class="col-md-4">
           <div class="card bg-light" style="width: 18rem;height: 23rem">
-            <img class="card-img-top" src="../pics/freshman.png" alt="Image not found" width="200" height="200">
+            <img class="card-img-top" src="website/pics/freshman.png" alt="Image not found" width="200" height="200">
             <div class="card-body">
               <h5 class="card-title">Οδηγός Πρωτοετών</h5>
               <p class="card-text">Δείτε αναλυτικά τα βήματα που πρέπει να ακολουθήσετε</p>
@@ -242,7 +242,7 @@
 
         <div class="col-md-4">
           <div class="card bg-light" style="width: 18rem;height: 23rem">
-            <img class="card-img-top" src="../pics/database.png" alt="Image not found" width="210" height="150">
+            <img class="card-img-top" src="website/pics/database.png" alt="Image not found" width="210" height="150">
             <div class="card-body">
               <h5 class="card-title">Γενική Βάση Συγγραμμάτων</h5>
               <p class="card-text">Μπορείτε να αναζητήσετε όλα τα διαθέσιμα συγγράμματα του Ευδόξου</p>
@@ -256,7 +256,7 @@
         <hr>
       </div>
     </div>
-  <div class="container">    
+  <div class="container">
     <footer class="page-footer font-small blue pt-4 bg-light">
        <div class="container-fluid text-center text-md-left">
          <div class="row justify-content-center align-items-top">
@@ -264,57 +264,57 @@
                <h5>Επικοινωνία</h5>
                <ul class="list-unstyled">
                  <li>
-                   <a href="#!"><pre><br><img src="../pics/phone.png"> 210-3707111</pre></a>
+                   <a href="#!"><pre><br><img src="website/pics/phone.png"> 210-3707111</pre></a>
                  </li>
                  <li>
-                   <a href="#!"><pre><img src="../pics/email.png"> info@eudoxus.gr</pre></a>
+                   <a href="#!"><pre><img src="website/pics/email.png"> info@eudoxus.gr</pre></a>
                  </li>
                </ul>
- 
+
              </div>
- 
+
            <hr class="clearfix w-100 d-md-none pb-3">
- 
+
            <div class="col-md-3 mb-md-0 mb-3">
                 <!-- Links -->
                <h5>Χρήσιμα</h5>
                <ul class="list-unstyled">
                  <li>
-                   <a href="#!"><pre><br><img src="../pics/manuals.jpeg"> Εγχειρίδια Χρηστών</pre></a>
+                   <a href="#!"><pre><br><img src="website/pics/manuals.jpeg"> Εγχειρίδια Χρηστών</pre></a>
                  </li>
                  <li>
-                   <a href="#!"><pre><img src="../pics/faq.png"> Συχνές Ερωτήσεις</pre></a>
+                   <a href="#!"><pre><img src="website/pics/faq.png"> Συχνές Ερωτήσεις</pre></a>
                  </li>
                  <li>
-                   <a href="#!"><pre><img src="../pics/tutorials.png"> Βίντεο</pre></a>
+                   <a href="#!"><pre><img src="website/pics/tutorials.png"> Βίντεο</pre></a>
                  </li>
                </ul>
- 
+
              </div>
              <div class="col-md-3 mb-md-0 mb-3">
 
                <h5>Ακολουθήστε μας</h5>
- 
+
                <ul class="list-unstyled">
                  <li>
-                   <a href="#!"><pre><br><img src="../pics/facebook.png"> Facebook</pre></a>
+                   <a href="#!"><pre><br><img src="website/pics/facebook.png"> Facebook</pre></a>
                  </li>
                  <li>
-                   <a href="#!"><pre><img src="../pics/twitter.png"> Twitter</pre></a>
+                   <a href="#!"><pre><img src="website/pics/twitter.png"> Twitter</pre></a>
                  </li>
                  <li>
-                   <a href="#!"><pre><img src="../pics/linkedin.png"> LinkedIn</pre></a>
+                   <a href="#!"><pre><img src="website/pics/linkedin.png"> LinkedIn</pre></a>
                  </li>
                </ul>
 
              </div>
          </div>
        </div>
-    </footer> 
+    </footer>
    <div class="footer-copyright text-center py-3">© 2018 Copyright:
      <a href="#">eudoxus.gr</a>
    </div>
-  </div> 
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
