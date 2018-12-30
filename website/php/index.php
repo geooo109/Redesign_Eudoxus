@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <!-- Our custom CSS -->
-    <link rel="stylesheet" type="text/css" href="../css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
 
     <title>Εύδοξος</title>
   </head>
@@ -40,7 +40,7 @@
             <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Σύνδεση<span class="sr-only"></span></a>
+            <a class="nav-link" href="sign_in.php">Σύνδεση<span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
             <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
@@ -256,65 +256,67 @@
         <hr>
       </div>
     </div>
-  <div class="container">    
-    <footer class="page-footer font-small blue pt-4 bg-light">
-       <div class="container-fluid text-center text-md-left">
-         <div class="row justify-content-center align-items-top">
-           <div class="col-md-3 mb-md-0 mb-3">
-               <h5>Επικοινωνία</h5>
-               <ul class="list-unstyled">
-                 <li>
-                   <a href="#!"><pre><br><img src="../pics/phone.png"> 210-3707111</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="../pics/email.png"> info@eudoxus.gr</pre></a>
-                 </li>
-               </ul>
- 
-             </div>
- 
-           <hr class="clearfix w-100 d-md-none pb-3">
- 
-           <div class="col-md-3 mb-md-0 mb-3">
-                <!-- Links -->
-               <h5>Χρήσιμα</h5>
-               <ul class="list-unstyled">
-                 <li>
-                   <a href="#!"><pre><br><img src="../pics/manuals.jpeg"> Εγχειρίδια Χρηστών</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="../pics/faq.png"> Συχνές Ερωτήσεις</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="../pics/tutorials.png"> Βίντεο</pre></a>
-                 </li>
-               </ul>
- 
-             </div>
+
+    <!-- Footer -->
+    <div class="container">    
+      <footer class="page-footer font-small blue pt-4 bg-light">
+         <div class="container-fluid text-center text-md-left">
+           <div class="row justify-content-center align-items-top">
              <div class="col-md-3 mb-md-0 mb-3">
+                 <h5>Επικοινωνία</h5>
+                 <ul class="list-unstyled">
+                   <li>
+                     <a href="#!"><pre><br><img src="../pics/phone.png"> 210-3707111</pre></a>
+                   </li>
+                   <li>
+                     <a href="#!"><pre><img src="../pics/email.png"> info@eudoxus.gr</pre></a>
+                   </li>
+                 </ul>
+   
+               </div>
+   
+             <hr class="clearfix w-100 d-md-none pb-3">
+   
+             <div class="col-md-3 mb-md-0 mb-3">
+                  <!-- Links -->
+                 <h5>Χρήσιμα</h5>
+                 <ul class="list-unstyled">
+                   <li>
+                     <a href="#!"><pre><br><img src="../pics/manuals.jpeg"> Εγχειρίδια Χρηστών</pre></a>
+                   </li>
+                   <li>
+                     <a href="#!"><pre><img src="../pics/faq.png"> Συχνές Ερωτήσεις</pre></a>
+                   </li>
+                   <li>
+                     <a href="#!"><pre><img src="../pics/tutorials.png"> Βίντεο</pre></a>
+                   </li>
+                 </ul>
+   
+               </div>
+               <div class="col-md-3 mb-md-0 mb-3">
 
-               <h5>Ακολουθήστε μας</h5>
- 
-               <ul class="list-unstyled">
-                 <li>
-                   <a href="#!"><pre><br><img src="../pics/facebook.png"> Facebook</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="../pics/twitter.png"> Twitter</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="../pics/linkedin.png"> LinkedIn</pre></a>
-                 </li>
-               </ul>
+                 <h5>Ακολουθήστε μας</h5>
+   
+                 <ul class="list-unstyled">
+                   <li>
+                     <a href="#!"><pre><br><img src="../pics/facebook.png"> Facebook</pre></a>
+                   </li>
+                   <li>
+                     <a href="#!"><pre><img src="../pics/twitter.png"> Twitter</pre></a>
+                   </li>
+                   <li>
+                     <a href="#!"><pre><img src="../pics/linkedin.png"> LinkedIn</pre></a>
+                   </li>
+                 </ul>
 
-             </div>
+               </div>
+           </div>
          </div>
-       </div>
-    </footer> 
-   <div class="footer-copyright text-center py-3">© 2018 Copyright:
-     <a href="#">eudoxus.gr</a>
-   </div>
-  </div> 
+      </footer> 
+      <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="#">eudoxus.gr</a>
+      </div>
+    </div> 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,0 +1,47 @@
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
+body {
+  background: #e3f2fd;
+}
+
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-group > input, .btn {
+  border-radius: 5rem;
+}
+
+.login-help{
+  padding-top: 10px;
+  font-size: 12px;
+}
+.login-help > a:visited{
+  color: grey;
+}
+.login-help > a:link{
+  color: grey;
+}
+
+.btn{
+  margin-top: 10px;
+}
