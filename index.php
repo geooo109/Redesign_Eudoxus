@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <!-- Our custom CSS -->
-    <link rel="stylesheet" type="text/css" href="website/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="website/css/index.css">
 
     <title>Εύδοξος</title>
   </head>
@@ -30,9 +30,11 @@
         <div class="input-group col-md-4">
             <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
             <span class="input-group-append">
+              <a href="#">
                 <button class="btn btn-outline-secondary border-left-0 border" type="button">
                     <img src="website/pics/search.png">
                 </button>
+              </a>
               </span>
         </div>
         <ul class="navbar-nav ml-auto">
@@ -40,12 +42,14 @@
             <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sign_in.php">Σύνδεση<span class="sr-only"></span></a>
+            <a class="nav-link" href="website/php/sign_in.php">Σύνδεση<span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
-            <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
-              <span class="sr-only"></span>
-            </button>
+            <a href="#">
+              <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
+                <span class="sr-only"></span>
+              </button>
+            </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><u>English</u><span class="sr-only"></span></a>
@@ -256,7 +260,6 @@
         <hr>
       </div>
     </div>
-<<<<<<< HEAD:website/php/index.php
 
     <!-- Footer -->
     <div class="container">    
@@ -267,10 +270,10 @@
                  <h5>Επικοινωνία</h5>
                  <ul class="list-unstyled">
                    <li>
-                     <a href="#!"><pre><br><img src="../pics/phone.png"> 210-3707111</pre></a>
+                     <a href="#!"><pre><br><img src="website/pics/phone.png"> 210-3707111</pre></a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="../pics/email.png"> info@eudoxus.gr</pre></a>
+                     <a href="#!"><pre><img src="website/pics/email.png"> info@eudoxus.gr</pre></a>
                    </li>
                  </ul>
    
@@ -278,108 +281,46 @@
    
              <hr class="clearfix w-100 d-md-none pb-3">
    
-=======
-  <div class="container">
-    <footer class="page-footer font-small blue pt-4 bg-light">
-       <div class="container-fluid text-center text-md-left">
-         <div class="row justify-content-center align-items-top">
-           <div class="col-md-3 mb-md-0 mb-3">
-               <h5>Επικοινωνία</h5>
-               <ul class="list-unstyled">
-                 <li>
-                   <a href="#!"><pre><br><img src="website/pics/phone.png"> 210-3707111</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="website/pics/email.png"> info@eudoxus.gr</pre></a>
-                 </li>
-               </ul>
-
-             </div>
-
-           <hr class="clearfix w-100 d-md-none pb-3">
-
-           <div class="col-md-3 mb-md-0 mb-3">
-                <!-- Links -->
-               <h5>Χρήσιμα</h5>
-               <ul class="list-unstyled">
-                 <li>
-                   <a href="#!"><pre><br><img src="website/pics/manuals.jpeg"> Εγχειρίδια Χρηστών</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="website/pics/faq.png"> Συχνές Ερωτήσεις</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="website/pics/tutorials.png"> Βίντεο</pre></a>
-                 </li>
-               </ul>
-
-             </div>
->>>>>>> 54abd0c9e16cea5a06ccd804d43fd6721221f7a4:index.php
              <div class="col-md-3 mb-md-0 mb-3">
                   <!-- Links -->
                  <h5>Χρήσιμα</h5>
                  <ul class="list-unstyled">
                    <li>
-                     <a href="#!"><pre><br><img src="../pics/manuals.jpeg"> Εγχειρίδια Χρηστών</pre></a>
+                     <a href="#!"><pre><br><img src="website/pics/manuals.jpeg"> Εγχειρίδια Χρηστών</pre></a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="../pics/faq.png"> Συχνές Ερωτήσεις</pre></a>
+                     <a href="#!"><pre><img src="website/pics/faq.png"> Συχνές Ερωτήσεις</pre></a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="../pics/tutorials.png"> Βίντεο</pre></a>
+                     <a href="#!"><pre><img src="website/pics/tutorials.png"> Βίντεο</pre></a>
                    </li>
                  </ul>
    
                </div>
                <div class="col-md-3 mb-md-0 mb-3">
 
-<<<<<<< HEAD:website/php/index.php
                  <h5>Ακολουθήστε μας</h5>
    
                  <ul class="list-unstyled">
                    <li>
-                     <a href="#!"><pre><br><img src="../pics/facebook.png"> Facebook</pre></a>
+                     <a href="#!"><pre><br><img src="website/pics/facebook.png"> Facebook</pre></a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="../pics/twitter.png"> Twitter</pre></a>
+                     <a href="#!"><pre><img src="website/pics/twitter.png"> Twitter</pre></a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="../pics/linkedin.png"> LinkedIn</pre></a>
+                     <a href="#!"><pre><img src="website/pics/linkedin.png"> LinkedIn</pre></a>
                    </li>
                  </ul>
-=======
-               <h5>Ακολουθήστε μας</h5>
-
-               <ul class="list-unstyled">
-                 <li>
-                   <a href="#!"><pre><br><img src="website/pics/facebook.png"> Facebook</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="website/pics/twitter.png"> Twitter</pre></a>
-                 </li>
-                 <li>
-                   <a href="#!"><pre><img src="website/pics/linkedin.png"> LinkedIn</pre></a>
-                 </li>
-               </ul>
->>>>>>> 54abd0c9e16cea5a06ccd804d43fd6721221f7a4:index.php
 
                </div>
            </div>
          </div>
-<<<<<<< HEAD:website/php/index.php
       </footer> 
-      <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        <a href="#">eudoxus.gr</a>
-      </div>
+     <div class="footer-copyright text-center py-3">© 2018 Copyright:
+       <a href="#">eudoxus.gr</a>
+     </div>
     </div> 
-=======
-       </div>
-    </footer>
-   <div class="footer-copyright text-center py-3">© 2018 Copyright:
-     <a href="#">eudoxus.gr</a>
-   </div>
-  </div>
->>>>>>> 54abd0c9e16cea5a06ccd804d43fd6721221f7a4:index.php
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

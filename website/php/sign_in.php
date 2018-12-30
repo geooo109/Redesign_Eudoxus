@@ -33,7 +33,7 @@
               <div class="custom-control custom-checkbox mb-3">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Θυμήσου Με</label>
-              <button class="btn btn-lg btn-primary btn-block" type="submit">Σύνδεση</button>
+              <a href="#"><button class="btn btn-lg btn-primary btn-block" type="submit">Σύνδεση</button></a>
               <div class="login-help align-items-center text-center">
               <a href="#">Εγγραφή</a> &middot; <a href="#">Ξέχασα τον κωδικό</a>
               </div>

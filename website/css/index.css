@@ -28,7 +28,7 @@
 }
 
 /* Resize search icon */
-.input-group > span > button > img{
+.input-group > span > a > button > img{
   width:24px; 
   height:auto;
 }
