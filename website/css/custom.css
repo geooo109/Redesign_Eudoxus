@@ -1,0 +1,162 @@
+.navbar{
+  background-color: #e3f2fd;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* Add padding on right side of navbar */
+.navbar-nav{
+  padding-right: 20px;
+}
+
+/* Create some space between navbar items */
+.navbar-nav > li {
+  padding-left:5px;
+  padding-right:5px;
+  margin-left:1px;
+  margin-right:1px;
+}
+
+/* Align "Sign Up" button with the rest nav bar items */
+.nav-item > button{
+  margin-top: 5px;
+}
+
+/* Create some extra space between search-bar and logo */
+#navbarSupportedContent{
+  padding-left: 50px;
+}
+
+/* Resize search icon */
+.input-group > span > button > img{
+  width:24px; 
+  height:auto;
+}
+
+#SecondNavbar{
+  background-color: transparent;
+}
+
+.container{
+  margin-bottom: 30px;
+}
+
+.access{
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+/* Typography about the second navbar*/
+.nav > li > a{
+  font-size: 18px;
+  font-weight: 250;
+  color: black;
+}
+
+.nav > li > div > button{
+  font-size: 18px;
+  font-weight: 250;
+  color: black;
+}
+
+.nav > li > div > button:hover{
+  background-color: #F88101;
+  color: black;
+}
+
+/* Remove dropdown arrow */
+.dropdown-toggle::after{
+    display: none;
+}
+
+.btn{
+  border-color: transparent;
+}
+
+.dropdown-menu li:hover{
+  visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  background-color: #F5F5F5;
+}
+
+.dropdown-item{
+  font-size: 16px;
+  font-weight: 250;
+}
+
+/* Color of dropdown-item when hovered */
+.dropdown-item:hover {
+  background-color: #F88101;
+}
+.btn:focus{
+    background: #F88101;
+}
+
+.carousel-indicators > li{
+  background-color: black;
+}
+
+.carousel-caption {
+    max-width: 550px;
+    padding: 0 20px;
+    margin:0 auto;
+    margin-top: 200px;
+    text-align:center;
+}
+
+/* General rule applied to every card title */
+.card-title > span{
+  font-weight: 800;
+  color: white;
+  vertical-align: bottom;
+}
+
+.zoom:hover{
+  transform: scale(1.1);
+  transition: all .5s;
+}
+
+#student{
+  margin-top: 280px;
+  font-size: 64;
+}
+
+#publisher{
+  margin-top: 110px;
+
+}
+
+#secretary{
+  margin-top: 90px;
+}
+
+#library{
+  margin-top: 120px;
+}
+
+#point{
+  margin-top: 120px;
+}
+
+/* Resize footer icons */
+footer > div > div > div > ul > li > a > pre >img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Style footer stuff */
+footer > div > div > div > ul > li > a:link{
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+}
+footer > div > div > div > ul > li > a:visited{
+  color: black;
+}
+footer > div > div > div > ul > li > a:hover{
+  text-decoration: none;
+  font-weight: 800;
+}
