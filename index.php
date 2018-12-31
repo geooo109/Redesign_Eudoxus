@@ -45,7 +45,7 @@
             <a class="nav-link" href="website/php/sign_in.php">Σύνδεση<span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
-            <a href="#">
+            <a href="website/php/sign_up.php">
               <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
                 <span class="sr-only"></span>
               </button>
@@ -262,7 +262,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="container">    
+    <div class="container">
       <footer class="page-footer font-small blue pt-4 bg-light">
          <div class="container-fluid text-center text-md-left">
            <div class="row justify-content-center align-items-top">
@@ -276,11 +276,11 @@
                      <a href="#!"><pre><img src="website/pics/email.png"> info@eudoxus.gr</pre></a>
                    </li>
                  </ul>
-   
+
                </div>
-   
+
              <hr class="clearfix w-100 d-md-none pb-3">
-   
+
              <div class="col-md-3 mb-md-0 mb-3">
                   <!-- Links -->
                  <h5>Χρήσιμα</h5>
@@ -295,12 +295,12 @@
                      <a href="#!"><pre><img src="website/pics/tutorials.png"> Βίντεο</pre></a>
                    </li>
                  </ul>
-   
+
                </div>
                <div class="col-md-3 mb-md-0 mb-3">
 
                  <h5>Ακολουθήστε μας</h5>
-   
+
                  <ul class="list-unstyled">
                    <li>
                      <a href="#!"><pre><br><img src="website/pics/facebook.png"> Facebook</pre></a>
@@ -316,11 +316,11 @@
                </div>
            </div>
          </div>
-      </footer> 
+      </footer>
      <div class="footer-copyright text-center py-3">© 2018 Copyright:
        <a href="#">eudoxus.gr</a>
      </div>
-    </div> 
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
