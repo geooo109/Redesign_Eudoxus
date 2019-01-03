@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="website/css/index.css">
 
     <title>Εύδοξος</title>
+
   </head>
 
   <body>

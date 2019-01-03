@@ -1,8 +1,6 @@
 <?php
-
-$db_server_name = 'localhost';
-$db_user_name = 'root';
-$db_password = '';
-$db_name = 'sdi1400109';
-
+  $db_host = 'localhost';
+  $db_user = 'root';
+  $db_pass = 'root';
+  $db_name = 'sdi1400109';
 ?>
