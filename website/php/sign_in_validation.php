@@ -11,15 +11,16 @@ if (empty($_POST) == 0) {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_object();
-    echo $user->password;
-    echo '<------vs------>';
-    echo $_POST['pass'];
+
+    echo $user->password;echo '<------vs------>';echo $_POST['pass'];
+
     echo '==========>';
     // Verify user password and set $_SESSION
     //if ( password_verify( $_POST['pass'], $user->password ) ) {
     if ($_POST['pass'] == $user->password ) {
       $_SESSION['user_id'] = $user->ID;
       $msg = 'Logged in Successful';
+      header('location:../../index.php');
     }
     else {
       $msg = 'Logged in Failed';
