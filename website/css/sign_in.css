@@ -3,11 +3,11 @@
   --input-padding-y: .75rem;
 }
 
-body {
-  background: #e3f2fd;
+.container {
+  padding-bottom: 0;
 }
-
 .card-signin {
+  background-color: #e3f2fd;
   border: 0;
   border-radius: 1rem;
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@ body {
   width: 100%;
 }
 
-.form-group > input, .btn {
+.form-group > input{
   border-radius: 5rem;
 }
 
@@ -42,6 +42,12 @@ body {
   color: grey;
 }
 
-.btn{
-  margin-top: 10px;
+.card-body > div > a > button{
+    margin-top: 10px;
+    border-radius: 5rem;
+}
+
+/* Do not underline "Σύνδεση" on hover */
+.card-body > div > a:hover{
+  text-decoration: none;
 }

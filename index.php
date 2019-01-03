@@ -8,18 +8,20 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <!-- CSS for font-awsome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!-- Our custom CSS -->
-    <link rel="stylesheet" type="text/css" href="website/css/index.css">
+    <link rel="stylesheet" type="text/css" href="website/css/main.css">
 
     <title>Εύδοξος</title>
   </head>
+
 
   <body>
 
     <!-- First navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.php">
         <img src="website/pics/eudoxuslogo.png" width="auto" height="auto" alt="Logo not found">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +47,7 @@
             <a class="nav-link" href="website/php/sign_in.php">Σύνδεση<span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
-            <a href="#">
+            <a href="website/php/sign_up.php">
               <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
                 <span class="sr-only"></span>
               </button>
@@ -60,15 +62,13 @@
 
     <!-- Second navbar -->
     <div class="container">
-      <hr>
       <nav class="navbar navbar-expand-lg justify-content-center" id="SecondNavbar">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <ul class="nav">
           <li class="nav-item">
-
-            <a class="nav-link" href="#">Αρχική</a>
+            <a class="btn btn-outline-secondary" href="index.php" role="button">Αρχική</a>
           </li>
           <li class="nav-item">
             <div class="dropdown">
@@ -156,13 +156,13 @@
               <a href="#" class="card zoom">
                 <img class="card-img-top" src="website/pics/publisher.jpg" alt="Image not found" height="180">
                 <div class="card-img-overlay">
-                  <h3 class="card-title text-center" id="publisher"><span>Εκδότες</span></h3>
+                  <h3 class="card-title text-center" id="publisher-photo"><span>Εκδότες</span></h3>
                 </div>
               </a>
               <a href="#" class="card zoom">
                 <img class="card-img-top" src="website/pics/secretaries.jpg" alt="Image not found" height="180">
                 <div class="card-img-overlay">
-                  <h4 class="card-title text-center" id="secretary"><span>Γραμματείες<br>Τμημάτων</span></h4>
+                  <h4 class="card-title text-center" id="secretary-photo"><span>Γραμματείες<br>Τμημάτων</span></h4>
                 </div>
               </a>
             </div>
@@ -170,13 +170,13 @@
               <a href="#" class="card zoom">
                 <img class="card-img-top" src="website/pics/libraries.jpg" alt="Image not found" height="180">
                 <div class="card-img-overlay">
-                  <h3 class="card-title text-center" id="library"><span>Βιβλιοθήκες</span></h3>
+                  <h3 class="card-title text-center" id="library-photo"><span>Βιβλιοθήκες</span></h3>
                 </div>
               </a>
               <a href="#" class="card zoom">
                 <img class="card-img-top" src="website/pics/distribution_point.png" alt="Image not found" height="180">
                 <div class="card-img-overlay">
-                  <h4 class="card-title text-center" id="point"><span>Σημεία Διανομής</span></h4>
+                  <h4 class="card-title text-center" id="point-photo"><span>Σημεία Διανομής</span></h4>
                 </div>
               </a>
             </div>
@@ -234,7 +234,7 @@
         </div>
 
         <div class="col-md-4">
-          <div class="card bg-light" style="width: 18rem;height: 23rem">
+          <div class="card bg-light text-center" style="width: 18rem;height: 23rem">
             <img class="card-img-top" src="website/pics/freshman.png" alt="Image not found" width="200" height="200">
             <div class="card-body">
               <h5 class="card-title">Οδηγός Πρωτοετών</h5>
@@ -245,7 +245,7 @@
         </div>
 
         <div class="col-md-4">
-          <div class="card bg-light" style="width: 18rem;height: 23rem">
+          <div class="card bg-light text-center" style="width: 18rem;height: 23rem">
             <img class="card-img-top" src="website/pics/database.png" alt="Image not found" width="210" height="150">
             <div class="card-body">
               <h5 class="card-title">Γενική Βάση Συγγραμμάτων</h5>
@@ -262,65 +262,63 @@
     </div>
 
     <!-- Footer -->
-    <div class="container">    
+    <div class="container">
       <footer class="page-footer font-small blue pt-4 bg-light">
          <div class="container-fluid text-center text-md-left">
            <div class="row justify-content-center align-items-top">
              <div class="col-md-3 mb-md-0 mb-3">
-                 <h5>Επικοινωνία</h5>
+                 <h6>Επικοινωνία</h6>
                  <ul class="list-unstyled">
                    <li>
-                     <a href="#!"><pre><br><img src="website/pics/phone.png"> 210-3707111</pre></a>
+                     <a href="#!"><br><i class="fas fa-phone-square"></i> 210-3707111</a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="website/pics/email.png"> info@eudoxus.gr</pre></a>
+                     <a href="#!"><i class="fas fa-envelope"></i> info@eudoxus.gr</a>
                    </li>
                  </ul>
-   
+
                </div>
-   
+
              <hr class="clearfix w-100 d-md-none pb-3">
-   
+
              <div class="col-md-3 mb-md-0 mb-3">
-                  <!-- Links -->
-                 <h5>Χρήσιμα</h5>
+                 <h6>Χρήσιμα</h6>
                  <ul class="list-unstyled">
                    <li>
-                     <a href="#!"><pre><br><img src="website/pics/manuals.jpeg"> Εγχειρίδια Χρηστών</pre></a>
+                     <a href="#!"><br><i class="fas fa-info-circle"></i> Εγχειρίδια Χρηστών</a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="website/pics/faq.png"> Συχνές Ερωτήσεις</pre></a>
+                     <a href="#!"><i class="fas fa-question-circle"></i> Συχνές Ερωτήσεις</a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="website/pics/tutorials.png"> Βίντεο</pre></a>
+                     <a href="#!"><i class="fab fa-youtube"></i> Βίντεο</a>
                    </li>
                  </ul>
-   
+
                </div>
                <div class="col-md-3 mb-md-0 mb-3">
 
-                 <h5>Ακολουθήστε μας</h5>
-   
+                 <h6>Ακολουθήστε μας</h5>
                  <ul class="list-unstyled">
                    <li>
-                     <a href="#!"><pre><br><img src="website/pics/facebook.png"> Facebook</pre></a>
+                       <a href="#!"><br><i class="fab fa-facebook-square"></i> Facebook</a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="website/pics/twitter.png"> Twitter</pre></a>
+                     <a href="#!"><i class="fab fa-twitter-square"></i> Twitter</a>
                    </li>
                    <li>
-                     <a href="#!"><pre><img src="website/pics/linkedin.png"> LinkedIn</pre></a>
+                     <a href="#!"><i class="fab fa-linkedin"></i> LinkedIn</a>
                    </li>
                  </ul>
 
                </div>
            </div>
          </div>
-      </footer> 
+      </footer>
      <div class="footer-copyright text-center py-3">© 2018 Copyright:
-       <a href="#">eudoxus.gr</a>
+       <a href="index.php">eudoxus.gr</a>
      </div>
-    </div> 
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

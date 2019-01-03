@@ -18,7 +18,7 @@
 }
 
 /* Align "Sign Up" button with the rest nav bar items */
-.nav-item > button{
+.nav-item > a > button{
   margin-top: 5px;
 }
 
@@ -29,12 +29,8 @@
 
 /* Resize search icon */
 .input-group > span > a > button > img{
-  width:24px; 
+  width:24px;
   height:auto;
-}
-
-#SecondNavbar{
-  background-color: transparent;
 }
 
 .container{
@@ -50,6 +46,15 @@
 .nav > li > a{
   font-size: 18px;
   font-weight: 250;
+  color: black;
+}
+
+#SecondNavbar{
+  background-color: transparent;
+}
+
+.nav > li > a:hover{
+  background-color: #F88101;
   color: black;
 }
 
@@ -119,25 +124,25 @@
   transition: all .5s;
 }
 
-#student{
+#student-photo{
   margin-top: 280px;
   font-size: 64;
 }
 
-#publisher{
+#publisher-photo{
   margin-top: 110px;
 
 }
 
-#secretary{
+#secretary-photo{
   margin-top: 90px;
 }
 
-#library{
+#library-photo{
   margin-top: 120px;
 }
 
-#point{
+#point-photo{
   margin-top: 120px;
 }
 
@@ -150,13 +155,15 @@ footer > div > div > div > ul > li > a > pre >img {
 /* Style footer stuff */
 footer > div > div > div > ul > li > a:link{
   text-decoration: none;
-  font-weight: 700;
+  /* font-family: sans-serif; */
+  font-weight: 250;
+  font-size: 14px;
   color: black;
 }
+
 footer > div > div > div > ul > li > a:visited{
-  color: black;
-}
-footer > div > div > div > ul > li > a:hover{
   text-decoration: none;
-  font-weight: 800;
+  /* font-family: sans-serif; */
+  font-weight: 250;
+  color: black;
 }
