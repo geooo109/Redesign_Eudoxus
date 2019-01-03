@@ -28,10 +28,10 @@
               <form action="sign_in_validation.php" method="post">
 
                 <div class="form-group">
-                  <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Όνομα Χρήστη">
+                  <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="skrabas@smiggol.gr">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" name="pass" placeholder="Κωδικός">
+                  <input type="password" class="form-control" name="pass" placeholder="salamandra">
                 </div>
                 <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="customCheck1">
