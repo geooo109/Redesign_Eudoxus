@@ -158,72 +158,78 @@
       </ul>
     </div>
     <div class="tab-content" id="myTabContent">
+      <!-- #############START OF STUDENT SIGN UP################### -->
 
-      <div class="tab-pane fade show active" id="student" role="tabpanel" aria-labelledby="student-tab">
-        <div class="container" id="cont">
-          <h3 >Εγγραφή ως Φοιτητής</h3>
-          <div class="form-row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                <input type="text" class="form-control" placeholder="Όνομα Χρήστη *" value="" />
+      <form action="sign_up_validaiton.php" method="post">
+        <div class="tab-pane fade show active" id="student" role="tabpanel" aria-labelledby="student-tab">
+          <div class="container" id="cont">
+            <h3 >Εγγραφή ως Φοιτητής</h3>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Όνομα Χρήστη</label>
+                  <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη *" value="name_stud1" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Κωδικός</label>
+                  <input type="password" class="form-control" name="password" placeholder="Κωδικός *" value="" />
+                </div>
+                <div class="form-group">
+                  <label for="inputUni">Ίδρυμα</label>
+                  <select id="inputUni" name="uni" class="form-control">
+                    <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
+                    <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
+                    <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
+                    <option>Δημοκρίτειο Πανεπιστήμιο Θράκης</option>
+                    <option>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                    <option>Εθνικό Μετσόβιο Πoλυτεχνείο</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Τμήμα</label>
+                  <input type="text" class="form-control" name="dep" placeholder="Τμήμα *" value="" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
+                  <input type="password" class="form-control" name="phone" placeholder="Κινητό Τηλέφωνο" value="" />
+                </div>
+                <div class="custom-control custom-checkbox mb-3 form-group">
+                  <input type="checkbox" class="custom-control-input"  id="customCheck1">
+                  <label class="custom-control-label" for="customCheck1">Αποδέχομαι τους όρους χρήσης</label>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Κωδικός</label>
-                <input type="password" class="form-control" placeholder="Κωδικός *" value="" />
-              </div>
-              <div class="form-group">
-                <label for="inputUni">Ίδρυμα</label>
-                <select id="inputUni" class="form-control">
-                  <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
-                  <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
-                  <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
-                  <option>Δημοκρίτειο Πανεπιστήμιο Θράκης</option>
-                  <option>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
-                  <option>Εθνικό Μετσόβιο Πoλυτεχνείο</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Τμήμα</label>
-                <input type="text" class="form-control" placeholder="Τμήμα *" value="" />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
-                <input type="password" class="form-control" placeholder="Κινητό Τηλέφωνο" value="" />
-              </div>
-              <div class="custom-control custom-checkbox mb-3 form-group">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Αποδέχομαι τους όρους χρήσης</label>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Ηλ.Ταχυδρομείο</label>
+                  <input type="email" class="form-control" name="email" placeholder="Ηλ.Ταχυδρομείο *" value="" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
+                  <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" value="" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Σχολή</label>
+                  <input type="text" class="form-control" name="sxoli" placeholder="Σχολή *" value="" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
+                  <input type="text" class="form-control" name="stud_id" placeholder="Αριθμός Μητρώου *" value="" />
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Ηλ.Ταχυδρομείο</label>
-                <input type="email" class="form-control" placeholder="Ηλ.Ταχυδρομείο *" value="" />
+            <div class="container col-md-3 signup-btn">
+              <input class="btn btn-lg btn-primary btn-block" type="submit" value="Εγγραφή">
+              <div class="signup-help align-items-center text-center">
+                <a href="sign_in.php">Έχετε ήδη λογαριασμό ;</a>
               </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
-                <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" value="" />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Σχολή</label>
-                <input type="text" class="form-control" placeholder="Σχολή *" value="" />
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
-                <input type="text" class="form-control" placeholder="Αριθμός Μητρώου *" value="" />
-              </div>
-            </div>
-          </div>
-          <div class="container col-md-3 signup-btn">
-            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Εγγραφή">
-            <div class="signup-help align-items-center text-center">
-              <a href="sign_in.php">Έχετε ήδη λογαριασμό ;</a>
             </div>
           </div>
         </div>
-      </div>
+      </form>
+      <!-- #############END OF STUDENT SIGN UP################### -->
+
+
       <div class="tab-pane fade show" id="secretary" role="tabpanel" aria-labelledby="secretary-tab">
         <div class="container" id="cont">
           <h3 >Εγγραφή ως Γραμματεία Τμήματος</h3>
