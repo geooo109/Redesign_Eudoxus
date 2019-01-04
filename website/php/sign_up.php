@@ -87,8 +87,8 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="#">Πρόγραμμα Σπουδών</a>
-                <a class="dropdown-item" href="#">Παράμετροι Διανομής</a>
-                <a class="dropdown-item" href="#">Αναφορές</a>
+                <a class="dropdown-item" href="#">Διασυνδεδεμένα Τμήματα</a>
+                <a class="dropdown-item" href="#">Εξαγωγή Αναφορών</a>
               </div>
             </div>
           </li>
@@ -218,6 +218,9 @@
           </div>
           <div class="container col-md-3 signup-btn">
             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Εγγραφή">
+            <div class="signup-help align-items-center text-center">
+              <a href="sign_in.php">Έχετε ήδη λογαριασμό ;</a>
+            </div>
           </div>
         </div>
       </div>
@@ -312,6 +315,9 @@
           </div>
           <div class="container col-md-3 signup-btn">
             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Εγγραφή">
+            <div class="signup-help align-items-center text-center">
+              <a href="sign_in.php">Έχετε ήδη λογαριασμό ;</a>
+            </div>
           </div>
         </div>
       </div>

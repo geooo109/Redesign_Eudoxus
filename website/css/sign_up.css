@@ -70,6 +70,17 @@
   cursor: pointer;
 }
 
+.signup-help{
+  padding-top: 10px;
+  font-size: 12px;
+}
+.signup-help > a:visited{
+  color: grey;
+}
+.signup-help > a:link{
+  color: grey;
+}
+
 #home:hover{
   background-color: #F88101;
   color: black;

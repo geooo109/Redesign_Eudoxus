@@ -105,8 +105,8 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="#">Πρόγραμμα Σπουδών</a>
-                <a class="dropdown-item" href="#">Παράμετροι Διανομής</a>
-                <a class="dropdown-item" href="#">Αναφορές</a>
+                <a class="dropdown-item" href="#">Διασυνδεδεμένα Τμήματα</a>
+                <a class="dropdown-item" href="#">Εξαγωγή Αναφορών</a>
               </div>
             </div>
           </li>
@@ -150,7 +150,7 @@
       <div class="row">
         <div class="card-deck">
           <div class="col-md-6">
-            <a href="#" class="card zoom">
+            <a href="website/php/students.php" class="card zoom">
               <img class="card-img-top" src="website/pics/students.jpg" alt="Image not found" height="365">
               <div class="card-img-overlay">
                 <h1 class="card-title text-left" id="student"><span>Φοιτητές</span></h1>
@@ -165,7 +165,7 @@
                   <h3 class="card-title text-center" id="publisher-photo"><span>Εκδότες</span></h3>
                 </div>
               </a>
-              <a href="#" class="card zoom">
+              <a href="website/php/secretaries.php" class="card zoom">
                 <img class="card-img-top" src="website/pics/secretaries.jpg" alt="Image not found" height="180">
                 <div class="card-img-overlay">
                   <h4 class="card-title text-center" id="secretary-photo"><span>Γραμματείες<br>Τμημάτων</span></h4>

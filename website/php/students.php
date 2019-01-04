@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
   <head>
-    <!--Here is the login check -->
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="Mantas Michas Panagiotopoulos" content="Eudoxus Redesign">
@@ -12,10 +10,10 @@
 
     <!-- Our custom CSS -->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/sign_in.css">
-    <title>Σύνδεση</title>
-  </head>
+    <link rel="stylesheet" type="text/css" href="../css/students.css">
+    <title>Φοιτητές</title>
 
+  </head>
   <body>
     <!-- First navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -38,8 +36,19 @@
               </span>
         </div>
         <ul class="navbar-nav ml-auto">
+          <!-- Profile option will be available only when someone is already signed in -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
+          </li> -->
           <li class="nav-item">
-            <a href="sign_up.php">
+            <a class="nav-link" href="website/php/sign_in.php">Σύνδεση<span class="sr-only"></span></a>
+          </li>
+          <!-- Sign out option will be available only when someone is already signed in -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
+          </li> -->
+          <li class="nav-item">
+            <a href="website/php/sign_up.php">
               <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
                 <span class="sr-only"></span>
               </button>
@@ -131,51 +140,50 @@
       <hr>
     </div>
 
-    <!-- breadcrumb -->
+    <!-- Βreadcrumb -->
     <div class="container">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../../index.php">Εύδοξος</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Σύνδεση</li>
+          <li class="breadcrumb-item active" aria-current="page">Φοιτητές</li>
         </ol>
       </nav>
     </div>
 
-    <!-- Sign-In form -->
+    <!-- Content -->
     <div class="container">
-      <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-          <div class="card card-signin my-5">
-            <div class="card-body">
-              <h5 class="card-title text-center">Εισάγετε τα στοχεία σας</h5>
-
-              <form action="sign_in_validation.php" method="post">
-
-                <div class="form-group">
-                  <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="skrabas@smiggol.gr">
-                </div>
-                <div class="form-group">
-                  <input type="password" class="form-control" name="pass" placeholder="salamandra">
-                </div>
-                <div class="custom-control custom-checkbox mb-3">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Θυμήσου Με</label>
-                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="Σύνδεση">
-                  <div class="login-help align-items-center text-center">
-                    <a href="./sign_up.php">Εγγραφή</a> &middot; <a href="sign_up.php">Ξέχασα τον κωδικό</a>
-                  </div>
-                </div>
-              </form>
-
-              </div>
-            </div>
+      <h3>Φοιτητές</h3>
+      <div class="card-deck">
+        <div class="card bg-light text-left">
+          <img class="card-img-top" src="../pics/declaration.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">Δηλώστε τα συγγράμματα της αρεσκείας σας και επιλέξτε το κοντινότερο σε εσάς σημείο παραλαβής.</p>
+            <a href="#" class="btn btn-primary">Δήλωση Συγγραμμάτων</a>
+          </div>
+        </div>
+        <div class="card bg-light text-left">
+          <img class="card-img-top" src="../pics/exchange.jpg" alt="Card image cap">
+          <div class="card-body">
+            <p class="card-text">Ανταλλάξτε συγγράμματα με άλλους φοιτητές μέσω του Ευδόξου.</p> <br>
+            <a href="#" class="btn btn-primary">Ανταλλαγή Συγγραμμάτων</a>
+          </div>
+        </div>
+        <div class="card bg-light text-left">
+          <img class="card-img-top" src="../pics/digital_syllabus.jpg" alt="Card image cap" >
+          <div class="card-body">
+            <p class="card-text">Μοιραστείτε τις ηλεκτρονικές σημειώσεις μέσω του EudoxusCloud</p>
+            <a href="#" class="btn btn-primary" id="upload">Διάθεση Σημειώσεων</a>
           </div>
         </div>
       </div>
+
+
     </div>
+
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>
   </body>
+
 
 </html>
