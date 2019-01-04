@@ -157,10 +157,10 @@
         </li>
       </ul>
     </div>
-    <div class="tab-content" id="myTabContent">
-      <!-- #############START OF STUDENT SIGN UP################### -->
 
-      <form action="sign_up_validaiton.php" method="post">
+    <form action="sign_up_validaiton.php" method="post">
+      <div class="tab-content" id="myTabContent">
+      <!-- #############START OF STUDENT SIGN UP################### -->
         <div class="tab-pane fade show active" id="student" role="tabpanel" aria-labelledby="student-tab">
           <div class="container" id="cont">
             <h3 >Εγγραφή ως Φοιτητής</h3>
@@ -218,6 +218,7 @@
                 </div>
               </div>
             </div>
+            </form>
             <div class="container col-md-3 signup-btn">
               <input class="btn btn-lg btn-primary btn-block" type="submit" value="Εγγραφή">
               <div class="signup-help align-items-center text-center">
@@ -226,7 +227,6 @@
             </div>
           </div>
         </div>
-      </form>
       <!-- #############END OF STUDENT SIGN UP################### -->
 
 
@@ -344,7 +344,7 @@
       </div>
 
     </div>
-
+  </form>
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
