@@ -147,9 +147,7 @@
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
           <div class="card card-signin my-5">
             <div class="card-body">
-              <h5 class="card-title text-center">
-                <img src="../pics/eudoxus_logo_sign_in.png">
-              </h5>
+              <h5 class="card-title text-center">Εισάγετε τα στοχεία σας</h5>
 
               <form action="sign_in_validation.php" method="post">
 
@@ -162,11 +160,11 @@
                 <div class="custom-control custom-checkbox mb-3">
                   <input type="checkbox" class="custom-control-input" id="customCheck1">
                   <label class="custom-control-label" for="customCheck1">Θυμήσου Με</label>
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">Σύνδεση</button></a>
-                <div class="login-help align-items-center text-center">
-                  <a href="#">Εγγραφή</a> &middot; <a href="#">Ξέχασα τον κωδικό</a>
+                  <input class="btn btn-lg btn-primary btn-block" type="submit" value="Σύνδεση">
+                  <div class="login-help align-items-center text-center">
+                    <a href="./sign_up.php">Εγγραφή</a> &middot; <a href="sign_up.php">Ξέχασα τον κωδικό</a>
+                  </div>
                 </div>
-
               </form>
 
               </div>
@@ -178,7 +176,6 @@
     <div class="footer-copyright text-center py-3">© 2018 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>
-    <!-- Most likely we won't need any JS for the signIn page -->
   </body>
 
 </html>

@@ -127,7 +127,7 @@
       <hr>
     </div>
 
-    <!-- breadcrumb -->
+    <!-- Βreadcrumb -->
     <div class="container">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -138,28 +138,31 @@
     </div>
 
     <!-- SignUp Form -->
-    <div class="container" id="cont">
+    <div class="container">
       <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-          <li class="nav-item">
-              <a class="nav-link active" id="student-tab" data-toggle="tab" href="#student" role="tab" aria-controls="student" aria-selected="true">Φοιτητής</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" id="publisher-tab" data-toggle="tab" href="#publisher" role="tab" aria-controls="publisher" aria-selected="false">Εκδότης</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" id="secretary-tab" data-toggle="tab" href="#secretary" role="tab" aria-controls="secretary" aria-selected="false">Γραμματεία Τμήματος</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" id="library-tab" data-toggle="tab" href="#library" role="tab" aria-controls="library" aria-selected="false">Βιβλιοθήκη</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" id="point-tab" data-toggle="tab" href="#point" role="tab" aria-controls="point" aria-selected="false">Σημείο Διανομής</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="student-tab" data-toggle="tab" href="#student" role="tab" aria-controls="student" aria-selected="true">Φοιτητής</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="publisher-tab" data-toggle="tab" href="#publisher" role="tab" aria-controls="publisher" aria-selected="false">Εκδότης</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="secretary-tab" data-toggle="tab" href="#secretary" role="tab" aria-controls="secretary" aria-selected="false">Γραμματεία Τμήματος</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="library-tab" data-toggle="tab" href="#library" role="tab" aria-controls="library" aria-selected="false">Βιβλιοθήκη</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="point-tab" data-toggle="tab" href="#point" role="tab" aria-controls="point" aria-selected="false">Σημείο Διανομής</a>
+        </li>
       </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="student" role="tabpanel" aria-labelledby="student-tab">
+    </div>
+    <div class="tab-content" id="myTabContent">
+
+      <div class="tab-pane fade show active" id="student" role="tabpanel" aria-labelledby="student-tab">
+        <div class="container" id="cont">
           <h3 >Εγγραφή ως Φοιτητής</h3>
-          <div class="form-row signup-form">
+          <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Όνομα Χρήστη</label>
@@ -168,12 +171,34 @@
               <div class="form-group">
                 <label for="exampleInputEmail1">Κωδικός</label>
                 <input type="password" class="form-control" placeholder="Κωδικός *" value="" />
-                <!-- <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Κινητό Τηλέφωνο *" value="" /> -->
+              </div>
+              <div class="form-group">
+                <label for="inputUni">Ίδρυμα</label>
+                <select id="inputUni" class="form-control">
+                  <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
+                  <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
+                  <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
+                  <option>Δημοκρίτειο Πανεπιστήμιο Θράκης</option>
+                  <option>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                  <option>Εθνικό Μετσόβιο Πoλυτεχνείο</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Τμήμα</label>
+                <input type="text" class="form-control" placeholder="Τμήμα *" value="" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
+                <input type="password" class="form-control" placeholder="Κινητό Τηλέφωνο" value="" />
+              </div>
+              <div class="custom-control custom-checkbox mb-3 form-group">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">Αποδέχομαι τους όρους χρήσης</label>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <!-- <input type="text" class="form-control" placeholder="Επώνυμο *" value="" /> -->
                 <label for="exampleInputEmail1">Ηλ.Ταχυδρομείο</label>
                 <input type="email" class="form-control" placeholder="Ηλ.Ταχυδρομείο *" value="" />
               </div>
@@ -182,80 +207,130 @@
                 <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" value="" />
               </div>
               <div class="form-group">
+                <label for="exampleInputEmail1">Σχολή</label>
+                <input type="text" class="form-control" placeholder="Σχολή *" value="" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
+                <input type="text" class="form-control" placeholder="Αριθμός Μητρώου *" value="" />
               </div>
             </div>
           </div>
-        </div>
-        <div class="tab-pane fade" id="publisher" role="tabpanel" aria-labelledby="publisher-tab">
-          <h3>Εγγραφή ως Εκδότης</h3>
-          <div class="row signup-form">
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Όνομα *" value="" />
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Επώνυμο *" value="" />
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" placeholder="Κωδικός *" value="" />
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" value="" />
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="email" class="form-control" placeholder="Ηλ.Ταχυδρομείο *" value="" />
-            </div>
-            <div class="form-group">
-              <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Κινητό Τηλέφωνο *" value="" />
-            </div>
+          <div class="container col-md-3 signup-btn">
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Εγγραφή">
           </div>
         </div>
-        </div>
-
-        <div class="tab-pane fade" id="point" role="tabpanel" aria-labelledby="point-tab">
-          <h3>Εγγραφή ως Σημείο Διανομής</h3>
-          <form>
-            <div class="form-row signup-form">
-              <div class="form-group col-md-6">
-                <label for="inputEmail4">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+      </div>
+      <div class="tab-pane fade show" id="secretary" role="tabpanel" aria-labelledby="secretary-tab">
+        <div class="container" id="cont">
+          <h3 >Εγγραφή ως Γραμματεία Τμήματος</h3>
+          <div class="form-row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Όνομα Χρήστη</label>
+                <input type="text" class="form-control" placeholder="Όνομα Χρήστη *" value="" />
               </div>
-              <div class="form-group col-md-6">
-                <label for="inputPassword4">Password</label>
-                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Κωδικός</label>
+                <input type="password" class="form-control" placeholder="Κωδικός *" value="" />
               </div>
-            </div>
-            <div class="form-group">
-              <label for="inputAddress">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="form-group">
-              <label for="inputAddress2">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected>Choose...</option>
+              <div class="form-group">
+                <label for="inputUni">Ίδρυμα</label>
+                <select id="inputUni" class="form-control">
+                  <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
+                  <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
+                  <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
+                  <option>Δημοκρίτειο Πανεπιστήμιο Θράκης</option>
+                  <option>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                  <option>Εθνικό Μετσόβιο Πoλυτεχνείο</option>
                   <option>...</option>
                 </select>
               </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Τμήμα</label>
+                <input type="text" class="form-control" placeholder="Τμήμα *" value="" />
               </div>
             </div>
-          </form>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Ηλ.Ταχυδρομείο</label>
+                <input type="email" class="form-control" placeholder="Ηλ.Ταχυδρομείο *" value="" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
+                <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" value="" />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Σχολή</label>
+                <input type="text" class="form-control" placeholder="Σχολή *" value="" />
+              </div>
+              <div class="form-group">
+                <label for="inputSemester">Εξάμηνα Σπουδών</label>
+                <select id="inputSemester" class="form-control">
+                  <option selected>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputState">Νομός</label>
+              <select id="inputState" class="form-control">
+                <option selected>ΑΙΤΩΛ/ΝΙΑΣ</option>
+                <option>ΑΡΓΟΛΙΔΟΣ</option>
+                <option>ΑΡΚΑΔΙΑΣ</option>
+                <option>ΑΤΤΙΚΗΣ</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputCity">Πόλη</label>
+              <select id="inputCity" class="form-control">
+                <option selected>Επιλέξτε Πόλη</option>
+                <option>Αλεξανδρούπολη</option>
+                <option>Αθήνα</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">T.K.</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+            <div class="custom-control custom-checkbox mb-3 form-group">
+              <input type="checkbox" class="custom-control-input" id="customCheck3">
+              <label class="custom-control-label" for="customCheck3">Αποδέχομαι τους όρους χρήσης</label>
+            </div>
+          </div>
+          <div class="container col-md-3 signup-btn">
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Εγγραφή">
+          </div>
         </div>
-
       </div>
+      <div class="tab-pane fade show" id="publisher" role="tabpanel" aria-labelledby="publisher-tab">
+        <div class="container" id="cont">
+          <h3 >Εγγραφή ως Εκδότης</h3>
+        </div>
+      </div>
+      <div class="tab-pane fade show" id="library" role="tabpanel" aria-labelledby="library-tab">
+        <div class="container" id="cont">
+          <h3 >Εγγραφή ως Βιβλιοθήκη</h3>
+        </div>
+      </div>
+      <div class="tab-pane fade show" id="point" role="tabpanel" aria-labelledby="point-tab">
+        <div class="container" id="cont">
+          <h3 >Εγγραφή ως Σημείο Διανομής</h3>
+        </div>
+      </div>
+
     </div>
 
 

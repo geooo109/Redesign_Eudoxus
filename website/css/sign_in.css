@@ -42,12 +42,12 @@
   color: grey;
 }
 
-.card-body > div > a > button{
+.card-body > form > div > .btn{
     margin-top: 10px;
     border-radius: 5rem;
 }
 
-/* Do not underline "Σύνδεση" on hover */
+/* Do not underline "SignIn" button on hover */
 .card-body > div > a:hover{
   text-decoration: none;
 }

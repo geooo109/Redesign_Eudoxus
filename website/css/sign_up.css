@@ -1,9 +1,8 @@
 /* Container's styling */
 #cont{
   background: #e3f2fd;
-  padding: 3%;
+  padding: 2%;
   border-radius: 1rem;
-  height: 600px;
 }
 
 .nav-tabs{
@@ -37,16 +36,24 @@
     border-bottom-left-radius: 1.5rem;
 }
 
-.tab-content > .tab-pane > h3{
-    text-align: center;
-    margin-top: 3%;
-    margin-bottom: -15%;
-    color: #495057;
+/* Restrict the length of input bars */
+.form-group > input{
+  width:500px;
 }
 
-.signup-form{
-  /* padding: 10%; */
-  margin-top: 20%;
+/* Restrict the length of select bar */
+.form-group > select{
+  width:500px;
+}
+
+.signup-btn{
+  margin-top: 20px;
+}
+
+#cont > h3{
+    text-align: center;
+    margin-bottom: 40px;
+    color: #495057;
 }
 
 /* Register button */
@@ -66,4 +73,13 @@
 #home:hover{
   background-color: #F88101;
   color: black;
+}
+
+#inputCity{
+  width:250px;
+}
+
+#inputZip{
+    width:120px;
+    margin-left: 0px;
 }

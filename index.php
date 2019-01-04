@@ -41,12 +41,17 @@
               </span>
         </div>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <!-- Profile option will be available only when someone is already signed in -->
+          <!-- <li class="nav-item">
             <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="website/php/sign_in.php">Σύνδεση<span class="sr-only"></span></a>
           </li>
+          <!-- Sign out option will be available only when someone is already signed in -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
+          </li> -->
           <li class="nav-item">
             <a href="website/php/sign_up.php">
               <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
