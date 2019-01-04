@@ -37,29 +37,34 @@
         </div>
         <ul class="navbar-nav ml-auto">
 
-          <!----------------------------------------------------------------------------------------------->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
-          </li>
-          <!----------------------------------------------------------------------------------------------->
-
-
-
-          <!----------------------------------------------------------------------------------------------->
-          <li class="nav-item">
-            <a class="nav-link" href="sign_in.php">Σύνδεση<span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item">
-            <a href="sign_up.php">
-              <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
-                <span class="sr-only"></span>
-              </button>
-            </a>
-          </li>
-          <!----------------------------------------------------------------------------------------------->
+          <!-- ####check if the user is already logged in#### -->
+          <?php
+          // Always start this first
+          session_start();
+          if ( isset( $_SESSION['user_id'] ) ) {
+            echo
+            '<li class="nav-item">
+              <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
+            </li>';
+          }
+          else {
+            echo
+            '<li class="nav-item">
+              <a class="nav-link" href="website/php/sign_in.php">Σύνδεση<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+              <a href="website/php/sign_up.php">
+                <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
+                  <span class="sr-only"></span>
+                </button>
+              </a>
+            </li>';
+          }
+          ?>
+          <!-- ####end of check if the user is already logged in#### -->
 
           <li class="nav-item">
             <a class="nav-link" href="#"><u>English</u><span class="sr-only"></span></a>
