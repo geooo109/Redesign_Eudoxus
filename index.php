@@ -41,17 +41,22 @@
               </span>
         </div>
         <ul class="navbar-nav ml-auto">
-          <!-- Profile option will be available only when someone is already signed in -->
-          <!-- <li class="nav-item">
+
+          <!----------------------------------------------------------------------------------------------->
+          <li class="nav-item">
             <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
-          </li> -->
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
+          </li>
+          <!----------------------------------------------------------------------------------------------->
+
+
+
+          <!----------------------------------------------------------------------------------------------->
           <li class="nav-item">
             <a class="nav-link" href="website/php/sign_in.php">Σύνδεση<span class="sr-only"></span></a>
           </li>
-          <!-- Sign out option will be available only when someone is already signed in -->
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
-          </li> -->
           <li class="nav-item">
             <a href="website/php/sign_up.php">
               <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
@@ -59,6 +64,8 @@
               </button>
             </a>
           </li>
+          <!----------------------------------------------------------------------------------------------->
+
           <li class="nav-item">
             <a class="nav-link" href="#"><u>English</u><span class="sr-only"></span></a>
           </li>
@@ -321,7 +328,7 @@
            </div>
          </div>
       </footer>
-     <div class="footer-copyright text-center py-3">© 2018 Copyright:
+     <div class="footer-copyright text-center py-3">© 2019 Copyright:
        <a href="index.php">eudoxus.gr</a>
      </div>
     </div>
