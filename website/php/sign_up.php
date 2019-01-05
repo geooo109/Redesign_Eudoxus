@@ -9,6 +9,9 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+    <!-- CSS for font-awsome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
     <!-- Our custom CSS -->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/sign_up.css">
@@ -33,7 +36,7 @@
             <span class="input-group-append">
               <a href="#">
                 <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    <img src="../pics/search.png">
+                    <i class="fas fa-search"></i>
                 </button>
               </a>
               </span>
@@ -78,6 +81,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="#">Καταχώριση Συγγράμματος</a>
                 <a class="dropdown-item" href="#">Πληροφορίες Κοστολόγησης</a>
+              </div>
             </div>
           </li>
           <li class="nav-item">
@@ -86,7 +90,7 @@
                 Γραμματείες Τμημάτων<span></span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="#">Πρόγραμμα Σπουδών</a>
+                <a class="dropdown-item" href="#">Καταχώριση Συγγραμμάτων</a>
                 <a class="dropdown-item" href="#">Διασυνδεδεμένα Τμήματα</a>
                 <a class="dropdown-item" href="#">Εξαγωγή Αναφορών</a>
               </div>
@@ -159,6 +163,7 @@
     </div>
     <div class="tab-content" id="myTabContent">
 
+      <!-- Student tab-pane -->
       <div class="tab-pane fade show active" id="student" role="tabpanel" aria-labelledby="student-tab">
         <div class="container" id="cont">
           <h3 >Εγγραφή ως Φοιτητής</h3>
@@ -199,8 +204,10 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="exampleInputEmail1">Ηλ.Ταχυδρομείο</label>
-                <input type="email" class="form-control" placeholder="Ηλ.Ταχυδρομείο *" value="" />
+                <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i>
+
+                </label>
+                <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *" value="" />
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
@@ -221,9 +228,14 @@
             <div class="signup-help align-items-center text-center">
               <a href="sign_in.php">Έχετε ήδη λογαριασμό ;</a>
             </div>
+            <div class="signup-help align-items-center text-center">
+              <a href="#">Όροι Χρήσης & Προυποθέσεις</a>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Secretary tab-pane -->
       <div class="tab-pane fade show" id="secretary" role="tabpanel" aria-labelledby="secretary-tab">
         <div class="container" id="cont">
           <h3 >Εγγραφή ως Γραμματεία Τμήματος</h3>
@@ -256,8 +268,8 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="exampleInputEmail1">Ηλ.Ταχυδρομείο</label>
-                <input type="email" class="form-control" placeholder="Ηλ.Ταχυδρομείο *" value="" />
+                <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Πανεπιστημιακό Email"></i></label>
+                <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *" value="" />
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
@@ -318,19 +330,28 @@
             <div class="signup-help align-items-center text-center">
               <a href="sign_in.php">Έχετε ήδη λογαριασμό ;</a>
             </div>
+            <div class="signup-help align-items-center text-center">
+              <a href="#">Όροι Χρήσης & Προυποθέσεις</a>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Publisher tab-pane -->
       <div class="tab-pane fade show" id="publisher" role="tabpanel" aria-labelledby="publisher-tab">
         <div class="container" id="cont">
           <h3 >Εγγραφή ως Εκδότης</h3>
         </div>
       </div>
+
+      <!-- Library tab-pane -->
       <div class="tab-pane fade show" id="library" role="tabpanel" aria-labelledby="library-tab">
         <div class="container" id="cont">
           <h3 >Εγγραφή ως Βιβλιοθήκη</h3>
         </div>
       </div>
+
+      <!-- Point tab-pane -->
       <div class="tab-pane fade show" id="point" role="tabpanel" aria-labelledby="point-tab">
         <div class="container" id="cont">
           <h3 >Εγγραφή ως Σημείο Διανομής</h3>

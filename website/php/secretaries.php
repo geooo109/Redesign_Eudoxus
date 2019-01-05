@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -7,6 +7,8 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- CSS for font-awsome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
     <!-- Our custom CSS -->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
@@ -31,7 +33,7 @@
             <span class="input-group-append">
               <a href="#">
                 <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    <img src="../pics/search.png">
+                    <i class="fas fa-search"></i>
                 </button>
               </a>
               </span>
@@ -40,7 +42,7 @@
 
           <!----------------------------------------------------------------------------------------------->
           <li class="nav-item">
-            <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
+            <a class="nav-link" href="profile_student.php">Προφίλ<span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
@@ -99,6 +101,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="#">Καταχώριση Συγγράμματος</a>
                 <a class="dropdown-item" href="#">Πληροφορίες Κοστολόγησης</a>
+              </div>
             </div>
           </li>
           <li class="nav-item">
@@ -107,7 +110,7 @@
                 Γραμματείες Τμημάτων<span></span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="#">Πρόγραμμα Σπουδών</a>
+                <a class="dropdown-item" href="#">Καταχώριση Συγγραμμάτων</a>
                 <a class="dropdown-item" href="#">Διασυνδεδεμένα Τμήματα</a>
                 <a class="dropdown-item" href="#">Εξαγωγή Αναφορών</a>
               </div>
@@ -163,24 +166,24 @@
       <h3>Γραμματείες</h3>
       <div class="card-deck">
         <div class="card bg-light text-left">
-          <img class="card-img-top" src="../pics/curriculum.jpg" alt="Card image cap" style="height:250px;">
+          <img class="card-img-top" src="../pics/curriculum.jpg" alt="Card image cap">
           <div class="card-body">
-            <p class="card-text">Δείτε το Πρόγραμμα Σπουδών του τμήματος της αρεσκείας σας</p>
-            <a href="#" class="btn btn-primary">Πρόγραμμα Σπουδών</a>
+            <p class="card-text">Καταχωρίστε τα συγγράμματα του προγράμματος σπουδών της αρεσκείας σας</p>
+            <a href="#" class="btn btn-primary">Καταχώριση Συγγραμμάτων</a>
           </div>
         </div>
         <div class="card bg-light text-left">
           <img class="card-img-top" src="../pics/connected_dpts.jpeg" alt="Card image cap">
           <div class="card-body">
-            <p class="card-text">Συνδέστε το πρόγραμμα σπουδών του δικού σας τμήματος με κάποιου άλλου τμήματος</p> <br>
+            <p class="card-text" id="connected-par">Συνδέστε το πρόγραμμα σπουδών του δικού σας τμήματος με κάποιου άλλου τμήματος</p> <br>
             <a href="#" class="btn btn-primary">Διασυνδεδεμένα Τμήματα</a>
           </div>
         </div>
         <div class="card bg-light text-left">
-          <img class="card-img-top" src="../pics/excel.jpg" alt="Card image cap" >
+          <img class="card-img-top" src="../pics/excel.jpg" alt="Card image cap">
           <div class="card-body">
             <p class="card-text">Κατεβάστε τις αναφορές του προγράμματος σπουδών σας σε αρχείο Excel</p>
-            <a href="#" class="btn btn-primary" id="upload">Εξαγωγή Αναφορών</a>
+            <a href="#" class="btn btn-primary">Εξαγωγή Αναφορών</a>
           </div>
         </div>
       </div>

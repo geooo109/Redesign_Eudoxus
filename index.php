@@ -35,7 +35,7 @@
             <span class="input-group-append">
               <a href="#">
                 <button class="btn btn-outline-secondary border-left-0 border" type="button">
-                    <img src="website/pics/search.png">
+                    <i class="fas fa-search"></i>
                 </button>
               </a>
               </span>
@@ -44,7 +44,7 @@
 
           <!----------------------------------------------------------------------------------------------->
           <li class="nav-item">
-            <a class="nav-link" href="#">Προφίλ<span class="sr-only"></span></a>
+            <a class="nav-link" href="website/php/profile_student.php">Προφίλ<span class="sr-only"></span></a>
           </li>
           <li class="nav-item">
           <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
@@ -111,7 +111,7 @@
                 Γραμματείες Τμημάτων<span></span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <a class="dropdown-item" href="#">Πρόγραμμα Σπουδών</a>
+                <a class="dropdown-item" href="#">Καταχώριση Συγγραμμάτων</a>
                 <a class="dropdown-item" href="#">Διασυνδεδεμένα Τμήματα</a>
                 <a class="dropdown-item" href="#">Εξαγωγή Αναφορών</a>
               </div>
