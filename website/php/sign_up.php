@@ -176,7 +176,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Κωδικός</label>
-                  <input type="password" class="form-control" name="password" placeholder="Κωδικός *" value="" />
+                  <input type="password" class="form-control" name="password" placeholder="Κωδικός *"  />
                 </div>
                 <div class="form-group">
                   <label for="inputUni">Ίδρυμα</label>
@@ -203,8 +203,12 @@
                   </select>
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputEmail1">Όνομα</label>
+                  <input type="password" class="form-control" name="phone" placeholder="Όνομα *"/>
+                </div>
+                <div class="form-group">
                   <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
-                  <input type="password" class="form-control" name="phone" placeholder="Κινητό Τηλέφωνο" value="" />
+                  <input type="password" class="form-control" name="phone" placeholder="Κινητό Τηλέφωνο"/>
                 </div>
                 <div class="custom-control custom-checkbox mb-3 form-group">
                   <input type="checkbox" class="custom-control-input"  id="customCheck1">
@@ -214,11 +218,11 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i></label>
-                  <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *" value="" />
+                  <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *"/>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
-                  <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" value="" />
+                  <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"/>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Σχολή</label>
@@ -234,7 +238,11 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
-                  <input type="text" class="form-control" placeholder="Αριθμός Μητρώου *" value="" />
+                  <input type="text" class="form-control" placeholder="Αριθμός Μητρώου *" maxlength="13"/>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Επώνυμο</label>
+                  <input type="password" class="form-control" name="phone" placeholder="Επώνυμο *"/>
                 </div>
             </div>
             <div class="container col-md-3 signup-btn">
@@ -258,11 +266,11 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                <input type="text" class="form-control" placeholder="Όνομα Χρήστη *" value="" />
+                <input type="text" class="form-control" placeholder="Όνομα Χρήστη *"/>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Κωδικός</label>
-                <input type="password" class="form-control" placeholder="Κωδικός *" value="" />
+                <input type="password" class="form-control" placeholder="Κωδικός *"/>
               </div>
               <div class="form-group">
                 <label for="inputUni">Ίδρυμα</label>
@@ -292,11 +300,11 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i></label>
-                <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *" value="" />
+                <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *"  />
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
-                <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" value="" />
+                <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"  />
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Σχολή</label>
@@ -356,7 +364,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Όνομα</label>
-                <input type="text" class="form-control" placeholder="Όνομα *" value="" />
+                <input type="text" class="form-control" placeholder="Όνομα *"  />
               </div>
               <div class="custom-control custom-checkbox mb-3 form-group">
                 <input type="checkbox" class="custom-control-input" id="customCheck3">
@@ -366,7 +374,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Επώνυμο</label>
-                <input type="text" class="form-control" placeholder="Επώνυμο *" value="" />
+                <input type="text" class="form-control" placeholder="Επώνυμο *"  />
               </div>
             </div>
           </div>
@@ -418,5 +426,3 @@
   </body>
 
 </html>
-
-<!-- <input type="submit" class="btnRegister"  value="Εγγραφή"/> -->

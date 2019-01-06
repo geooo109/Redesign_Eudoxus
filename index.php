@@ -49,10 +49,10 @@
           if ( isset( $_SESSION['user_id'] ) ) {
             echo
             '<li class="nav-item">
-              <a class="nav-link" href="website/php/profile_student.php">Προφίλ<span class="sr-only"></span></a>
+              <a class="nav-link" href="website/php/profile_secretary.php">Προφίλ<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
+              <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
             </li>';
           }
           else {

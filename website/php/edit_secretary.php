@@ -12,8 +12,8 @@
 
     <!-- Our custom CSS -->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile_secretary.css">
-    <title>Προφίλ</title>
+    <link rel="stylesheet" type="text/css" href="../css/edit_secretary.css">
+    <title>Επεξεργασία Προφίλ</title>
 
   </head>
   <body>
@@ -45,6 +45,7 @@
             <a class="nav-link" href="sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
           </li>
           <!----------------------------------------------------------------------------------------------->
+
           <li class="nav-item">
             <a class="nav-link" href="#"><u>English</u><span class="sr-only"></span></a>
           </li>
@@ -137,7 +138,8 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../../index.php">Εύδοξος</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Προφίλ</li>
+          <li class="breadcrumb-item"><a href="profile_secretary.php">Προφίλ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Επεξεργασία</li>
         </ol>
       </nav>
     </div>
@@ -147,7 +149,9 @@
         <div class="col-md-4">
           <img src="../pics/avatar.jpeg" alt="Image not found" id="avatar">
           <br>
-          <br>
+          <div class="file btn btn-lg btn-primary">
+              Change Photo
+          </div>
         </div>
         <div class="col-md-6">
           <div class="head">
@@ -160,124 +164,164 @@
             <p class="register-date">ΜΕΛΟΣ ΑΠΟ: <span>30/1/2010</span></p>
           </div>
         </div>
-        <div class="col-md-2">
-          <a href="edit_secretary.php">
-            <button class="btn btn-primary btn-sm navbar-btn">Επεξεργασία
-              <span class="sr-only"></span>
-            </button>
-          </a>
-        </div>
       </div>
       <div class="row">
         <div class="col-md-12 profile-info">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true">Στοιχεία</a>
+              <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Προφίλ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="books-tab" data-toggle="tab" href="#books" role="tab" aria-controls="books" aria-selected="false">Συγγράμματα</a>
+              <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="true">Λογαριασμός</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="departments-tab" data-toggle="tab" href="#departments" role="tab" aria-controls="departments" aria-selected="false">Διασυνδεδεμένα Τμήματα</a>
+              <a class="nav-link" id="books-tab" data-toggle="tab" href="#books" role="tab" aria-controls="books" aria-selected="true">Συγγράμματα</a>
             </li>
+
           </ul>
           <div class="tab-content" id="myTabContent">
 
-            <!-- General Information Tab -->
-            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+            <!-- Profile Settings Tab -->
+            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="container" id="cont">
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Όνομα</label>
+                <form>
+
+                  <div class="form-row">
+                    <div class="col form-group">
+                      <label for="inputName">Όνομα</label>
+                      <input type="text" class="form-control" value="Νάνσυ">
+                    </div>
+                    <div class="col form-group">
+                      <label for="inputName">Επώνυμο</label>
+                      <input type="text" class="form-control" value="Κασιμάτη">
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <p>Νάνσυ</p>
+
+                  <div class="form-row">
+                    <div class="col form-group">
+                      <label for="inputUni">Ίδρυμα</label>
+                      <select id="inputUni" name="uni" class="form-control">\
+                        <option selected>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                        <option>Ανωτάτη Σχολή Καλών Τεχνών</option>
+                        <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
+                        <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
+                        <option>Δημοκρίτειο Πανεπιστήμιο Θράκης</option>
+                        <option>Εθνικό Μετσόβιο Πoλυτεχνείο</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Σχολή</label>
+                      <select id="inputUni" name="uni" class="form-control">
+                        <option selected>Θετικών Επιστημών</option>
+                        <option>Επιστημών Αγωγής</option>
+                        <option>Επιστημών Υγείας</option>
+                        <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>
+                        <option>Θεολογική</option>
+                        <option>Νομική</option>
+                        <option>...</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Επώνυμο</label>
+
+                  <div class="form-row">
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Τμήμα</label>
+                      <select id="inputDep" name="dep" class="form-control">
+                        <option selected>Πληροφορικής και Τηλεπικοινωνιών</option>
+                        <option>Βιολογίας</option>
+                        <option>Γεωλογίας και Γεωπεριβάλλοντος</option>
+                        <option>Ιστορίας και Φιλοσοφίας της Επιστήμης</option>
+                        <option>Μαθηματικών</option>
+                        <option>Φυσικής</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="col form-group">
+                      <label for="inputSemester">Εξάμηνα Σπουδών</label>
+                      <select id="inputSemester" class="form-control">
+                        <option selected>8</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>9</option>
+                        <option>10</option>
+                      </select>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <p>Κασιμάτη</p>
+
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <label for="inputState">Νομός</label>
+                      <select id="inputState" class="form-control">
+                        <option selected>ΑΤΤΙΚΗΣ</option>
+                        <option>ΑΙΤΩΛ/ΝΙΑΣ</option>
+                        <option>ΑΡΓΟΛΙΔΟΣ</option>
+                        <option>ΑΡΚΑΔΙΑΣ</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputCity">Πόλη</label>
+                      <select id="inputCity" class="form-control">
+                        <option selected>Αθήνα</option>
+                        <option>Αλεξανδρούπολη</option>
+                        <option>Αγρίνιο</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                      <label for="inputZip">T.K.</label>
+                      <input type="text" class="form-control" id="inputZip" value="10431">
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Ίδρυμα</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Εθνικό Καποδιστριακό Πανεπιστήμιο Αθηνών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Σχολή</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Θετικών Επιστημών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Τμήμα</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Πληροφορικής & Τηλεπικοινωνιών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Εξάμηνα Σπουδών</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>8</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Νομός</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Αττικής</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Πόλη</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Αθήνα</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Ταχ.Κώδικας</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>10431</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Ηλ.Διεύθυνση</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>nancykas@di.uoa.gr</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Κινητό</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>6972222222</p>
-                  </div>
+                </form>
+                <div class=" container col-md-3 align-items-center text-center">
+                  <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
               </div>
             </div>
 
-            <!-- Curriculum (Books) Tab -->
+            <!-- Account Settings Tab -->
+            <div class="tab-pane fade show" id="account" role="tabpanel" aria-labelledby="account-tab">
+              <div class="container" id="cont">
+                <form>
+
+                  <div class="row">
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Όνομα Χρήστη</label>
+                      <input type="text" class="form-control"/>
+                    </div>
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Ηλ.Διεύθυνση</label>
+                      <input type="text" class="form-control" value="nancykas@di.uoa.gr"/>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Κωδικός</label>
+                      <input type="pass" class="form-control"/>
+                    </div>
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Επανάληψη Κωδικού</label>
+                      <input type="pass" class="form-control"/>
+                    </div>
+                  </div>
+
+                </form>
+                <div class=" container col-md-3 align-items-center text-center">
+                  <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Curriculum Settings Tab -->
             <div class="tab-pane fade show" id="books" role="tabpanel" aria-labelledby="books-tab">
               <div id="accordion">
                 <div class="card">
@@ -294,72 +338,48 @@
                         <h4 class="text-center text-primary">Εισαγωγή στον Προγραμματισμό</h4>
                         <br>
                         <thead class="text-center">
-                          <tr>
+                          <tr class="header">
                             <th class="align-middle" scope="col">#</th>
                             <th class="align-middle" scope="col">Τίτλος</th>
                             <th class="align-middle" scope="col">Συγγραφέας</th>
                             <th class="align-middle" scope="col">Εκδόσεις</th>
                             <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
+                            <th class="align-middle" scope="col"></th>
                           </tr>
                         </thead>
                         <tbody class="text-center">
-                          <tr>
+                          <tr class="header">
                             <th class="align-middle" scope="row">1</th>
                             <td class="align-middle">C: Από τη Θεωρία στην Εφαρμογή</td>
                             <td class="align-middle">Γ. Σ. Τσελίκης - Ν. Δ. Τσελίκας</td>
                             <td class="align-middle">Γ. Σ. Τσελίκης - Ν. Δ. Τσελίκας</td>
                             <td class="align-middle">68383623</td>
+                            <td class="align-middle"><i class="fas fa-edit"></i></td>
                           </tr>
                           <tr>
+                            <td></td>
+                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό τίτλο"></td>
+                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό συγγραφέα"></td>
+                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό εκδοτικό οίκο"></td>
+                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό κωδικό"></td>
+                            <td class="align-middle"><a href="#process_edit_and_redirect_back_here"><i class="text-success fas fa-save"></i></a></td>
+                          </tr>
+
+                          <tr class="header">
                             <th class="align-middle" scope="row">2</th>
                             <td class="align-middle">Η ΓΛΩΣΣΑ C ΣΕ ΒΑΘΟΣ</td>
                             <td class="align-middle">ΝΙΚΟΣ Μ. ΧΑΤΖΗΓΙΑΝΝΑΚΗΣ</td>
                             <td class="align-middle">ΕΚΔΟΣΕΙΣ ΚΛΕΙΔΑΡΙΘΜΟΣ ΕΠΕ</td>
                             <td class="align-middle">68384925</td>
+                            <td class="align-middle"><i class="fas fa-edit"></i></td>
                           </tr>
                           <tr>
-                            <th class="align-middle" scope="row">3</th>
-                            <td class="align-middle">Εισαγωγή στον Προγραμματισμό με την C</td>
-                            <td class="align-middle">Νικόλαος Μισυρλής</td>
-                            <td class="align-middle">ΕΘΝΙΚΟ ΚΑΙ ΚΑΠΟΔΙΣΤΡΙΑΚΟ ΠΑΝΕΠΙΣΤΗΜΙΟ ΑΘΗΝΩΝ</td>
-                            <td class="align-middle">68403081</td>
-                          </tr>
-                          <tr>
-                            <th class="align-middle" scope="row">4</th>
-                            <td class="align-middle">Η ΓΛΩΣΣΑ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΥ C</td>
-                            <td class="align-middle">BRIAN W. KERNIGHAN, DENNIS M. RITCHIE</td>
-                            <td class="align-middle">BRIAN W. KERNIGHAN, DENNIS M. RITCHIE</td>
-                            <td class="align-middle">13956</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table class="table table-hover table-bordered">
-                        <br>
-                        <h4 class="text-center text-primary">Λογική Σχεδίαση</h4>
-                        <br>
-                        <thead class="text-center">
-                          <tr>
-                            <th class="align-middle" scope="col">#</th>
-                            <th class="align-middle" scope="col">Τίτλος</th>
-                            <th class="align-middle" scope="col">Συγγραφέας</th>
-                            <th class="align-middle" scope="col">Εκδόσεις</th>
-                            <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
-                          </tr>
-                        </thead>
-                        <tbody class="text-center">
-                          <tr>
-                            <th class="align-middle" scope="row">1</th>
-                            <td class="align-middle">Ψηφιακή Σχεδίαση, 6η Έκδοση</td>
-                            <td class="align-middle">Mano Morris, Ciletti Michael</td>
-                            <td class="align-middle">Παπασωτηρίου</td>
-                            <td class="align-middle">68406394</td>
-                          </tr>
-                          <tr>
-                            <th class="align-middle" scope="row">2</th>
-                            <td class="align-middle">ΨΗΦΙΑΚΗ ΣΧΕΔΙΑΣΗ: ΑΡΧΕΣ ΚΑΙ ΠΡΑΚΤΙΚΕΣ</td>
-                            <td class="align-middle">JOHN F. WAKERLY</td>
-                            <td class="align-middle">ΕΚΔΟΣΕΙΣ ΚΛΕΙΔΑΡΙΘΜΟΣ ΕΠΕ</td>
-                            <td class="align-middle">13946</td>
+                            <td></td>
+                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό τίτλο"></td>
+                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό συγγραφέα"></td>
+                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό εκδοτικό οίκο"></td>
+                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό κωδικό"></td>
+                            <td class="align-middle"><a href="#process_edit_and_redirect_back_here"><i class="text-success fas fa-save"></i></a></td>
                           </tr>
                         </tbody>
                       </table>
@@ -393,49 +413,8 @@
               </div>
             </div>
 
-            <!-- Interconnected Departments Tab -->
-            <div class="tab-pane fade show" id="departments" role="tabpanel" aria-labelledby="departments-tab">
-              <table class="table table-striped">
-                <thead class="text-center">
-                  <tr>
-                    <th class="align-middle" scope="col">#</th>
-                    <th class="align-middle" scope="col">Σχολή</th>
-                    <th class="align-middle" scope="col">Τμήμα</th>
-                    <th class="align-middle" scope="col">Κοινό Μάθημα</th>
-                    <th class="align-middle" scope="col">Εξάμηνο</th>
-                    <th class="align-middle" scope="col">Κωδικός Συγγράμματος</th>
-                  </tr>
-                </thead>
-                <tbody class="text-center">
-                  <tr>
-                    <th class="align-middle" scope="row">1</th>
-                    <td class="align-middle">Θετικών Επιστημών</td>
-                    <td class="align-middle">Μαθηματικών</td>
-                    <td class="align-middle">Μαθηματική Λογική</td>
-                    <td class="align-middle">5</td>
-                    <td class="align-middle">45263</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">2</th>
-                    <td class="align-middle">Θετικών Επιστημών</td>
-                    <td class="align-middle">Βιολογίας</td>
-                    <td class="align-middle">Εισαγωγή στη Βιολογία</td>
-                    <td class="align-middle">1</td>
-                    <td class="align-middle">5445</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">3</th>
-                    <td class="align-middle">Νομική</td>
-                    <td class="align-middle">Νομική</td>
-                    <td class="align-middle">Νομική Πληροφορική</td>
-                    <td class="align-middle">8</td>
-                    <td class="align-middle">34427</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
           </div>
+
         </div>
       </div>
     </div>
@@ -443,12 +422,19 @@
       <a href="../../index.php">eudoxus.gr</a>
     </div>
 
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- Putting the scripts at the end of the file makes our webpage load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    $('tr.header').click(function(){
+        $(this).nextUntil('tr.header').css('display', function(i,v){
+            return this.style.display === 'table-row' ? 'none' : 'table-row';
+        });
+    });
+    </script>
   </body>
-
 </html>

@@ -56,20 +56,6 @@
     color: #495057;
 }
 
-/* Register button */
-.btnRegister{
-  float: right;
-  margin-top: 10%;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  width: 50%;
-  cursor: pointer;
-}
-
 .signup-help{
   padding-top: 10px;
   font-size: 12px;

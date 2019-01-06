@@ -12,8 +12,8 @@
 
     <!-- Our custom CSS -->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/profile_student.css">
-    <title>Προφίλ</title>
+    <link rel="stylesheet" type="text/css" href="../css/edit_student.css">
+    <title>Επεξεργασία Προφίλ</title>
 
   </head>
   <body>
@@ -138,7 +138,8 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../../index.php">Εύδοξος</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Προφίλ</li>
+          <li class="breadcrumb-item"><a href="profile_student.php">Προφίλ</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Επεξεργασία</li>
         </ol>
       </nav>
     </div>
@@ -148,7 +149,9 @@
         <div class="col-md-4">
           <img src="../pics/avatar.jpeg" alt="Image not found" id="avatar">
           <br>
-          <br>
+          <div class="file btn btn-lg btn-primary">
+              Change Photo
+          </div>
         </div>
         <div class="col-md-6">
           <div class="head">
@@ -161,210 +164,131 @@
             <p class="current-semester">ΤΡΕΧΟΝ ΕΞΑΜΗΝΟ: <span>5</span></p>
           </div>
         </div>
-        <div class="col-md-2">
-          <a href="edit_student.php">
-            <button class="btn btn-primary btn-sm navbar-btn">Επεξεργασία
-              <span class="sr-only"></span>
-            </button>
-          </a>
-        </div>
       </div>
       <div class="row">
         <div class="col-md-12 profile-info">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="true">Στοιχεία</a>
+              <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Προφίλ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Στατιστικά</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">Ιστορικό Δηλώσεων</a>
+              <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="true">Λογαριασμός</a>
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
 
-            <!-- General Information Tab -->
-            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+            <!-- Profile Settings Tab -->
+            <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="container" id="cont">
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Όνομα</label>
+                <form>
+
+                  <div class="form-row">
+                    <div class="col form-group">
+                      <label for="inputName">Όνομα</label>
+                      <input type="text" class="form-control" value="Αναστάσιος">
+                    </div>
+                    <div class="col form-group">
+                      <label for="inputName">Επώνυμο</label>
+                      <input type="text" class="form-control" value="Μαντάς">
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <p>Αναστάσιος</p>
+
+                  <div class="form-row">
+                    <div class="col form-group">
+                      <label for="inputUni">Ίδρυμα</label>
+                      <select id="inputUni" name="uni" class="form-control">\
+                        <option selected>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                        <option>Ανωτάτη Σχολή Καλών Τεχνών</option>
+                        <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
+                        <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
+                        <option>Δημοκρίτειο Πανεπιστήμιο Θράκης</option>
+                        <option>Εθνικό Μετσόβιο Πoλυτεχνείο</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Σχολή</label>
+                      <select id="inputUni" name="uni" class="form-control">
+                        <option selected>Θετικών Επιστημών</option>
+                        <option>Επιστημών Αγωγής</option>
+                        <option>Επιστημών Υγείας</option>
+                        <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>
+                        <option>Θεολογική</option>
+                        <option>Νομική</option>
+                        <option>...</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Επώνυμο</label>
+
+                  <div class="form-row">
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Τμήμα</label>
+                      <select id="inputDep" name="dep" class="form-control">
+                        <option selected>Πληροφορικής και Τηλεπικοινωνιών</option>
+                        <option>Βιολογίας</option>
+                        <option>Γεωλογίας και Γεωπεριβάλλοντος</option>
+                        <option>Ιστορίας και Φιλοσοφίας της Επιστήμης</option>
+                        <option>Μαθηματικών</option>
+                        <option>Φυσικής</option>
+                        <option>...</option>
+                      </select>
+                    </div>
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
+                      <input type="text" class="form-control" maxlength="13" value="1115201500087"/>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <p>Σκραμπράς</p>
+
+                  <div class="row">
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
+                      <input type="text" class="form-control" value="6972222222"/>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Ίδρυμα</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Εθνικό Καποδιστριακό Πανεπιστήμιο Αθηνών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Σχολή</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Θετικών Επιστημών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Τμήμα</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Πληροφορικής & Τηλεπικοινωνιών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Αριθμός Μητρώου</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>1115201500087</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Ηλ.Διεύθυνση</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>skrabas@smiggol.gr</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Κινητό</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>6972222222</p>
-                  </div>
+
+                </form>
+                <div class=" container col-md-3 align-items-center text-center">
+                  <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
               </div>
             </div>
 
-            <!-- History tab -->
-            <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-tab">
-              <table class="table table-striped">
-                <thead class="text-center">
-                  <tr>
-                    <th class="align-middle" scope="col">#</th>
-                    <th class="align-middle" scope="col">Μάθημα</th>
-                    <th class="align-middle" scope="col">Διδάσκων</th>
-                    <th class="align-middle" scope="col">Εξάμηνο</th>
-                    <th class="align-middle" scope="col">Τίτλος</th>
-                    <th class="align-middle" scope="col">Συγγραφέας</th>
-                    <th class="align-middle" scope="col">Κωδικός</th>
-                    <th class="align-middle" scope="col">Ημερομηνία</th>
-                  </tr>
-                </thead>
-
-                <!-- We're gonna need a for-loop over the books of current user -->
-                <tbody class="text-center">
-                  <tr>
-                    <th class="align-middle" scope="row">1</th>
-                    <td class="align-middle">Εισαγωγή στον Προγραμματισμό</td>
-                    <td class="align-middle">Π.Σταματόπουλος</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Ο Γλώσσα C</td>
-                    <td class="align-middle">Χατζηγιαννακης</td>
-                    <td class="align-middle">12562401</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">2</th>
-                    <td class="align-middle">Διακριτά Μαθηματικά</td>
-                    <td class="align-middle">Εμίρης</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Διακριτά Μαθηματικά</td>
-                    <td class="align-middle">Rosen</td>
-                    <td class="align-middle">23592401</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">3</th>
-                    <td class="align-middle">Λογική Σχεδίαση</td>
-                    <td class="align-middle">Πασχάλης</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Ψηφιακή Λογική Σχεδίαση</td>
-                    <td class="align-middle">Mano</td>
-                    <td class="align-middle">72562402</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">4</th>
-                    <td class="align-middle">Εισαγωγή στην Πληροφορική και τις Τηλεπικοινωνίες</td>
-                    <td class="align-middle">Α.Τσαλγατίδου</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Αεροπλάνο</td>
-                    <td class="align-middle">James</td>
-                    <td class="align-middle">32362401</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">5</th>
-                    <td class="align-middle">Γραμμική Άλγεβρα</td>
-                    <td class="align-middle">Ε.Ράπτης</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Εισαγωγή στη Γραμμική Άλγεβρα</td>
-                    <td class="align-middle">Αθανασόπουλος</td>
-                    <td class="align-middle">99562401</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="tab-pane fade show" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+            <!-- Account Settings Tab -->
+            <div class="tab-pane fade show" id="account" role="tabpanel" aria-labelledby="account-tab">
               <div class="container" id="cont">
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Παραληφθέντα Συγγράμματα</label>
+                <form>
+
+                  <div class="row">
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Όνομα Χρήστη</label>
+                      <input type="text" class="form-control"/>
+                    </div>
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Ηλ.Διεύθυνση</label>
+                      <input type="text" class="form-control" value="skrabas@smiggol.gr"/>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <p>18</p>
+
+                  <div class="row">
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Κωδικός</label>
+                      <input type="pass" class="form-control"/>
+                    </div>
+                    <div class="col form-group">
+                      <label for="exampleInputEmail1">Επανάληψη Κωδικού</label>
+                      <input type="pass" class="form-control"/>
+                    </div>
                   </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Συγγράμματα προς παραλαβή</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>3</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Πιστωτικές Μονάδες</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>32.5</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Αριθμός Ανταλλαγών</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>5</p>
-                  </div>
+
+                </form>
+                <div class=" container col-md-3 align-items-center text-center">
+                  <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
@@ -376,6 +300,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  </body>
 
+  </body>
 </html>
