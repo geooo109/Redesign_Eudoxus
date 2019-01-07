@@ -135,7 +135,7 @@
       <hr>
     </div>
 
-    <!-- breadcrumb -->
+    <!-- Breadcrumb -->
     <div class="container">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -180,6 +180,41 @@
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>
-  </body>
 
+    <!-- Modal [in case wrong credentials are entered]-->
+    <?php
+      session_start();
+      if ( isset($_GET['success']) && $_GET['success'] == 0 ){
+        echo
+        '    <div class="modal fade" id="wrongPassModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body text-center">
+                    Λανθασμένα Στοιχεία
+                  </div>
+                  <div class="modal-footer">
+                    <div class="col-md-12 text-center">
+                      <button name="singlebutton" class="btn btn-sm btn-secondary"data-dismiss="modal">Δοκιμάστε Ξανά</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>';
+      }
+    ?>
+
+
+  </body>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- Putting the scripts at the end of the file makes our webpage load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <!-- Toggling modal in case wrong password is given -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $('#wrongPassModal').modal('show');
+    });
+  </script>
 </html>

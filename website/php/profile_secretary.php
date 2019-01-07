@@ -280,119 +280,55 @@
             <!-- Curriculum (Books) Tab -->
             <div class="tab-pane fade show" id="books" role="tabpanel" aria-labelledby="books-tab">
               <div id="accordion">
-                <div class="card">
-                  <div class="card-header" id="headingOne">
-                      <a href="#" data-toggle="collapse" data-target="#semesterOne" aria-expanded="true" aria-controls="semesterOne">
-                        Εξάμηνο 1
-                      </a>
-                  </div>
 
-                  <div id="semesterOne" class="collapse show" aria-labelledby="headingOne">
-                    <div class="card-body">
-                      <table class="table table-hover table-bordered">
-                        <br>
-                        <h4 class="text-center text-primary">Εισαγωγή στον Προγραμματισμό</h4>
-                        <br>
-                        <thead class="text-center">
-                          <tr>
-                            <th class="align-middle" scope="col">#</th>
-                            <th class="align-middle" scope="col">Τίτλος</th>
-                            <th class="align-middle" scope="col">Συγγραφέας</th>
-                            <th class="align-middle" scope="col">Εκδόσεις</th>
-                            <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
-                          </tr>
-                        </thead>
-                        <tbody class="text-center">
-                          <tr>
-                            <th class="align-middle" scope="row">1</th>
-                            <td class="align-middle">C: Από τη Θεωρία στην Εφαρμογή</td>
-                            <td class="align-middle">Γ. Σ. Τσελίκης - Ν. Δ. Τσελίκας</td>
-                            <td class="align-middle">Γ. Σ. Τσελίκης - Ν. Δ. Τσελίκας</td>
-                            <td class="align-middle">68383623</td>
-                          </tr>
-                          <tr>
-                            <th class="align-middle" scope="row">2</th>
-                            <td class="align-middle">Η ΓΛΩΣΣΑ C ΣΕ ΒΑΘΟΣ</td>
-                            <td class="align-middle">ΝΙΚΟΣ Μ. ΧΑΤΖΗΓΙΑΝΝΑΚΗΣ</td>
-                            <td class="align-middle">ΕΚΔΟΣΕΙΣ ΚΛΕΙΔΑΡΙΘΜΟΣ ΕΠΕ</td>
-                            <td class="align-middle">68384925</td>
-                          </tr>
-                          <tr>
-                            <th class="align-middle" scope="row">3</th>
-                            <td class="align-middle">Εισαγωγή στον Προγραμματισμό με την C</td>
-                            <td class="align-middle">Νικόλαος Μισυρλής</td>
-                            <td class="align-middle">ΕΘΝΙΚΟ ΚΑΙ ΚΑΠΟΔΙΣΤΡΙΑΚΟ ΠΑΝΕΠΙΣΤΗΜΙΟ ΑΘΗΝΩΝ</td>
-                            <td class="align-middle">68403081</td>
-                          </tr>
-                          <tr>
-                            <th class="align-middle" scope="row">4</th>
-                            <td class="align-middle">Η ΓΛΩΣΣΑ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΥ C</td>
-                            <td class="align-middle">BRIAN W. KERNIGHAN, DENNIS M. RITCHIE</td>
-                            <td class="align-middle">BRIAN W. KERNIGHAN, DENNIS M. RITCHIE</td>
-                            <td class="align-middle">13956</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table class="table table-hover table-bordered">
-                        <br>
-                        <h4 class="text-center text-primary">Λογική Σχεδίαση</h4>
-                        <br>
-                        <thead class="text-center">
-                          <tr>
-                            <th class="align-middle" scope="col">#</th>
-                            <th class="align-middle" scope="col">Τίτλος</th>
-                            <th class="align-middle" scope="col">Συγγραφέας</th>
-                            <th class="align-middle" scope="col">Εκδόσεις</th>
-                            <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
-                          </tr>
-                        </thead>
-                        <tbody class="text-center">
-                          <tr>
-                            <th class="align-middle" scope="row">1</th>
-                            <td class="align-middle">Ψηφιακή Σχεδίαση, 6η Έκδοση</td>
-                            <td class="align-middle">Mano Morris, Ciletti Michael</td>
-                            <td class="align-middle">Παπασωτηρίου</td>
-                            <td class="align-middle">68406394</td>
-                          </tr>
-                          <tr>
-                            <th class="align-middle" scope="row">2</th>
-                            <td class="align-middle">ΨΗΦΙΑΚΗ ΣΧΕΔΙΑΣΗ: ΑΡΧΕΣ ΚΑΙ ΠΡΑΚΤΙΚΕΣ</td>
-                            <td class="align-middle">JOHN F. WAKERLY</td>
-                            <td class="align-middle">ΕΚΔΟΣΕΙΣ ΚΛΕΙΔΑΡΙΘΜΟΣ ΕΠΕ</td>
-                            <td class="align-middle">13946</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingTwo">
-                    <a href="#" data-toggle="collapse" data-target="#semesterTwo" aria-expanded="true" aria-controls="semesterTwo">
-                      Εξάμηνο 2
-                    </a>
-                  </div>
-                  <div id="semesterTwo" class="collapse" aria-labelledby="headingTwo">
-                    <div class="card-body">
-                      Test
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingThree">
-                    <a href="#" data-toggle="collapse" data-target="#semesterThree" aria-expanded="true" aria-controls="semesterThree">
-                      Εξάμηνο 3
-                    </a>
-                  </div>
-                  <div id="semesterThree" class="collapse" aria-labelledby="headingThree">
-                    <div class="card-body">
-                      Test
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              <?php
+                // We should fetch the books of current secretary, i.e: secretary with id == $_SESSION['user_id']
+                $semesters = array();
+                $connect   = mysqli_connect("localhost", "root", "root", "sdi1400109");
+                $result    = mysql_query("SELECT category_id, product_name FROM `table` ORDER BY `semester`");
+                while($row = mysql_fetch_assoc($result)){
+                    $categories[$row['semester']][] = $row['product_name'];
+                }
 
+                // Group books by 'semester' and then by 'course'
+                $item_type=null;
+                while ($row = mysql_fetch_assoc($result)) {
+                    if ($item_type != $row['semester']) {
+                        $item_type = $row['semester'];
+                ?>
+
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <a href="#" data-toggle="collapse" data-target="#semesterOne" aria-expanded="true" aria-controls="semesterOne">
+                          Εξάμηνο <?php echo $row['semester'] ?>
+                        </a>
+                    </div>
+                    <div id="<?php echo $row['semester']; ?>" class="collapse show" aria-labelledby="headingOne">
+                      <div class="card-body">
+                        <table class="table table-hover table-bordered">
+                          <br>
+                          <h4 class="text-center text-primary">Εισαγωγή στον Προγραμματισμό</h4>
+                          <br>
+                          <thead class="text-center">
+                            <tr>
+                              <th class="align-middle" scope="col">#</th>
+                              <th class="align-middle" scope="col">Τίτλος</th>
+                              <th class="align-middle" scope="col">Συγγραφέας</th>
+                              <th class="align-middle" scope="col">Εκδόσεις</th>
+                              <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
+                            </tr>
+                          </thead>
+                          <tbody class="text-center">
+                          </tbody>
+                        </table>
+                      </div>
+
+                    </div>
+                </div>
+                <?php
+                    }
+                }
+                 ?>
             <!-- Interconnected Departments Tab -->
             <div class="tab-pane fade show" id="departments" role="tabpanel" aria-labelledby="departments-tab">
               <table class="table table-striped">
@@ -438,7 +374,6 @@
           </div>
         </div>
       </div>
-    </div>
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>

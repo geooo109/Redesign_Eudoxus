@@ -254,77 +254,7 @@
               </div>
             </div>
 
-            <!-- History tab -->
-            <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-tab">
-              <table class="table table-striped">
-                <thead class="text-center">
-                  <tr>
-                    <th class="align-middle" scope="col">#</th>
-                    <th class="align-middle" scope="col">Μάθημα</th>
-                    <th class="align-middle" scope="col">Διδάσκων</th>
-                    <th class="align-middle" scope="col">Εξάμηνο</th>
-                    <th class="align-middle" scope="col">Τίτλος</th>
-                    <th class="align-middle" scope="col">Συγγραφέας</th>
-                    <th class="align-middle" scope="col">Κωδικός</th>
-                    <th class="align-middle" scope="col">Ημερομηνία</th>
-                  </tr>
-                </thead>
-
-                <!-- We're gonna need a for-loop over the books of current user -->
-                <tbody class="text-center">
-                  <tr>
-                    <th class="align-middle" scope="row">1</th>
-                    <td class="align-middle">Εισαγωγή στον Προγραμματισμό</td>
-                    <td class="align-middle">Π.Σταματόπουλος</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Ο Γλώσσα C</td>
-                    <td class="align-middle">Χατζηγιαννακης</td>
-                    <td class="align-middle">12562401</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">2</th>
-                    <td class="align-middle">Διακριτά Μαθηματικά</td>
-                    <td class="align-middle">Εμίρης</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Διακριτά Μαθηματικά</td>
-                    <td class="align-middle">Rosen</td>
-                    <td class="align-middle">23592401</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">3</th>
-                    <td class="align-middle">Λογική Σχεδίαση</td>
-                    <td class="align-middle">Πασχάλης</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Ψηφιακή Λογική Σχεδίαση</td>
-                    <td class="align-middle">Mano</td>
-                    <td class="align-middle">72562402</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">4</th>
-                    <td class="align-middle">Εισαγωγή στην Πληροφορική και τις Τηλεπικοινωνίες</td>
-                    <td class="align-middle">Α.Τσαλγατίδου</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Αεροπλάνο</td>
-                    <td class="align-middle">James</td>
-                    <td class="align-middle">32362401</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                  <tr>
-                    <th class="align-middle" scope="row">5</th>
-                    <td class="align-middle">Γραμμική Άλγεβρα</td>
-                    <td class="align-middle">Ε.Ράπτης</td>
-                    <td class="align-middle">1ο</td>
-                    <td class="align-middle">Εισαγωγή στη Γραμμική Άλγεβρα</td>
-                    <td class="align-middle">Αθανασόπουλος</td>
-                    <td class="align-middle">99562401</td>
-                    <td class="align-middle">20/10/15</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <!-- Stats tab-->
             <div class="tab-pane fade show" id="stats" role="tabpanel" aria-labelledby="stats-tab">
               <div class="container" id="cont">
                 <div class="row">
@@ -361,6 +291,51 @@
                 </div>
               </div>
             </div>
+
+
+            <!-- History tab -->
+            <?php
+              // We should fetch the books of current student, i.e: student with id == $_SESSION['user_id']
+               $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
+               $query = "SELECT * FROM book ORDER BY id";
+               $result = mysqli_query($connect, $query);
+             ?>
+            <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-tab">
+              <table class="table table-striped">
+                <thead class="text-center">
+                  <tr>
+                    <th class="align-middle" scope="col">#</th>
+                    <th class="align-middle" scope="col">Μάθημα</th>
+                    <th class="align-middle" scope="col">Διδάσκων</th>
+                    <th class="align-middle" scope="col">Εξάμηνο</th>
+                    <th class="align-middle" scope="col">Τίτλος</th>
+                    <th class="align-middle" scope="col">Συγγραφέας</th>
+                    <th class="align-middle" scope="col">Κωδικός</th>
+                    <th class="align-middle" scope="col">Ημερομηνία</th>
+                  </tr>
+                </thead>
+                <tbody class="text-center">
+                  <?php
+                  while($row = mysqli_fetch_array($result))
+                  {
+                    ?>
+                    <tr>
+                      <th class="align-middle" scope="row"> <?php echo $row['id']; ?></th>
+                      <td class="align-middle"><?php echo $row["course"]; ?></td>
+                      <td class="align-middle"><?php echo $row["professor"]; ?></td>
+                      <td class="align-middle"><?php echo $row["semester"]; ?></td>
+                      <td class="align-middle"><?php echo $row["title"]; ?></td>
+                      <td class="align-middle"><?php echo $row["author"]; ?></td>
+                      <td class="align-middle"><?php echo $row["eudoxus_code"]; ?></td>
+                      <td class="align-middle">DD/MM/YYYY</td>
+                    </tr>
+                    <?php
+                  }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+
           </div>
         </div>
       </div>

@@ -171,6 +171,7 @@
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-group">
+                  <input type="hidden" id="custId" name="user_type" value="0">
                   <label for="exampleInputEmail1">Όνομα Χρήστη</label>
                   <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη *" value="name_stud1" />
                 </div>
@@ -192,7 +193,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Τμήμα</label>
-                  <select id="inputDep" name="dep" class="form-control">
+                  <select id="inputDep" name="school" class="form-control">
                     <option selected>Βιολογίας</option>
                     <option>Γεωλογίας και Γεωπεριβάλλοντος</option>
                     <option>Ιστορίας και Φιλοσοφίας της Επιστήμης</option>
@@ -204,7 +205,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Όνομα</label>
-                  <input type="password" class="form-control" name="phone" placeholder="Όνομα *"/>
+                  <input type="password" class="form-control" name="name" placeholder="Όνομα *"/>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
@@ -218,7 +219,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i></label>
-                  <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *"/>
+                  <input type="email" class="form-control" name="mail" placeholder="Ηλ.Διεύθυνση *"/>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
@@ -238,11 +239,11 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
-                  <input type="text" class="form-control" placeholder="Αριθμός Μητρώου *" maxlength="13"/>
+                  <input type="text" class="form-control" name="register_num" placeholder="Αριθμός Μητρώου *" maxlength="13"/>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Επώνυμο</label>
-                  <input type="password" class="form-control" name="phone" placeholder="Επώνυμο *"/>
+                  <input type="password" class="form-control" name="surname" placeholder="Επώνυμο *"/>
                 </div>
             </div>
             <div class="container col-md-3 signup-btn">
@@ -265,16 +266,17 @@
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
+                <input type="hidden" id="custId" name="user_type" value="1">
                 <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                <input type="text" class="form-control" placeholder="Όνομα Χρήστη *"/>
+                <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη *"/>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Κωδικός</label>
-                <input type="password" class="form-control" placeholder="Κωδικός *"/>
+                <input type="password" class="form-control" name="password" placeholder="Κωδικός *"/>
               </div>
               <div class="form-group">
                 <label for="inputUni">Ίδρυμα</label>
-                <select id="inputUni" class="form-control">
+                <select id="inputUni" name="uni" class="form-control">
                   <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
                   <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
                   <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
@@ -308,7 +310,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Σχολή</label>
-                <select id="inputUni" name="uni" class="form-control">
+                <select id="inputUni" name="school" class="form-control">
                   <option selected>Επιστημών Αγωγής</option>
                   <option>Επιστημών Υγείας</option>
                   <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>
@@ -320,7 +322,7 @@
               </div>
               <div class="form-group">
                 <label for="inputSemester">Εξάμηνα Σπουδών</label>
-                <select id="inputSemester" class="form-control">
+                <select id="inputSemester" name="semester_num" class="form-control">
                   <option selected>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -338,7 +340,7 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputState">Νομός</label>
-              <select id="inputState" class="form-control">
+              <select id="inputState" name="state" class="form-control">
                 <option selected>ΑΙΤΩΛ/ΝΙΑΣ</option>
                 <option>ΑΡΓΟΛΙΔΟΣ</option>
                 <option>ΑΡΚΑΔΙΑΣ</option>
@@ -348,7 +350,7 @@
             </div>
             <div class="form-group col-md-4">
               <label for="inputCity">Πόλη</label>
-              <select id="inputCity" class="form-control">
+              <select id="inputCity" name="city" class="form-control">
                 <option selected>Επιλέξτε Πόλη</option>
                 <option>Αλεξανδρούπολη</option>
                 <option>Αθήνα</option>
@@ -357,14 +359,14 @@
             </div>
             <div class="form-group col-md-2">
               <label for="inputZip">T.K.</label>
-              <input type="text" class="form-control" id="inputZip">
+              <input type="text" class="form-control" name="postal_address" id="inputZip">
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Όνομα</label>
-                <input type="text" class="form-control" placeholder="Όνομα *"  />
+                <input type="text" class="form-control" name="name" placeholder="Όνομα *"  />
               </div>
               <div class="custom-control custom-checkbox mb-3 form-group">
                 <input type="checkbox" class="custom-control-input" id="customCheck3">
@@ -374,7 +376,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Επώνυμο</label>
-                <input type="text" class="form-control" placeholder="Επώνυμο *"  />
+                <input type="text" class="form-control" name="surname" placeholder="Επώνυμο *"  />
               </div>
             </div>
           </div>

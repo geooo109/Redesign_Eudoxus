@@ -321,7 +321,7 @@
               </div>
             </div>
 
-            <!-- Curriculum Settings Tab -->
+            <!-- Curriculum[Books] Settings Tab -->
             <div class="tab-pane fade show" id="books" role="tabpanel" aria-labelledby="books-tab">
               <div id="accordion">
                 <div class="card">
@@ -335,7 +335,7 @@
                     <div class="card-body">
                       <table class="table table-hover table-bordered">
                         <br>
-                        <h4 class="text-center text-primary">Εισαγωγή στον Προγραμματισμό</h4>
+                        <h4 class="text-center text-primary">Εισαγωγή στον Προγραμματισμό<button type="button" name="button" class="btn btn-success">Προσθήκη<i class="fas fa-plus"></i></button></h4>
                         <br>
                         <thead class="text-center">
                           <tr class="header">

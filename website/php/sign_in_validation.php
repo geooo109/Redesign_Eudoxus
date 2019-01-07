@@ -12,20 +12,25 @@ if (empty($_POST) == 0) {
     $result = $stmt->get_result();
     $user = $result->fetch_object();
 
-    echo $user->password;
-    echo '<------vs------>';
-    echo $_POST['pass'];
-
-    echo '==========>';
     // Verify user password and set $_SESSION
     //if ( password_verify( $_POST['pass'], $user->password ) ) {
     if ($_POST['pass'] == $user->password ) {
       $_SESSION['user_id'] = $user->id;
+
+      // Distinguish student from secretary in order to know which profile layout to show
+      // when "Profile" button is clicked.
+      if ($user->user_type == '0'){
+        $_SESSION['profile'] = 'profile_student.php';
+      }
+      else {
+        $_SESSION['profile'] = 'profile_secretary.php';
+      }
       $msg = 'Logged in Successful';
-      header('location:../../index.php');
+      header('location:../../index.php?success=1');
     }
     else {
       $msg = 'Logged in Failed';
+      header('location:sign_in.php?success=0');
     }
   }
   else {
