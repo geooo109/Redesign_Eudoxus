@@ -323,95 +323,57 @@
 
             <!-- Curriculum[Books] Settings Tab -->
             <div class="tab-pane fade show" id="books" role="tabpanel" aria-labelledby="books-tab">
-              <div id="accordion">
-                <div class="card">
-                  <div class="card-header" id="headingOne">
-                      <a href="#" data-toggle="collapse" data-target="#semesterOne" aria-expanded="true" aria-controls="semesterOne">
-                        Εξάμηνο 1
-                      </a>
-                  </div>
-
-                  <div id="semesterOne" class="collapse show" aria-labelledby="headingOne">
-                    <div class="card-body">
-                      <table class="table table-hover table-bordered">
-                        <br>
-                        <h4 class="text-center text-primary">Εισαγωγή στον Προγραμματισμό<button type="button" name="button" class="btn btn-success">Προσθήκη<i class="fas fa-plus"></i></button></h4>
-                        <br>
-                        <thead class="text-center">
-                          <tr class="header">
-                            <th class="align-middle" scope="col">#</th>
-                            <th class="align-middle" scope="col">Τίτλος</th>
-                            <th class="align-middle" scope="col">Συγγραφέας</th>
-                            <th class="align-middle" scope="col">Εκδόσεις</th>
-                            <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
-                            <th class="align-middle" scope="col"></th>
-                          </tr>
-                        </thead>
-                        <tbody class="text-center">
-                          <tr class="header">
-                            <th class="align-middle" scope="row">1</th>
-                            <td class="align-middle">C: Από τη Θεωρία στην Εφαρμογή</td>
-                            <td class="align-middle">Γ. Σ. Τσελίκης - Ν. Δ. Τσελίκας</td>
-                            <td class="align-middle">Γ. Σ. Τσελίκης - Ν. Δ. Τσελίκας</td>
-                            <td class="align-middle">68383623</td>
-                            <td class="align-middle"><i class="fas fa-edit"></i></td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό τίτλο"></td>
-                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό συγγραφέα"></td>
-                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό εκδοτικό οίκο"></td>
-                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό κωδικό"></td>
-                            <td class="align-middle"><a href="#process_edit_and_redirect_back_here"><i class="text-success fas fa-save"></i></a></td>
-                          </tr>
-
-                          <tr class="header">
-                            <th class="align-middle" scope="row">2</th>
-                            <td class="align-middle">Η ΓΛΩΣΣΑ C ΣΕ ΒΑΘΟΣ</td>
-                            <td class="align-middle">ΝΙΚΟΣ Μ. ΧΑΤΖΗΓΙΑΝΝΑΚΗΣ</td>
-                            <td class="align-middle">ΕΚΔΟΣΕΙΣ ΚΛΕΙΔΑΡΙΘΜΟΣ ΕΠΕ</td>
-                            <td class="align-middle">68384925</td>
-                            <td class="align-middle"><i class="fas fa-edit"></i></td>
-                          </tr>
-                          <tr>
-                            <td></td>
-                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό τίτλο"></td>
-                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό συγγραφέα"></td>
-                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό εκδοτικό οίκο"></td>
-                            <td><input type="text" class="form-control" id placeholder="Εισάγετε νεό κωδικό"></td>
-                            <td class="align-middle"><a href="#process_edit_and_redirect_back_here"><i class="text-success fas fa-save"></i></a></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
+                <?php
+                  // We should fetch the books of current secretary, i.e: secretary with id == $_SESSION['user_id']
+                  $connect    = mysqli_connect("localhost", "root", "root", "sdi1400109");
+                  $query      = "SELECT * FROM book ORDER BY semester ";
+                  $result     = mysqli_query($connect, $query);
+                  ?>
+                  <button id="addButton" type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
+                    Προσθήκη <i class="fas fa-plus"></i>
+                  </button>
+                  <hr>
+                  <table class="table table-hover table-bordered" id="myTable">
+                    <thead class="text-center">
+                      <tr>
+                        <th class="align-middle" scope="col">#</th>
+                        <th class="align-middle" scope="col">Τίτλος</th>
+                        <th class="align-middle" scope="col">Συγγραφέας</th>
+                        <th class="align-middle" scope="col">Εκδόσεις</th>
+                        <th class="align-middle" scope="col">Μάθημα</th>
+                        <th class="align-middle" scope="col">Καθηγητής</th>
+                        <th class="align-middle" scope="col">Εξάμηνο</th>
+                        <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
+                        <th width="8%"></th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center">
+                      <?php
+                      $book_counter = 0;
+                      while($row = mysqli_fetch_array($result))
+                      {
+                        $book_counter++;
+                        ?>
+                        <tr id="<?php echo $row['id']; ?>">
+                          <th class="align-middle" scope="row"> <?php echo $book_counter; ?></th>
+                          <td class="align-middle"><?php echo $row["title"]; ?></td>
+                          <td class="align-middle"><?php echo $row["author"]; ?></td>
+                          <td class="align-middle"><?php echo $row["publisher"]; ?></td>
+                          <td class="align-middle"><?php echo $row["course"]; ?></td>
+                          <td class="align-middle"><?php echo $row["professor"]; ?></td>
+                          <td class="align-middle"><?php echo $row["semester"]; ?></td>
+                          <td class="align-middle"><?php echo $row["eudoxus_code"]; ?></td>
+                          <td class="align-middle">
+                            <a data-toggle="modal" data-target="#editModal" id="<?php echo $row["id"]; ?>" class="editData"><i class="far fa-edit"></i></a>
+                            <a data-toggle="modal" data-target="#deleteModal" id="<?php echo $row["id"]; ?>" class="deleteData"><i class="far fa-trash-alt"></i></a>
+                          </td>
+                        </tr>
+                        <?php
+                      }
+                      ?>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="card">
-                  <div class="card-header" id="headingTwo">
-                    <a href="#" data-toggle="collapse" data-target="#semesterTwo" aria-expanded="true" aria-controls="semesterTwo">
-                      Εξάμηνο 2
-                    </a>
-                  </div>
-                  <div id="semesterTwo" class="collapse" aria-labelledby="headingTwo">
-                    <div class="card-body">
-                      Test
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingThree">
-                    <a href="#" data-toggle="collapse" data-target="#semesterThree" aria-expanded="true" aria-controls="semesterThree">
-                      Εξάμηνο 3
-                    </a>
-                  </div>
-                  <div id="semesterThree" class="collapse" aria-labelledby="headingThree">
-                    <div class="card-body">
-                      Test
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
           </div>
 
@@ -422,19 +384,128 @@
       <a href="../../index.php">eudoxus.gr</a>
     </div>
 
+    <!-- Modal Dialog for adding a new book -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <form id="addForm" action="" method="post">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addModalLabel">Προσθήκη Βιβλίου</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Τίτλος </label>
+                <input type="text" class="form-control" id="title" placeholder="Τίτλος *">
+                <label id="errorTitle" style="color:red;"></label>
+              </div>
+
+              <div class="form-group">
+                <label>Συγγραφέας</label>
+                <input type="text" class="form-control" id="author" placeholder="Συγγραφέας *">
+                <label id="errorAuthor" style="color:red;"></label>
+              </div>
+
+              <div class="form-group">
+                <label>Εκδόσεις</label>
+                <input type="text" class="form-control" id="publisher" placeholder="Εκδόσεις *">
+                <label id="errorPublisher" style="color:red;"></label>
+              </div>
+
+              <div class="form-group">
+                <label>Μάθημα</label>
+                <input type="text" class="form-control" id="course" placeholder="Μάθημα *">
+                <label id="errorCourse" style="color:red;"></label>
+              </div>
+
+              <div class="form-group">
+                <label>Καθηγητής</label>
+                <input type="text" class="form-control" id="professor" placeholder="Καθηγητής *">
+                <label id="errorProfessor" style="color:red;"></label>
+              </div>
+
+              <div class="form-group">
+                <label>Αριθμός Εξαμήνου</label>
+                <input type="text" class="form-control" id="semester" placeholder="Αριθμός Εξαμήνου *">
+                <label id="errorSemester" style="color:red;"></label>
+              </div>
+
+              <div class="form-group">
+                <label>Κωδικός Ευδόξου</label>
+                <input type="text" class="form-control" id="eudoxus_code" placeholder="Κωδικός Ευδόξου *">
+                <label id="errorEudCode" style="color:red;"></label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ακύρωση</button>
+              <button type="button" id="add" class="btn btn-primary">Αποθήκευση</button>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Dialog for editing an existing book -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <form id="editForm" action="" method="post">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModalLabel">Επεξεργασία Βιβλίου</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="editModalBody">
+                <!-- Will be filled via Javascript and PHP -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ακύρωση</button>
+              <button type="button" id="update" class="btn btn-primary">Αποθήκευση</button>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Dialog for deleting an existing book -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <form id="deleteForm" action="" method="post">
+            <div class="modal-header">
+              <h5 class="modal-title" id="deleteModalLabel">Διαγραφή Βιβλίου</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="deleteModalBody">
+              <!-- Will be filled via Javascript and PHP -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Ακύρωση</button>
+              <button type="button" id="delete" class="btn btn-danger">Διαγραφή</button>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- Putting the scripts at the end of the file makes our webpage load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-    $('tr.header').click(function(){
-        $(this).nextUntil('tr.header').css('display', function(i,v){
-            return this.style.display === 'table-row' ? 'none' : 'table-row';
-        });
-    });
-    </script>
+
+    <!-- Add,Edit and Delete rows from 'book' table -->
+    <script src="../js/modifyTable.js" charset="utf-8"></script>
   </body>
+
 </html>

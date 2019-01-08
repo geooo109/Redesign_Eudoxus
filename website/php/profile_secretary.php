@@ -279,56 +279,46 @@
 
             <!-- Curriculum (Books) Tab -->
             <div class="tab-pane fade show" id="books" role="tabpanel" aria-labelledby="books-tab">
-              <div id="accordion">
-
-              <?php
-                // We should fetch the books of current secretary, i.e: secretary with id == $_SESSION['user_id']
-                $semesters = array();
-                $connect   = mysqli_connect("localhost", "root", "root", "sdi1400109");
-                $result    = mysql_query("SELECT category_id, product_name FROM `table` ORDER BY `semester`");
-                while($row = mysql_fetch_assoc($result)){
-                    $categories[$row['semester']][] = $row['product_name'];
-                }
-
-                // Group books by 'semester' and then by 'course'
-                $item_type=null;
-                while ($row = mysql_fetch_assoc($result)) {
-                    if ($item_type != $row['semester']) {
-                        $item_type = $row['semester'];
-                ?>
-
-                  <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <a href="#" data-toggle="collapse" data-target="#semesterOne" aria-expanded="true" aria-controls="semesterOne">
-                          Εξάμηνο <?php echo $row['semester'] ?>
-                        </a>
-                    </div>
-                    <div id="<?php echo $row['semester']; ?>" class="collapse show" aria-labelledby="headingOne">
-                      <div class="card-body">
-                        <table class="table table-hover table-bordered">
-                          <br>
-                          <h4 class="text-center text-primary">Εισαγωγή στον Προγραμματισμό</h4>
-                          <br>
-                          <thead class="text-center">
-                            <tr>
-                              <th class="align-middle" scope="col">#</th>
-                              <th class="align-middle" scope="col">Τίτλος</th>
-                              <th class="align-middle" scope="col">Συγγραφέας</th>
-                              <th class="align-middle" scope="col">Εκδόσεις</th>
-                              <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
-                            </tr>
-                          </thead>
-                          <tbody class="text-center">
-                          </tbody>
-                        </table>
-                      </div>
-
-                    </div>
-                </div>
                 <?php
-                    }
-                }
-                 ?>
+                  // We should fetch the books of current secretary, i.e: secretary with id == $_SESSION['user_id']
+                  $connect    = mysqli_connect("localhost", "root", "root", "sdi1400109");
+                  $query      = "SELECT * FROM book ORDER BY semester ";
+                  $result     = mysqli_query($connect, $query);
+                  ?>
+                  <table class="table table-hover table-bordered">
+                    <thead class="text-center">
+                      <tr>
+                        <th class="align-middle" scope="col">#</th>
+                        <th class="align-middle" scope="col">Τίτλος</th>
+                        <th class="align-middle" scope="col">Συγγραφέας</th>
+                        <th class="align-middle" scope="col">Εκδόσεις</th>
+                        <th class="align-middle" scope="col">Μάθημα</th>
+                        <th class="align-middle" scope="col">Εξάμηνο</th>
+                        <th class="align-middle" scope="col">Κωδικός Ευδόξου</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center">
+                      <?php
+                      $book_counter = 0;
+                      while($row = mysqli_fetch_array($result))
+                      {
+                        $book_counter++;
+                        ?>
+                        <tr>
+                          <th class="align-middle" scope="row"> <?php echo $book_counter; ?></th>
+                          <td class="align-middle"><?php echo $row["title"]; ?></td>
+                          <td class="align-middle"><?php echo $row["author"]; ?></td>
+                          <td class="align-middle"><?php echo $row["publisher"]; ?></td>
+                          <td class="align-middle"><?php echo $row["course"]; ?></td>
+                          <td class="align-middle"><?php echo $row["semester"]; ?></td>
+                          <td class="align-middle"><?php echo $row["eudoxus_code"]; ?></td>
+                        </tr>
+                        <?php
+                      }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
             <!-- Interconnected Departments Tab -->
             <div class="tab-pane fade show" id="departments" role="tabpanel" aria-labelledby="departments-tab">
               <table class="table table-striped">
@@ -369,11 +359,11 @@
                   </tr>
                 </tbody>
               </table>
-            </div>
-
           </div>
         </div>
       </div>
+    </div>
+
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>
