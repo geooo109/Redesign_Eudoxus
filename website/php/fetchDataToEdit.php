@@ -1,10 +1,19 @@
 <?php
-
+  session_start();
   $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
 
   if(isset($_POST['edit_id'])){
 
     $edit_id = mysqli_real_escape_string($connect, $_POST['edit_id']);
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+
     $query   = "SELECT * from book WHERE id = '$edit_id'";
     $result  = mysqli_query($connect, $query);
     while ($data = mysqli_fetch_array($result)) {

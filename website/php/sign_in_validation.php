@@ -6,6 +6,12 @@ require_once '../../con_db.php';
 if (empty($_POST) == 0) {
   if (isset( $_POST['email'] ) && isset( $_POST['pass'] ) ) {
     $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+    // Check connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+
     $stmt = $con->prepare("SELECT * FROM user WHERE email = ?");
     $stmt->bind_param('s', $_POST['email']);
     $stmt->execute();

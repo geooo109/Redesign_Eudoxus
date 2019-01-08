@@ -1,6 +1,10 @@
 <?php
-
+  session_start();
   $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
 
   if(isset($_POST['del_id'])){
 

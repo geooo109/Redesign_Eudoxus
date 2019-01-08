@@ -1,6 +1,11 @@
 <?php
+  session_start();
 
   $connect      = mysqli_connect("localhost", "root", "root", "sdi1400109");
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
 
   $edit_id      = mysqli_real_escape_string($connect, $_POST["edit_id"]);
   $title        = mysqli_real_escape_string($connect, $_POST["title"]);
