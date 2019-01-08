@@ -10,7 +10,7 @@
 
     $del_id = mysqli_real_escape_string($connect, $_POST['del_id']);
     $query   = "SELECT * from book WHERE id = '$del_id'";
-    $result  = mysqli_query($connect, $query);
+    $result  = mysqli_query($connect, $query) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
     while ($data = mysqli_fetch_array($result)) {
       $id           = $data['id'];
       $title        = $data['title'];

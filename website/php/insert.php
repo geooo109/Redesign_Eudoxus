@@ -24,7 +24,7 @@
    $query1 = "INSERT INTO book(title,author,publisher,course,professor,semester,eudoxus_code)
    VALUES('$title' , '$author' , '$publisher' , '$course' , '$professor' , '$semester' , '$eudoxus_code');";
 
-   $save_data = mysqli_query($connect, $query1);
+   $save_data = mysqli_query($connect, $query1) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
  }
 
  ?>
