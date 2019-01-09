@@ -12,12 +12,11 @@
 
     <!-- Our custom CSS -->
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../css/secretaries.css">
-    <title>Γραμματείες</title>
+    <link rel="stylesheet" type="text/css" href="../css/bookdecl1.css">
+    <title>Επιλογή Σχολής-Εξαμήνου</title>
 
   </head>
   <body>
-
     <!-- First navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="../../index.php">
@@ -161,37 +160,19 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="../../index.php">Εύδοξος</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Γραμματείες</li>
+          <li class="breadcrumb-item"><a href="students.php">Φοιτητές</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Σχολή-Εξάμηνο</li>
         </ol>
       </nav>
     </div>
 
     <!-- Content -->
     <div class="container">
-      <h3>Γραμματείες</h3>
-      <div class="card-deck">
-        <div class="card bg-light text-left">
-          <img class="card-img-top" src="../pics/curriculum.jpg" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">Καταχωρίστε τα συγγράμματα του προγράμματος σπουδών της αρεσκείας σας</p>
-            <a href="#" class="btn btn-primary">Καταχώριση Συγγραμμάτων</a>
-          </div>
-        </div>
-        <div class="card bg-light text-left">
-          <img class="card-img-top" src="../pics/connected_dpts.jpeg" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text" id="connected-par">Συνδέστε το πρόγραμμα σπουδών του δικού σας τμήματος με κάποιου άλλου τμήματος</p> <br>
-            <a href="#" class="btn btn-primary">Διασυνδεδεμένα Τμήματα</a>
-          </div>
-        </div>
-        <div class="card bg-light text-left">
-          <img class="card-img-top" src="../pics/excel.jpg" alt="Card image cap">
-          <div class="card-body">
-            <p class="card-text">Κατεβάστε τις αναφορές του προγράμματος σπουδών σας σε αρχείο Excel</p>
-            <a href="#" class="btn btn-primary">Εξαγωγή Αναφορών</a>
-          </div>
-        </div>
+      <h3>Επιλογή Σχολής και Εξαμήνου</h3>
+
       </div>
+
+
     </div>
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright:

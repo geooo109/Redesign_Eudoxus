@@ -162,10 +162,12 @@
       </ul>
     </div>
 
-    <form action="sign_up_validaiton.php" method="post">
       <div class="tab-content" id="myTabContent">
       <!-- #############START OF STUDENT SIGN UP################### -->
+
+      <!-- Student tab-pane -->
         <div class="tab-pane fade show active" id="student" role="tabpanel" aria-labelledby="student-tab">
+        <form action="sign_up_validation.php" method="post">
           <div class="container" id="cont">
             <h3 >Εγγραφή ως Φοιτητής</h3>
             <div class="form-row">
@@ -205,11 +207,11 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Όνομα</label>
-                  <input type="password" class="form-control" name="name" placeholder="Όνομα *"/>
+                  <input class="form-control" name="name" placeholder="Όνομα *"/>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
-                  <input type="password" class="form-control" name="phone" placeholder="Κινητό Τηλέφωνο"/>
+                  <input class="form-control" name="phone" placeholder="Κινητό Τηλέφωνο"/>
                 </div>
                 <div class="custom-control custom-checkbox mb-3 form-group">
                   <input type="checkbox" class="custom-control-input"  id="customCheck1">
@@ -243,7 +245,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Επώνυμο</label>
-                  <input type="password" class="form-control" name="surname" placeholder="Επώνυμο *"/>
+                  <input class="form-control" name="surname" placeholder="Επώνυμο *"/>
                 </div>
             </div>
             <div class="container col-md-3 signup-btn">
@@ -257,10 +259,12 @@
           </div>
         </div>
       </div>
+    </form>
     </div>
 
       <!-- Secretary tab-pane -->
       <div class="tab-pane fade show" id="secretary" role="tabpanel" aria-labelledby="secretary-tab">
+      <form action="sign_up_validation.php" method="post">
         <div class="container" id="cont">
           <h3 >Εγγραφή ως Γραμματεία Τμήματος</h3>
           <div class="form-row">
@@ -390,6 +394,7 @@
             </div>
           </div>
         </div>
+      </form>
       </div>
 
       <!-- Publisher tab-pane -->
@@ -414,7 +419,6 @@
       </div>
 
     </div>
-  </form>
 
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>

@@ -49,16 +49,16 @@
             <a class="nav-link" href="'.$_SESSION['profile'].'">Προφίλ<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="website/php/sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
+            <a class="nav-link" href="sign_out.php">Αποσύνδεση<span class="sr-only"></span></a>
             </li>';
           }
           else {
             echo
             '<li class="nav-item">
-              <a class="nav-link" href="website/php/sign_in.php">Σύνδεση<span class="sr-only"></span></a>
+              <a class="nav-link" href="sign_in.php">Σύνδεση<span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-              <a href="website/php/sign_up.php">
+              <a href="sign_up.php">
                 <button class="btn btn-primary btn-sm navbar-btn">Εγγραφή
                   <span class="sr-only"></span>
                 </button>
@@ -170,10 +170,10 @@
       <h3>Φοιτητές</h3>
       <div class="card-deck">
         <div class="card bg-light text-left">
-          <img class="card-img-top" src="../pics/declaration.jpg" alt="Card image cap">
+          <img class="card-img-top" src="../pics/statement.jpg" alt="Card image cap">
           <div class="card-body">
             <p class="card-text">Δηλώστε τα συγγράμματα της αρεσκείας σας και επιλέξτε το κοντινότερο σε εσάς σημείο παραλαβής.</p>
-            <a href="#" class="btn btn-primary">Δήλωση Συγγραμμάτων</a>
+            <a href="statement1.php" class="btn btn-primary">Δήλωση Συγγραμμάτων</a>
           </div>
         </div>
         <div class="card bg-light text-left">
