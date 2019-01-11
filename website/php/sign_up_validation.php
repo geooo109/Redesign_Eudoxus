@@ -9,6 +9,7 @@ $_SESSION["msg"] = "Αρχικό";
 
 // LEAVE IT FOR DEBUG
 
+/*
 echo $_POST["username"];
 echo "<br />\n";
 echo $_POST["password"];
@@ -31,6 +32,7 @@ echo "<br />\n";
 echo "<br />\n";
 echo "<br />\n";
 echo "<br />\n";
+*/
 
 //check if we have student
 if (!empty($_POST)) {
