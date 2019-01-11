@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+require_once '../../con_db.php';
+if (isset($_SESSION['user_id'])) {
+  //connect to the db to fetch data
+  $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+  mysqli_set_charset($connect,'utf8');
+  if ($connect->connect_error) {
+    die("Connection failed: " . $connect->connect_error);
+  }
+  //fetch the data
+  $id      = $_SESSION['user_id'];
+  $queryf  = "SELECT * from user WHERE id =  '$id'";
+  $result  = mysqli_query($connect, $query);
+  $data    =  mysqli_fetch_array($connect->query($queryf));
+}
+?>
+
 <html lang="el">
   <head>
     <meta charset="utf-8">
@@ -152,10 +171,12 @@
         <div class="col-md-6">
           <div class="head">
             <h5>
-                Νάνσυ Κασιμάτη
+                <?php echo $data['name'].' '.$data['surname']; ?>
             </h5>
             <h6>
-                Υπεύθυνη Γραμματείας
+                <?php
+                  echo 'Γραμματεία';
+                ?>
             </h6>
             <p class="register-date">ΜΕΛΟΣ ΑΠΟ: <span>30/1/2010</span></p>
           </div>
@@ -184,14 +205,16 @@
           <div class="tab-content" id="myTabContent">
 
             <!-- General Information Tab -->
-            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+            <?php
+            echo
+            '<div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
               <div class="container" id="cont">
                 <div class="row">
                   <div class="col-md-6">
                     <label>Όνομα</label>
                   </div>
                   <div class="col-md-6">
-                    <p>Νάνσυ</p>
+                    <p>'.$data['name'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -199,7 +222,7 @@
                     <label>Επώνυμο</label>
                   </div>
                   <div class="col-md-6">
-                    <p>Κασιμάτη</p>
+                    <p>'.$data['surname'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -207,7 +230,7 @@
                     <label>Ίδρυμα</label>
                   </div>
                   <div class="col-md-6">
-                    <p>Εθνικό Καποδιστριακό Πανεπιστήμιο Αθηνών</p>
+                    <p>'.$data['uni'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -215,7 +238,7 @@
                     <label>Σχολή</label>
                   </div>
                   <div class="col-md-6">
-                    <p>Θετικών Επιστημών</p>
+                    <p>'.$data['school'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -223,7 +246,7 @@
                     <label>Τμήμα</label>
                   </div>
                   <div class="col-md-6">
-                    <p>Πληροφορικής & Τηλεπικοινωνιών</p>
+                    <p>'.$data['dep'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -231,7 +254,7 @@
                     <label>Εξάμηνα Σπουδών</label>
                   </div>
                   <div class="col-md-6">
-                    <p>8</p>
+                    <p>'.$data['semesters'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -239,7 +262,7 @@
                     <label>Νομός</label>
                   </div>
                   <div class="col-md-6">
-                    <p>Αττικής</p>
+                      <p>'.$data['state'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -247,7 +270,7 @@
                     <label>Πόλη</label>
                   </div>
                   <div class="col-md-6">
-                    <p>Αθήνα</p>
+                      <p>'.$data['city'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -255,7 +278,7 @@
                     <label>Ταχ.Κώδικας</label>
                   </div>
                   <div class="col-md-6">
-                    <p>10431</p>
+                    <p>'.$data['postal_address'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -263,7 +286,7 @@
                     <label>Ηλ.Διεύθυνση</label>
                   </div>
                   <div class="col-md-6">
-                    <p>nancykas@di.uoa.gr</p>
+                    <p>'.$data['email'].'</p>
                   </div>
                 </div>
                 <div class="row">
@@ -271,12 +294,12 @@
                     <label>Κινητό</label>
                   </div>
                   <div class="col-md-6">
-                    <p>6972222222</p>
+                    <p>'.$data['phone'].'</p>
                   </div>
                 </div>
               </div>
-            </div>
-
+            </div>';
+            ?>
             <!-- Curriculum (Books) Tab -->
             <div class="tab-pane fade show" id="books" role="tabpanel" aria-labelledby="books-tab">
                 <?php
