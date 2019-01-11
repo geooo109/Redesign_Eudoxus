@@ -22,6 +22,7 @@ if (!empty($_POST)) {
     //if ( password_verify( $_POST['pass'], $user->password ) ) {
     if ($_POST['pass'] == $user->password ) {
       $_SESSION['user_id'] = $user->id;
+      //$_SESSION['temp_email'] = $_POST['email'];
 
       // Distinguish student from secretary in order to know which profile layout to show
       // when "Profile" button is clicked.

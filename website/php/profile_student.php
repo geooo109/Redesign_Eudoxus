@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<?php session_start(); ?>
+
 <html lang="el">
   <head>
     <meta charset="utf-8">
@@ -183,76 +186,92 @@
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-
             <!-- General Information Tab -->
-            <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
-              <div class="container" id="cont">
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Όνομα</label>
+            <?php
+            require_once '../../con_db.php';
+            if (isset($_SESSION['user_id'])) {
+              //connect to the db to fetch data
+              $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+              mysqli_set_charset($connect,'utf8');
+              if ($connect->connect_error) {
+                die("Connection failed: " . $connect->connect_error);
+              }
+              //fetch the data
+              $id = $_SESSION['user_id'];
+              $queryf   = "SELECT * from user WHERE id =  '$id'";
+              $result  = mysqli_query($connect, $query);
+              $data    =  mysqli_fetch_array($connect->query($queryf));
+              echo '
+              <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
+                <div class="container" id="cont">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Όνομα</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>'.$data['name'].'</p>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <p>Αναστάσιος</p>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Επώνυμο</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>'.$data['surname'].'</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Ίδρυμα</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>'.$data['uni'].'</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Σχολή</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>'.$data['school'].'</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Τμήμα</label>
+                    </div>
+                    <div class="col-md-6">
+                    <p>'.$data['dep'].'</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Αριθμός Μητρώου</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>'.$data['register_num'].'</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Ηλ.Διεύθυνση</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>'.$data['email'].'</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Κινητό</label>
+                    </div>
+                    <div class="col-md-6">
+                      <p>'.$data['phone'].'</p>
+                    </div>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Επώνυμο</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Σκραμπράς</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Ίδρυμα</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Εθνικό Καποδιστριακό Πανεπιστήμιο Αθηνών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Σχολή</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Θετικών Επιστημών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Τμήμα</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>Πληροφορικής & Τηλεπικοινωνιών</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Αριθμός Μητρώου</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>1115201500087</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Ηλ.Διεύθυνση</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>skrabas@smiggol.gr</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <label>Κινητό</label>
-                  </div>
-                  <div class="col-md-6">
-                    <p>6972222222</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </div>';
+            }
+            ?>
 
             <!-- Stats tab-->
             <div class="tab-pane fade show" id="stats" role="tabpanel" aria-labelledby="stats-tab">
