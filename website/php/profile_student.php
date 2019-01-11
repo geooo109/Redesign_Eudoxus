@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 
 <?php
-session_start();
-require_once '../../con_db.php';
-if (isset($_SESSION['user_id'])) {
-  //connect to the db to fetch data
-  $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-  mysqli_set_charset($connect,'utf8');
-  if ($connect->connect_error) {
-    die("Connection failed: " . $connect->connect_error);
-  }
-  //fetch the data
-  $id      = $_SESSION['user_id'];
-  $queryf  = "SELECT * from user WHERE id =  '$id'";
-  $result  = mysqli_query($connect, $query);
-  $data    =  mysqli_fetch_array($connect->query($queryf));
-}
+  session_start();
 ?>
 
 <html lang="el">
@@ -176,12 +162,7 @@ if (isset($_SESSION['user_id'])) {
             </h5>
             <h6>
                 <?php
-                  if ($data['user_type'] == 0) {
-                    echo 'Φοιτητής';
-                  }
-                  else if ($data['user_type'] == 1) {
-                    echo 'Γραμματεία';
-                  }
+                  echo 'Φοιτητής';
                 ?>
             </h6>
             <p class="current-semester">ΤΡΕΧΟΝ ΕΞΑΜΗΝΟ: <span>5</span></p>
@@ -211,7 +192,20 @@ if (isset($_SESSION['user_id'])) {
           <div class="tab-content" id="myTabContent">
             <!-- General Information Tab -->
             <?php
-              if ($id == 0) {
+              require_once '../../con_db.php';
+                if (isset($_SESSION['user_id'])) {
+                  //connect to the db to fetch data
+                  $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+                  mysqli_set_charset($connect,'utf8');
+                  if ($connect->connect_error) {
+                    die("Connection failed: " . $connect->connect_error);
+                  }
+                  //fetch the data
+                  $id      = $_SESSION['user_id'];
+                  $queryf  = "SELECT * from user WHERE id =  '$id'";
+                  $result  = mysqli_query($connect, $query);
+                  $data    =  mysqli_fetch_array($connect->query($queryf));
+                }
                 echo '
                 <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
                   <div class="container" id="cont">
@@ -281,78 +275,6 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                   </div>
                 </div>';
-              }
-              else {
-                echo '
-                <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
-                  <div class="container" id="cont">
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Όνομα</label>
-                      </div>
-                      <div class="col-md-6">
-                        <p>'.$data['name'].'</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Επώνυμο</label>
-                      </div>
-                      <div class="col-md-6">
-                        <p>'.$data['surname'].'</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Ίδρυμα</label>
-                      </div>
-                      <div class="col-md-6">
-                        <p>'.$data['uni'].'</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Σχολή</label>
-                      </div>
-                      <div class="col-md-6">
-                        <p>'.$data['school'].'</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Τμήμα</label>
-                      </div>
-                      <div class="col-md-6">
-                      <p>'.$data['dep'].'</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Αριθμός Μητρώου</label>
-                      </div>
-                      <div class="col-md-6">
-                        <p>'.$data['register_num'].'</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Ηλ.Διεύθυνση</label>
-                      </div>
-                      <div class="col-md-6">
-                        <p>'.$data['email'].'</p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <label>Κινητό</label>
-                      </div>
-                      <div class="col-md-6">
-                        <p>'.$data['phone'].'</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>';
-              }
             ?>
 
             <!-- Stats tab-->
