@@ -36,9 +36,9 @@ CREATE TABLE IF NOT EXISTS `sdi1400109`.`user` (
   `email` varchar(255) NOT NULL,
   `name` varchar(45) NOT NULL,
   `surname` varchar(45) NOT NULL,
-  `uni` varchar(45) NOT NULL,
-  `school` varchar(45) NOT NULL,
-  `dep` varchar(45) NOT NULL,
+  `uni` varchar(128) NOT NULL,
+  `school` varchar(128) NOT NULL,
+  `dep` varchar(128) NOT NULL,
   `user_type` char(1) NOT NULL, -- 0:Student, 1:Secretary | Another approach is to create a `secretary` TABLE.
 
   `register_num` varchar(45), -- Arithmos Mhtrwou (Neccessary only for students)

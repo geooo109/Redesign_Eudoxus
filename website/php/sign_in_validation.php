@@ -3,7 +3,7 @@
 // Always start this first
 session_start();
 require_once '../../con_db.php';
-if (empty($_POST) == 0) {
+if (!empty($_POST)) {
   if (isset( $_POST['email'] ) && isset( $_POST['pass'] ) ) {
     $con = new mysqli($db_host, $db_user, $db_pass, $db_name);
 

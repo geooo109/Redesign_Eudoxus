@@ -182,7 +182,7 @@
                   <input type="password" class="form-control" name="password" placeholder="Κωδικός *"  />
                 </div>
                 <div class="form-group">
-                  <label for="inputUni">Ίδρυμα</label>
+                  <label for="exampleInputEmail1">Ίδρυμα</label>
                   <select id="inputUni" name="uni" class="form-control">
                     <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
                     <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
@@ -195,7 +195,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Τμήμα</label>
-                  <select id="inputDep" name="school" class="form-control">
+                  <select id="inputDep" name="dep" class="form-control">
                     <option selected>Βιολογίας</option>
                     <option>Γεωλογίας και Γεωπεριβάλλοντος</option>
                     <option>Ιστορίας και Φιλοσοφίας της Επιστήμης</option>
@@ -221,15 +221,15 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i></label>
-                  <input type="email" class="form-control" name="mail" placeholder="Ηλ.Διεύθυνση *"/>
+                  <input type="email" class="form-control" name="email" placeholder="Ηλ.Διεύθυνση *"/>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
-                  <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"/>
+                  <input type="password" name = "re_password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"/>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Σχολή</label>
-                  <select id="inputUni" name="uni" class="form-control">
+                  <select id="inputSchool" name="school" class="form-control">
                     <option selected>Επιστημών Αγωγής</option>
                     <option>Επιστημών Υγείας</option>
                     <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>
@@ -279,7 +279,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Κωδικός *"/>
               </div>
               <div class="form-group">
-                <label for="inputUni">Ίδρυμα</label>
+                <label for="exampleInputEmail1">Ίδρυμα</label>
                 <select id="inputUni" name="uni" class="form-control">
                   <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
                   <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
@@ -305,7 +305,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i></label>
+                <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματο"></i></label>
                 <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *"  />
               </div>
               <div class="form-group">
@@ -313,8 +313,8 @@
                 <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"  />
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Σχολή</label>
-                <select id="inputUni" name="school" class="form-control">
+                <label for="inputSchool">Σχολή</label>
+                <select id="inputSchool" name="school" class="form-control">
                   <option selected>Επιστημών Αγωγής</option>
                   <option>Επιστημών Υγείας</option>
                   <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>

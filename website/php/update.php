@@ -3,7 +3,7 @@
 
   $connect      = mysqli_connect("localhost", "root", "root", "sdi1400109");
   // Check connection
-  if ($conn->connect_error) {
+  if ($connect->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
 
@@ -19,6 +19,6 @@
   $query   = "UPDATE book
   SET title = '$title',  author = '$author', publisher = '$publisher', course = '$course', professor = '$professor', semester = '$semester', eudoxus_code = '$eudoxus_code'
   WHERE id='$edit_id'";
-  $result  = mysqli_query($connect, $query) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error(), E_USER_ERROR);
-  
+  $result  = mysqli_query($connect, $query);
+
  ?>
