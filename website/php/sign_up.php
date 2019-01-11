@@ -306,11 +306,11 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματο"></i></label>
-                <input type="email" class="form-control" placeholder="Ηλ.Διεύθυνση *"  />
+                <input type="email" name="email" class="form-control" placeholder="Ηλ.Διεύθυνση *"  />
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
-                <input type="password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"  />
+                <input type="password" name="re_password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"  />
               </div>
               <div class="form-group">
                 <label for="inputSchool">Σχολή</label>
