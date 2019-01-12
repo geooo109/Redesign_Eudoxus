@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html lang="el">
 <?php
 session_start();
 require_once '../../con_db.php';
@@ -17,8 +17,6 @@ if (isset($_SESSION['user_id'])) {
   $data    =  mysqli_fetch_array($connect->query($queryf));
 }
 ?>
-
-<html lang="el">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
