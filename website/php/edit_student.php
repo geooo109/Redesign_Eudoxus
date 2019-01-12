@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+
+<?php
+session_start();
+require_once '../../con_db.php';
+if (isset($_SESSION['user_id'])) {
+  //connect to the db to fetch data
+  $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+  mysqli_set_charset($connect,'utf8');
+  if ($connect->connect_error) {
+    die("Connection failed: " . $connect->connect_error);
+  }
+  //fetch the data
+  $id      = $_SESSION['user_id'];
+  $queryf  = "SELECT * from user WHERE id =  '$id'";
+  $result  = mysqli_query($connect, $query);
+  $data    =  mysqli_fetch_array($connect->query($queryf));
+}
+?>
+
 <html lang="el">
   <head>
     <meta charset="utf-8">

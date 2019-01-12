@@ -205,8 +205,6 @@ if (isset($_SESSION['user_id'])) {
           </ul>
           <div class="tab-content" id="myTabContent">
             <!-- General Information Tab -->
-            <?php
-                echo '
                 <div class="tab-pane fade show active" id="info" role="tabpanel" aria-labelledby="info-tab">
                   <div class="container" id="cont">
                     <div class="row">
@@ -214,7 +212,7 @@ if (isset($_SESSION['user_id'])) {
                         <label>Όνομα</label>
                       </div>
                       <div class="col-md-6">
-                        <p>'.$data['name'].'</p>
+                        <p><?php echo $data['name']?></p>
                       </div>
                     </div>
                     <div class="row">
@@ -222,7 +220,7 @@ if (isset($_SESSION['user_id'])) {
                         <label>Επώνυμο</label>
                       </div>
                       <div class="col-md-6">
-                        <p>'.$data['surname'].'</p>
+                        <p><?php echo $data['surname'] ?></p>
                       </div>
                     </div>
                     <div class="row">
@@ -230,7 +228,7 @@ if (isset($_SESSION['user_id'])) {
                         <label>Ίδρυμα</label>
                       </div>
                       <div class="col-md-6">
-                        <p>'.$data['uni'].'</p>
+                        <p> <?php echo $data['uni'] ?> </p>
                       </div>
                     </div>
                     <div class="row">
@@ -238,7 +236,7 @@ if (isset($_SESSION['user_id'])) {
                         <label>Σχολή</label>
                       </div>
                       <div class="col-md-6">
-                        <p>'.$data['school'].'</p>
+                        <p><?php echo $data['school'] ?></p>
                       </div>
                     </div>
                     <div class="row">
@@ -246,7 +244,7 @@ if (isset($_SESSION['user_id'])) {
                         <label>Τμήμα</label>
                       </div>
                       <div class="col-md-6">
-                      <p>'.$data['dep'].'</p>
+                      <p><?php echo $data['dep'] ?></p>
                       </div>
                     </div>
                     <div class="row">
@@ -254,7 +252,7 @@ if (isset($_SESSION['user_id'])) {
                         <label>Αριθμός Μητρώου</label>
                       </div>
                       <div class="col-md-6">
-                        <p>'.$data['register_num'].'</p>
+                        <p><?php echo $data['register_num'] ?></p>
                       </div>
                     </div>
                     <div class="row">
@@ -262,7 +260,7 @@ if (isset($_SESSION['user_id'])) {
                         <label>Ηλ.Διεύθυνση</label>
                       </div>
                       <div class="col-md-6">
-                        <p>'.$data['email'].'</p>
+                        <p><?php echo $data['email'] ?></p>
                       </div>
                     </div>
                     <div class="row">
@@ -270,12 +268,11 @@ if (isset($_SESSION['user_id'])) {
                         <label>Κινητό</label>
                       </div>
                       <div class="col-md-6">
-                        <p>'.$data['phone'].'</p>
+                        <p><?php echo $data['phone'] ?></p>
                       </div>
                     </div>
                   </div>
-                </div>';
-            ?>
+                </div>
 
             <!-- Stats tab-->
             <div class="tab-pane fade show" id="stats" role="tabpanel" aria-labelledby="stats-tab">
