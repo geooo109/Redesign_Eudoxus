@@ -293,11 +293,11 @@ if (isset($_SESSION['user_id'])) {
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κωδικός</label>
-                      <input type="pass" name="password" class="form-control" required>
+                      <input type="password" name="password" class="form-control" required>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Επανάληψη Κωδικού</label>
-                      <input type="pass" name="re_password" class="form-control" required>
+                      <input type="password" name="re_password" class="form-control" required>
                     </div>
                   </div>
 
@@ -314,6 +314,35 @@ if (isset($_SESSION['user_id'])) {
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>
+    <!-- Modal shown after edit -->
+    <?php
+    session_start();
+    if ( isset($_GET['success'])){
+        echo
+        '    <div class="modal fade" id="editresult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body text-center">'
+                    . $_SESSION["msg"] .
+                  '</div>
+                  <div class="modal-footer">
+                    <div class="col-md-12 text-center">';
+
+                      if($_GET['success']==0){
+                        echo '<button name="singlebutton" class="btn btn-sm btn-primary"data-dismiss="modal">Δοκιμάστε Ξανά</button>';
+                      }
+                      else {
+                        echo '<button name="singlebutton" class="btn btn-sm btn-success"data-dismiss="modal">Συνέχεια</button>';
+                      }
+
+                      echo
+                    '</div>
+                  </div>
+                </div>
+              </div>
+            </div>';
+      }
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -342,7 +371,13 @@ if (isset($_SESSION['user_id'])) {
           });
         }, false);
     })();
+    </script>
 
+    <!-- Modal shown after edit -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $('#editresult').modal('show');
+      });
     </script>
 
   </body>

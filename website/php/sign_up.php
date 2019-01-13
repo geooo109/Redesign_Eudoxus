@@ -180,11 +180,14 @@ session_start();
                   <input type="hidden" id="student" name="user_type" value="0">
                   <label>Όνομα Χρήστη</label>
                   <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη *" required>
+                  <div class="invalid-feedback">Εισάγετε όνομα χρήστη</div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Κωδικός</label>
                   <input type="password" class="form-control required" name="password" placeholder="Κωδικός *"  required>
+                  <div class="invalid-feedback">Εισάγετε Κωδικό</div>
                 </div>
+
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ίδρυμα</label>
                   <select id="studentUni" name="uni" class="form-control">
@@ -212,6 +215,7 @@ session_start();
                 <div class="form-group">
                   <label for="exampleInputEmail1">Όνομα</label>
                   <input class="form-control" name="name" placeholder="Όνομα *"required>
+                  <div class="invalid-feedback">Εισάγετε Όνομα</div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
@@ -226,10 +230,12 @@ session_start();
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i></label>
                   <input type="email" class="form-control required email" name="email" placeholder="Ηλ.Διεύθυνση *" required>
+                  <div class="invalid-feedback">Εισάγετε έγκυρη Ηλ.Διεύθυνση</div>
                 </div>
                 <div class="form-group">
                   <label for="verify_username">Επαλήθευση Κωδικού</label>
                   <input type="password" name = "re_password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" required>
+                  <div class="invalid-feedback">Απαιτείται Επαλήθευση</div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Σχολή</label>
@@ -246,10 +252,12 @@ session_start();
                 <div class="form-group">
                   <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
                   <input type="text" class="form-control" name="register_num" placeholder="Αριθμός Μητρώου *" maxlength="13" minlength="13"  required>
+                  <div class="invalid-feedback">Εισάγετε έγκυρο Αριθμό Μητρώου</div>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Επώνυμο</label>
                   <input class="form-control" name="surname" placeholder="Επώνυμο *" required>
+                  <div class="invalid-feedback">Εισάγετε Επώνυμο</div>
                 </div>
             </div>
             <div class="container col-md-3 signup-btn">
@@ -277,10 +285,12 @@ session_start();
                 <input type="hidden" id="secretary" name="user_type" value="1">
                 <label for="exampleInputEmail1">Όνομα Χρήστη</label>
                 <input type="text" class="form-control required" name="username"  placeholder="Όνομα Χρήστη *" required>
+                <div class="invalid-feedback">Εισάγετε όνομα χρήστη</div>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Κωδικός</label>
                 <input type="password" class="form-control required" name="password" placeholder="Κωδικός *" required>
+                <div class="invalid-feedback">Εισάγετε Κωδικό</div>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Ίδρυμα</label>
@@ -309,12 +319,14 @@ session_start();
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματο"></i></label>
+                <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i></label>
                 <input type="email" name="email" class="form-control required email" placeholder="Ηλ.Διεύθυνση *" required>
+                <div class="invalid-feedback">Εισάγετε Ηλ.Διεύθυνση</div>
               </div>
               <div class="form-group">
                 <label for="verify_username">Επαλήθευση Κωδικού</label>
                 <input type="password" name="re_password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"  required>
+                <div class="invalid-feedback">Απαιτείται Επαλήθευση</div>
               </div>
               <div class="form-group">
                 <label for="inputSchool">Σχολή</label>
@@ -369,6 +381,7 @@ session_start();
             <div class="form-group col-md-2">
               <label for="inputZip">T.K.</label>
               <input type="text" class="form-control" name="zipcode" maxlength="5" id="inputZip" required>
+              <div class="invalid-feedback">Εισάγετε έγκυρο Τ.Κ</div>
             </div>
           </div>
           <div class="form-row">
@@ -376,10 +389,12 @@ session_start();
               <div class="form-group">
                 <label for="exampleInputEmail1">Όνομα</label>
                 <input type="text" class="form-control" name="name" placeholder="Όνομα *"  required>
+                <div class="invalid-feedback">Εισάγετε Όνομα</div>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Τηλέφωνο</label>
                 <input type="text" class="form-control" name="phone" placeholder="Τηλέφωνο *"  maxlength="10"  minlength="10" required>
+                <div class="invalid-feedback">Εισάγετε έγκυρο Τηλέφωνο</div>
               </div>
               <div class="custom-control custom-checkbox mb-3 form-group">
                 <input type="checkbox" class="custom-control-input" id="customCheck3" required>
@@ -390,6 +405,7 @@ session_start();
               <div class="form-group">
                 <label for="exampleInputEmail1">Επώνυμο</label>
                 <input type="text" class="form-control" name="surname" placeholder="Επώνυμο *"  required>
+                <div class="invalid-feedback">Εισάγετε Επώνυμο</div>
               </div>
             </div>
           </div>
