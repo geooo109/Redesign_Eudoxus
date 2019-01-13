@@ -96,8 +96,9 @@
 .dropdown-item:hover {
   background-color: #F88101;
 }
-.btn:focus{
-    background: #F88101;
+.dropdown > button:focus{
+    background: #F88101 !important;
+    color: black !important;
 }
 
 .carousel-indicators > li{
@@ -158,6 +159,10 @@ footer > div > div > div > ul > li > a:visited{
   text-decoration: none;
   font-weight: 250;
   color: black;
+}
+
+footer > div > div > div > h6{
+  margin-bottom: -5px;
 }
 
 .fa-facebook-square{

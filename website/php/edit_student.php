@@ -199,16 +199,16 @@ if (isset($_SESSION['user_id'])) {
             <!-- Profile Settings Tab -->
             <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="container" id="cont">
-                <form>
+                <form class="editform" action="#" method="post" novalidate>
 
                   <div class="form-row">
                     <div class="col form-group">
                       <label for="inputName">Όνομα</label>
-                      <input type="text" class="form-control" value="Αναστάσιος">
+                      <input type="text" class="form-control" value="Αναστάσιος" required>
                     </div>
                     <div class="col form-group">
                       <label for="inputName">Επώνυμο</label>
-                      <input type="text" class="form-control" value="Μαντάς">
+                      <input type="text" class="form-control" value="Μαντάς" required>
                     </div>
                   </div>
 
@@ -254,55 +254,55 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
-                      <input type="text" class="form-control" maxlength="13" value="1115201500087"/>
+                      <input type="text" class="form-control" maxlength="13" minlength="13" value="1115201500087" required>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
-                      <input type="text" class="form-control" value="6972222222"/>
+                      <input type="text" class="form-control" maxlength="10" minlength="10" value="6972222222"/>
                     </div>
                   </div>
 
-                </form>
                 <div class=" container col-md-3 align-items-center text-center">
                   <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
+              </form>
               </div>
             </div>
 
             <!-- Account Settings Tab -->
             <div class="tab-pane fade show" id="account" role="tabpanel" aria-labelledby="account-tab">
               <div class="container" id="cont">
-                <form>
+                <form class="editform" action="#" method="post" novalidate>
 
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control" required>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Ηλ.Διεύθυνση</label>
-                      <input type="text" class="form-control" value="skrabas@smiggol.gr"/>
+                      <input type="text" class="form-control" value="skrabas@smiggol.gr" required>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κωδικός</label>
-                      <input type="pass" class="form-control"/>
+                      <input type="pass" class="form-control" required>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Επανάληψη Κωδικού</label>
-                      <input type="pass" class="form-control"/>
+                      <input type="pass" class="form-control" required>
                     </div>
                   </div>
 
-                </form>
                 <div class=" container col-md-3 align-items-center text-center">
                   <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
+              </form>
               </div>
             </div>
           </div>
@@ -319,6 +319,29 @@ if (isset($_SESSION['user_id'])) {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Form validation -->
+    <script type="text/javascript">
+
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('editform');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+    })();
+
+    </script>
 
   </body>
 </html>

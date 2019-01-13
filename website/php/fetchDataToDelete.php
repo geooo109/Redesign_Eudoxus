@@ -12,24 +12,32 @@
     $query   = "SELECT * from book WHERE id = '$del_id'";
     $result  = mysqli_query($connect, $query);
     while ($data = mysqli_fetch_array($result)) {
-      $id           = $data['id'];
-      $title        = $data['title'];
-      $author       = $data['author'];
-      $publisher    = $data['publisher'];
-      $course       = $data['course'];
-      $professor    = $data['professor'];
-      $semester     = $data['semester'];
-      $eudoxus_code = $data['eudoxus_code'];
+      $title             = $data['title'];
+
+      $prev_author_id    = $data['author_id']; // Id of the author before the update
+      $temp              = mysqli_query($connect,"SELECT author.name FROM author WHERE author.id='$prev_author_id'");
+      $author            = mysqli_fetch_array($temp)['name'];
+
+      $prev_publisher_id = $data['publisher_id']; // Id of the publisher before the update
+      $temp              = mysqli_query($connect,"SELECT publisher.name FROM publisher WHERE publisher.id='$prev_publisher_id'");
+      $publisher         = mysqli_fetch_array($temp)['name'];
+
+      $course            = $data['course'];
+      $professor         = $data['professor'];
+      $semester          = $data['semester'];
+      $eudoxus_code      = $data['eudoxus_code'];
     }
   }
  ?>
 
 
-<input type="hidden" name="del_id" value="<?php echo $id ?> ">
+ <input hidden name="del_id" id="del_id" value="<?php echo $del_id ?>">
+
 
  <div class="form-group">
-   <label><strong>Τίτλος</strong>: <?php echo $title ?> </label>
+   <label><strong>Τίτλος</strong>: <?php echo $title; ?></label>
  </div>
+
 
  <div class="form-group">
    <label><strong>Συγγραφέας</strong>: <?php echo $author; ?></label>

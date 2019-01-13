@@ -17,7 +17,6 @@
 
   </head>
 
-
   <body>
 
     <!-- First navbar -->
@@ -91,7 +90,7 @@
           <li class="nav-item">
             <div class="dropdown">
               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Φοιτητές<span></span>
+                Φοιτητές
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                   <a class="dropdown-item" href="#">Δήλωση Συγγραμμάτων</a>
@@ -103,7 +102,7 @@
           <li class="nav-item">
             <div class="dropdown">
               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Εκδότες<span></span>
+                Εκδότες
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="#">Καταχώριση Συγγράμματος</a>
@@ -113,7 +112,7 @@
           <li class="nav-item">
             <div class="dropdown">
               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Γραμματείες Τμημάτων<span></span>
+                Γραμματείες Τμημάτων
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="#">Καταχώριση Συγγραμμάτων</a>
@@ -125,7 +124,7 @@
           <li class="nav-item">
             <div class="dropdown">
               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Βιβλιοθήκες<span></span>
+                Βιβλιοθήκες
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="#">Παραγγελία Συγγραμμάτων</a>
@@ -135,7 +134,7 @@
           <li class="nav-item">
             <div class="dropdown">
               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Σημεία Διανομής<span></span>
+                Σημεία Διανομής
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                 <a class="dropdown-item" href="#">Παράδοση Συγγραμμάτων</a>
@@ -145,7 +144,7 @@
           <li class="nav-item">
             <div class="dropdown">
               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Νέα<span></span>
+                Νέα
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                   <a class="dropdown-item" href="#">Ο Εύδοξος</a>
@@ -337,13 +336,39 @@
        <a href="index.php">eudoxus.gr</a>
      </div>
     </div>
+    <?php
+      session_start();
+      if ( isset($_GET['success'])){
+        echo
+        '    <div class="modal fade" id="signupsuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body text-center">'
 
+                  .$_SESSION['msg'].
+
+                  '</div>
+                  <div class="modal-footer">
+                    <div class="col-md-12 text-center">
+                      <button name="singlebutton" class="btn btn-sm btn-success"data-dismiss="modal">Συνέχεια</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>';
+      }
+    ?>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- Putting the scripts at the end of the file makes our webpage load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $('#signupsuccess').modal('show');
+      });
+    </script>
   </body>
 
 </html>

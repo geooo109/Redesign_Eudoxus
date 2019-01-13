@@ -184,16 +184,16 @@
             <!-- Profile Settings Tab -->
             <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="container" id="cont">
-                <form>
+                <form class="editform" action="#" method="post" novalidate>
 
                   <div class="form-row">
                     <div class="col form-group">
                       <label for="inputName">Όνομα</label>
-                      <input type="text" class="form-control" value="Νάνσυ">
+                      <input type="text" class="form-control" value="Νάνσυ" required>
                     </div>
                     <div class="col form-group">
                       <label for="inputName">Επώνυμο</label>
-                      <input type="text" class="form-control" value="Κασιμάτη">
+                      <input type="text" class="form-control" value="Κασιμάτη" required>
                     </div>
                   </div>
 
@@ -276,47 +276,53 @@
                     </div>
                     <div class="col-md-2 form-group">
                       <label for="inputZip">T.K.</label>
-                      <input type="text" class="form-control" id="inputZip" value="10431">
+                      <input type="text" class="form-control" id="inputZip" maxlength="5" minlength="5" value="10431" required>
                     </div>
                   </div>
-                </form>
+                  <div class="row container">
+                    <div class="cold-md-6 form-group">
+                      <label for="inputPhone">Τηλέφωνο</label>
+                      <input type="text" class="form-control" id="inputPhone" maxlength="10" minlength="10" value="2100000000" required>
+                    </div>
+                  </div>
                 <div class=" container col-md-3 align-items-center text-center">
                   <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
+              </form>
               </div>
             </div>
 
             <!-- Account Settings Tab -->
             <div class="tab-pane fade show" id="account" role="tabpanel" aria-labelledby="account-tab">
               <div class="container" id="cont">
-                <form>
+                <form class="editform" action="#" method="post" novalidate>
 
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" class="form-control"required>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Ηλ.Διεύθυνση</label>
-                      <input type="text" class="form-control" value="nancykas@di.uoa.gr"/>
+                      <input type="text" class="form-control" value="nancykas@di.uoa.gr"required>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κωδικός</label>
-                      <input type="pass" class="form-control"/>
+                      <input type="pass" class="form-control"required>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Επανάληψη Κωδικού</label>
-                      <input type="pass" class="form-control"/>
+                      <input type="pass" class="form-control"required>
                     </div>
                   </div>
 
-                </form>
                 <div class=" container col-md-3 align-items-center text-center">
                   <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
+              </form>
 
               </div>
             </div>
@@ -326,7 +332,7 @@
                 <?php
                   // We should fetch the books of current secretary, i.e: secretary with id == $_SESSION['user_id']
                   $connect    = mysqli_connect("localhost", "root", "root", "sdi1400109");
-                  $query      = "SELECT * FROM book ORDER BY semester ";
+                  $query      = "SELECT b.id,b.title,a.name,p.name,b.course,b.semester,b.professor,b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN publisher AS p ON b.publisher_id=p.id  ORDER BY b.semester ";
                   $result     = mysqli_query($connect, $query);
                   ?>
                   <button id="addButton" type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
@@ -357,8 +363,8 @@
                         <tr id="<?php echo $row['id']; ?>">
                           <th class="align-middle" scope="row"> <?php echo $book_counter; ?></th>
                           <td class="align-middle"><?php echo $row["title"]; ?></td>
-                          <td class="align-middle"><?php echo $row["author"]; ?></td>
-                          <td class="align-middle"><?php echo $row["publisher"]; ?></td>
+                          <td class="align-middle"><?php echo $row[2]; ?></td>
+                          <td class="align-middle"><?php echo $row[3]; ?></td>
                           <td class="align-middle"><?php echo $row["course"]; ?></td>
                           <td class="align-middle"><?php echo $row["professor"]; ?></td>
                           <td class="align-middle"><?php echo $row["semester"]; ?></td>
@@ -389,7 +395,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
 
-          <form id="addForm" action="" method="post">
+          <form class="editform" id="addForm" action="" method="post" novalidate>
             <div class="modal-header">
               <h5 class="modal-title" id="addModalLabel">Προσθήκη Βιβλίου</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -399,43 +405,43 @@
             <div class="modal-body">
               <div class="form-group">
                 <label>Τίτλος </label>
-                <input type="text" class="form-control" id="title" placeholder="Τίτλος *">
+                <input type="text" class="form-control" id="title" placeholder="Τίτλος *" required>
                 <label id="errorTitle" style="color:red;"></label>
               </div>
 
               <div class="form-group">
                 <label>Συγγραφέας</label>
-                <input type="text" class="form-control" id="author" placeholder="Συγγραφέας *">
+                <input type="text" class="form-control" id="author" placeholder="Συγγραφέας *" required>
                 <label id="errorAuthor" style="color:red;"></label>
               </div>
 
               <div class="form-group">
                 <label>Εκδόσεις</label>
-                <input type="text" class="form-control" id="publisher" placeholder="Εκδόσεις *">
+                <input type="text" class="form-control" id="publisher" placeholder="Εκδόσεις *" required>
                 <label id="errorPublisher" style="color:red;"></label>
               </div>
 
               <div class="form-group">
                 <label>Μάθημα</label>
-                <input type="text" class="form-control" id="course" placeholder="Μάθημα *">
+                <input type="text" class="form-control" id="course" placeholder="Μάθημα *" required>
                 <label id="errorCourse" style="color:red;"></label>
               </div>
 
               <div class="form-group">
                 <label>Καθηγητής</label>
-                <input type="text" class="form-control" id="professor" placeholder="Καθηγητής *">
+                <input type="text" class="form-control" id="professor" placeholder="Καθηγητής *" required>
                 <label id="errorProfessor" style="color:red;"></label>
               </div>
 
               <div class="form-group">
                 <label>Αριθμός Εξαμήνου</label>
-                <input type="text" class="form-control" id="semester" placeholder="Αριθμός Εξαμήνου *">
+                <input type="text" class="form-control" id="semester" placeholder="Αριθμός Εξαμήνου *" required>
                 <label id="errorSemester" style="color:red;"></label>
               </div>
 
               <div class="form-group">
                 <label>Κωδικός Ευδόξου</label>
-                <input type="text" class="form-control" id="eudoxus_code" placeholder="Κωδικός Ευδόξου *">
+                <input type="text" class="form-control" id="eudoxus_code" placeholder="Κωδικός Ευδόξου *" required>
                 <label id="errorEudCode" style="color:red;"></label>
               </div>
             </div>
@@ -453,7 +459,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
 
-          <form id="editForm" action="" method="post">
+          <form class="editform" id="editForm" action="" method="post" novalidate>
             <div class="modal-header">
               <h5 class="modal-title" id="editModalLabel">Επεξεργασία Βιβλίου</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -461,7 +467,7 @@
               </button>
             </div>
             <div class="modal-body" id="editModalBody">
-                <!-- Will be filled via Javascript and PHP -->
+                <!-- Will be filled via Javascript AJAX and PHP -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Ακύρωση</button>
@@ -485,7 +491,7 @@
               </button>
             </div>
             <div class="modal-body" id="deleteModalBody">
-              <!-- Will be filled via Javascript and PHP -->
+              <!-- Will be filled via Javascript AJAX and PHP -->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Ακύρωση</button>
@@ -502,10 +508,34 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- Putting the scripts at the end of the file makes our webpage load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
     <!-- Add,Edit and Delete rows from 'book' table -->
     <script src="../js/modifyTable.js" charset="utf-8"></script>
+
+    <!-- Form validation -->
+    <script type="text/javascript">
+
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('editform');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+    })();
+    </script>
+
   </body>
 
 </html>

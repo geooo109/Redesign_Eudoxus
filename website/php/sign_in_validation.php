@@ -33,6 +33,7 @@ if (!empty($_POST)) {
         $_SESSION['profile'] = 'profile_secretary.php';
       }
       $msg = 'Logged in Successful';
+      $_SESSION["msg"] = "Η Σύνδεσή σας έγινε με επιτυχία";
       header('location:../../index.php?success=1');
     }
     else {

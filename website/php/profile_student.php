@@ -315,7 +315,7 @@ if (isset($_SESSION['user_id'])) {
             <?php
               // We should fetch the books of current student, i.e: student with id == $_SESSION['user_id']
                $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
-               $query = "SELECT * FROM book ORDER BY id";
+               $query = "SELECT b.id, b.title, a.name, b.course, b.professor, b.semester, b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id ORDER BY b.id";
                $result = mysqli_query($connect, $query);
              ?>
             <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-tab">
@@ -343,7 +343,7 @@ if (isset($_SESSION['user_id'])) {
                       <td class="align-middle"><?php echo $row["professor"]; ?></td>
                       <td class="align-middle"><?php echo $row["semester"]; ?></td>
                       <td class="align-middle"><?php echo $row["title"]; ?></td>
-                      <td class="align-middle"><?php echo $row["author"]; ?></td>
+                      <td class="align-middle"><?php echo $row[2]; ?></td>
                       <td class="align-middle"><?php echo $row["eudoxus_code"]; ?></td>
                       <td class="align-middle">DD/MM/YYYY</td>
                     </tr>

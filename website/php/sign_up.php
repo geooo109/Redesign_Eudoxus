@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+?>
+
 <html lang="el">
 
   <head>
@@ -167,23 +171,23 @@
 
       <!-- Student tab-pane -->
         <div class="tab-pane fade show active" id="student" role="tabpanel" aria-labelledby="student-tab">
-        <form action="sign_up_validation.php" method="post">
+        <form class="signupform" action="sign_up_validation.php" method="post" novalidate>
           <div class="container" id="cont">
             <h3 >Εγγραφή ως Φοιτητής</h3>
             <div class="form-row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input type="hidden" id="custId" name="user_type" value="0">
-                  <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                  <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη *" value="name_stud1" />
+                  <input type="hidden" id="student" name="user_type" value="0">
+                  <label>Όνομα Χρήστη</label>
+                  <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη *" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Κωδικός</label>
-                  <input type="password" class="form-control" name="password" placeholder="Κωδικός *"  />
+                  <input type="password" class="form-control required" name="password" placeholder="Κωδικός *"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ίδρυμα</label>
-                  <select id="inputUni" name="uni" class="form-control">
+                  <select id="studentUni" name="uni" class="form-control">
                     <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
                     <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
                     <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
@@ -195,7 +199,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Τμήμα</label>
-                  <select id="inputDep" name="dep" class="form-control">
+                  <select id="studentDep" name="dep" class="form-control">
                     <option selected>Βιολογίας</option>
                     <option>Γεωλογίας και Γεωπεριβάλλοντος</option>
                     <option>Ιστορίας και Φιλοσοφίας της Επιστήμης</option>
@@ -207,29 +211,29 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Όνομα</label>
-                  <input class="form-control" name="name" placeholder="Όνομα *"/>
+                  <input class="form-control" name="name" placeholder="Όνομα *"required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
-                  <input class="form-control" name="phone" placeholder="Κινητό Τηλέφωνο"/>
+                  <input class="form-control" type="text" name="phone" minlength="10" maxlength="10" placeholder="Κινητό Τηλέφωνο">
                 </div>
                 <div class="custom-control custom-checkbox mb-3 form-group">
-                  <input type="checkbox" class="custom-control-input"  id="customCheck1">
+                  <input type="checkbox" class="custom-control-input"  id="customCheck1" required>
                   <label class="custom-control-label" for="customCheck1">Αποδέχομαι τους όρους χρήσης</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματος"></i></label>
-                  <input type="email" class="form-control" name="email" placeholder="Ηλ.Διεύθυνση *"/>
+                  <input type="email" class="form-control required email" name="email" placeholder="Ηλ.Διεύθυνση *" required>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
-                  <input type="password" name = "re_password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"/>
+                  <label for="verify_username">Επαλήθευση Κωδικού</label>
+                  <input type="password" name = "re_password" class="form-control"  placeholder="Επαλήθευση Κωδικού *" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Σχολή</label>
-                  <select id="inputSchool" name="school" class="form-control">
+                  <select id="studentSchool" name="school" class="form-control">
                     <option selected>Επιστημών Αγωγής</option>
                     <option>Επιστημών Υγείας</option>
                     <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>
@@ -241,11 +245,11 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
-                  <input type="text" class="form-control" name="register_num" placeholder="Αριθμός Μητρώου *" maxlength="13"/>
+                  <input type="text" class="form-control" name="register_num" placeholder="Αριθμός Μητρώου *" maxlength="13" minlength="13"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Επώνυμο</label>
-                  <input class="form-control" name="surname" placeholder="Επώνυμο *"/>
+                  <input class="form-control" name="surname" placeholder="Επώνυμο *" required>
                 </div>
             </div>
             <div class="container col-md-3 signup-btn">
@@ -256,31 +260,31 @@
               <div class="signup-help align-items-center text-center">
                 <a href="#">Όροι Χρήσης & Προυποθέσεις</a>
               </div>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
+        </form>
     </div>
 
       <!-- Secretary tab-pane -->
       <div class="tab-pane fade show" id="secretary" role="tabpanel" aria-labelledby="secretary-tab">
-      <form action="sign_up_validation.php" method="post">
+      <form class="signupform" action="sign_up_validation.php" method="post" novalidate>
         <div class="container" id="cont">
           <h3 >Εγγραφή ως Γραμματεία Τμήματος</h3>
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
-                <input type="hidden" id="custId" name="user_type" value="1">
+                <input type="hidden" id="secretary" name="user_type" value="1">
                 <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                <input type="text" class="form-control" name="username" placeholder="Όνομα Χρήστη *"/>
+                <input type="text" class="form-control required" name="username"  placeholder="Όνομα Χρήστη *" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Κωδικός</label>
-                <input type="password" class="form-control" name="password" placeholder="Κωδικός *"/>
+                <input type="password" class="form-control required" name="password" placeholder="Κωδικός *" required>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Ίδρυμα</label>
-                <select id="inputUni" name="uni" class="form-control">
+                <select id="secretaryUni" name="uni" class="form-control">
                   <option selected>Ανωτάτη Σχολή Καλών Τεχνών</option>
                   <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
                   <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
@@ -292,7 +296,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Τμήμα</label>
-                <select id="inputDep" name="dep" class="form-control">
+                <select id="secretaryDep" name="dep" class="form-control">
                   <option selected>Βιολογίας</option>
                   <option>Γεωλογίας και Γεωπεριβάλλοντος</option>
                   <option>Ιστορίας και Φιλοσοφίας της Επιστήμης</option>
@@ -306,15 +310,15 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Ηλ.Διεύθυνση <i class="fas fa-info-circle" data-toggle="tooltip"title="Email Ιδρύματο"></i></label>
-                <input type="email" name="email" class="form-control" placeholder="Ηλ.Διεύθυνση *"  />
+                <input type="email" name="email" class="form-control required email" placeholder="Ηλ.Διεύθυνση *" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Επαλήθευση Κωδικού</label>
-                <input type="password" name="re_password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"  />
+                <label for="verify_username">Επαλήθευση Κωδικού</label>
+                <input type="password" name="re_password" class="form-control"  placeholder="Επαλήθευση Κωδικού *"  required>
               </div>
               <div class="form-group">
                 <label for="inputSchool">Σχολή</label>
-                <select id="inputSchool" name="school" class="form-control">
+                <select id="secretarySchool" name="school" class="form-control">
                   <option selected>Επιστημών Αγωγής</option>
                   <option>Επιστημών Υγείας</option>
                   <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>
@@ -349,38 +353,43 @@
                 <option>ΑΡΓΟΛΙΔΟΣ</option>
                 <option>ΑΡΚΑΔΙΑΣ</option>
                 <option>ΑΤΤΙΚΗΣ</option>
-                <option>...</option>
+                <option>ΘΕΣΣΑΛΙΑΣ</option>
               </select>
             </div>
             <div class="form-group col-md-4">
               <label for="inputCity">Πόλη</label>
-              <select id="inputCity" name="city" class="form-control">
-                <option selected>Επιλέξτε Πόλη</option>
+              <select id="inputCity" name="city" class="form-control" required>
+                <option selected>Αθήνα</option>
                 <option>Αλεξανδρούπολη</option>
-                <option>Αθήνα</option>
-                <option>...</option>
+                <option>Θεσσαλονίκη</option>
+                <option>Κρήτη</option>
+                <option>Πάτρα</option>
               </select>
             </div>
             <div class="form-group col-md-2">
               <label for="inputZip">T.K.</label>
-              <input type="text" class="form-control" name="postal_address" id="inputZip">
+              <input type="text" class="form-control required" name="zipcode" maxlength="5" id="inputZip" required>
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Όνομα</label>
-                <input type="text" class="form-control" name="name" placeholder="Όνομα *"  />
+                <input type="text" class="form-control required" name="name" placeholder="Όνομα *"  required>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Τηλέφωνο</label>
+                <input type="text" class="form-control required" name="phone" placeholder="Τηλέφωνο *"  maxlength="10"  minlength="10" required>
               </div>
               <div class="custom-control custom-checkbox mb-3 form-group">
-                <input type="checkbox" class="custom-control-input" id="customCheck3">
+                <input type="checkbox" class="custom-control-input" id="customCheck3" required>
                 <label class="custom-control-label" for="customCheck3">Αποδέχομαι τους όρους χρήσης</label>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Επώνυμο</label>
-                <input type="text" class="form-control" name="surname" placeholder="Επώνυμο *"  />
+                <input type="text" class="form-control required" name="surname" placeholder="Επώνυμο *"  required>
               </div>
             </div>
           </div>
@@ -420,6 +429,28 @@
 
     </div>
 
+    <!-- Modal [in case sign-up was not successful]-->
+    <?php
+    session_start();
+    if ( isset($_GET['success'])){
+        echo
+        '    <div class="modal fade" id="unsuccessfulsignup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body text-center">'
+                    . $_SESSION["msg"] .
+                  '</div>
+                  <div class="modal-footer">
+                    <div class="col-md-12 text-center">
+                      <button name="singlebutton" class="btn btn-sm btn-primary"data-dismiss="modal">Δοκιμάστε Ξανά</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>';
+      }
+    ?>
+
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>
@@ -429,6 +460,34 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  </body>
 
+    <!-- Form validation -->
+    <script type="text/javascript">
+
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('signupform');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+    })();
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $('#unsuccessfulsignup').modal('show');
+      });
+    </script>
+
+  </body>
 </html>

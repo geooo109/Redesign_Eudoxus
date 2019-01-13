@@ -44,20 +44,12 @@ CREATE TABLE IF NOT EXISTS `sdi1400109`.`user` (
   `register_num` varchar(45), -- Arithmos Mhtrwou (Neccessary only for students)
   `phone` varchar(10),
   `semesters` int,
-  `postal_address` varchar(45),
+  `zipcode` varchar(45),
   `state` varchar(45),
   `city` varchar(45),
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
--- Εισαγωγή εγγραφών αυτόματα
-LOCK TABLES user WRITE;
-INSERT INTO user (username,password,email,name,surname,uni,school,dep,register_num,user_type)
-VALUES ('Mantas','salamandra','skrabas@smiggol.gr','Anastasios','Mantas','NKUA','Science','Informatics & Telecommunications','1115201500087','0');
-
-INSERT INTO user (username,password,email,name,surname,uni,school,dep,postal_address,state,city,user_type)
-VALUES ('Nancy','111','nancykas@di.uoa.gr','Nancy','Kasimati','NKUA','Science','Informatics & Telecommunications','10631','Attikis','Athens','1');
-UNLOCK TABLES;
 
 --
 -- Δομή πίνακα για τον πίνακα `book`
@@ -66,29 +58,139 @@ DROP TABLE IF EXISTS `book`;
 CREATE TABLE IF NOT EXISTS `sdi1400109`.`book` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `publisher` varchar(255) NOT NULL,
+  `author_id` int NOT NULL,
+  `publisher_id` int NOT NULL,
   `course` varchar(45) NOT NULL,
   `professor` varchar(45) NOT NULL,
   `semester` int NOT NULL,
   `eudoxus_code` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (author_id) REFERENCES author(id),
+  FOREIGN KEY (publisher_id) REFERENCES publisher(id)
+) ENGINE = InnoDB;
+
+--
+-- Δομή πίνακα για τον πίνακα `author`
+--
+DROP TABLE IF EXISTS `author`;
+CREATE TABLE IF NOT EXISTS `sdi1400109`.`author` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
--- Εισαγωγή εγγραφών αυτόματα
-LOCK TABLES book WRITE;
-INSERT INTO book (title,author,publisher,course,professor,semester,eudoxus_code) VALUES
-('C From theory to Practice','TSELIKIS TSELIKAS','TSELIKIS TSELIKAS','Introduction to Programming','P.Stamatopoulos',1,68383623),
-('C in depth','Hatzigiannakis','KLEIDARITHMOS','Introduction to Programming','P.Stamatopoulos',1,68384925),
-('Programming with C','N.Misirlis','NKUA','Introduction to Programming','P.Stamatopoulos',1,68403081),
-('C Programming Language','BRIAN W. KERNIGHAN, DENNIS M. RITCHIE',' Pearson Education (US)','Introduction to Programming','P.Stamatopoulos',1,13956),
-('Digital Design','Mano Morris Ciletti Michael','PAPASOTIRIOU','Logic Design','Antonis Paschalis',1,68406394),
-('Logic Design Principles','JOHN F. WAKERLY','KLEIDARITHMOS','Logic Design','Antonis Paschalis',1,13946),
+--
+-- Δομή πίνακα για τον πίνακα `publisher`
+--
+DROP TABLE IF EXISTS `publisher`;
+CREATE TABLE IF NOT EXISTS `sdi1400109`.`publisher` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+--
+-- δομή πίνακα για τον πίνακα `point` (σημείο διανομής)
+--
+DROP TABLE IF EXISTS `point`;
+CREATE TABLE IF NOT EXISTS `sdi1400109`.`point` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `zipcode` varchar(45) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `street` varchar(45) NOT NULL,
+  `num` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
 
-('Calculus','FINNEY R.L., WEIR M.D., GIORDANO F.R.','KRITIS','Calculus I','Kotta-Athanasiadou',2,22689021),
+--
+-- δομή πίνακα για τον πίνακα `book_point` (Junction table between `book` and `point`)
+--
+DROP TABLE IF EXISTS `book_point`;
+CREATE TABLE IF NOT EXISTS `sdi1400109`.`book_point` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `book_id` int NOT NULL,
+  `point_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`point_id`) REFERENCES point(`id`) ON DELETE CASCADE,
+  FOREIGN KEY (`book_id`) REFERENCES book(`id`) ON DELETE CASCADE
+) ENGINE = InnoDB;
 
-('Signals and Algorithms','Kalouptsidis','Diaulos','Signals and Systems','A.Karampogias',3,13946);
+
+--
+-- δομή πίνακα για τον πίνακα `user_book` (Junction table between `user` and `book`)
+--
+DROP TABLE IF EXISTS `user_book`;
+CREATE TABLE IF NOT EXISTS `sdi1400109`.`user_book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `book_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`user_id`) REFERENCES user(`id`)  ON DELETE CASCADE,
+  FOREIGN KEY (`book_id`) REFERENCES book(`id`) ON DELETE CASCADE
+) ENGINE = InnoDB;
+
+
+LOCK TABLES user WRITE;
+INSERT INTO user (username,password,email,name,surname,uni,school,dep,register_num,user_type)
+VALUES ('Mantas','salamandra','skrabas@smiggol.gr','Anastasios','Mantas','NKUA','Science','Informatics & Telecommunications','1115201500087','0');
+
+INSERT INTO user (username,password,email,name,surname,semesters,uni,school,dep,zipcode,state,city,user_type)
+VALUES ('Nancy','111','nancykas@di.uoa.gr','Nancy','Kasimati',8,'NKUA','Science','Informatics & Telecommunications','10631','Attikis','Athina','1');
 UNLOCK TABLES;
+
+LOCK TABLES author WRITE;
+INSERT INTO author (name) VALUES
+('TSELIKIS TSELIKAS'),('Nikolaos Misirlis'),('BRIAN W. KERNIGHAN, DENNIS M. RITCHIE'),('N.Hatzigiannakis'),('Mano Morris - Ciletti Michael'),
+('Kalouptsidis'),('FINNEY R.L., WEIR M.D., GIORDANO F.R.'),('Thomas H. Cormen'),('Alfred Aho'),('JOHN F. WAKERLY'),('Tan Pang - Ning'),('David A. Patterson');
+UNLOCK TABLES;
+
+
+LOCK TABLES publisher WRITE;
+INSERT INTO publisher (name) VALUES
+('TSELIKIS TSELIKAS'),('KLEIDARITHMOS'),('NKUA'),('PAPASOTIRIOU'),('KRITIS'),('Diaulos'),('PAPASOTIRIOU'),('Themelio'),('TZIOLA');
+UNLOCK TABLES;
+
+
+LOCK TABLES book WRITE;
+INSERT INTO book (title,author_id,publisher_id,course,professor,semester,eudoxus_code) VALUES
+('C From theory to Practice',1,1,'Introduction to Programming','P.Stamatopoulos',1,68383623),
+('C in depth',4,2,'Introduction to Programming','P.Stamatopoulos',1,68384925),
+('Programming with C',2,3,'Introduction to Programming','P.Stamatopoulos',1,68403081),
+('C Programming Language',3,8,'Introduction to Programming','P.Stamatopoulos',1,13956),
+('Digital Design',5,7,'Logic Design','Antonis Paschalis',1,68406394),
+('Logic Design Principles',10,2,'Logic Design','Antonis Paschalis',1,13946),
+('Calculus',7,5,'Calculus I','Kotta-Athanasiadou',2,22689021),
+('Introduction to Data Mining',11,9,'Data Mining','D.Gounopoulos',6,18549105),
+('Signals and Algorithms',6,6,'Signals and Systems','A.Karampogias',3,13946),
+('Computer Architecture 5th Edition',12,2,'Computer Architecture I','D.Gkizopoulos',2,12561945);
+UNLOCK TABLES;
+
+LOCK TABLES point WRITE;
+INSERT INTO point (name,zipcode,state,city,street,num,email,phone) VALUES
+('EKDOSEIS TZIOLA','10681','Attikis','Athina','Xarilaou Trikoupi',16,'Athina@tziola.gr','2103632600'),
+('EKDOSEIS KLEIDARITHMOS','10672','Attikis','Athina','Akadimias',42,'shop@klidarithmos.gr','2103642887'),
+('EKDOSEIS KRITIKI','11855','Attikis','Keramikos','Neurokopiou',8,'venianakis@kritiki.gr','2108211487'),
+('M.GKIOURDAS','11472','Attikis','Peristeri','Sergiou Patriarxou',4,'n.karakasis@mgiurdas.gr','2103624947'),
+('EKDOSEIS DIAULOS','10680','Attikis','Athina','Mauromixali',72,'info@diavlos-books.gr','2103631169'),
+('EKDOSEIS THEMELIO','10680','Attikis','Athina','Solonos',84,'info@themelio-ekdoseis.gr','2103608180'),
+('A.Prokopis Book Store','15772','Attikis','Zwgrafou','Hrwwn Polytechneiou',80,'ypokatastima@hotmail.com','2107774160'),
+('Bookstore Kalimeris','12132','Attikis','Peristeri','El.Venizelou',120,'kalimeris@hotmail.com','2105745156'),
+('Pothitos Peristeriou','12132','Attikis','Peristeri','B.Alexandrou',88,'pothitos@gmail.com','2105725177'),
+('EKDOSEIS KRITIS','10556','Attikis','Athina','Thoukididou',4,'kritispress@otenet.gr','2103849020');
+UNLOCK TABLES;
+
+LOCK TABLES book_point WRITE;
+INSERT INTO book_point (book_id,point_id) VALUES
+(1,7),(1,8),(1,9),(2,2),(3,9),(4,8),(5,6),(6,2),(7,10),(7,7),(8,1),(8,8),(9,5),(10,2),(10,7);
+UNLOCK TABLES;
+
+
+---- Testing,debugging ----
+-- SELECT book.title,author.name,publisher.name
+-- FROM book JOIN author ON book.author_id = author.id  JOIN publisher ON book.publisher_id = publisher.id;
 
 
 

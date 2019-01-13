@@ -274,7 +274,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Ταχ.Κώδικας</label>
                   </div>
                   <div class="col-md-6">
-                    <p><<?php echo $data['postal_address'] ?></p>
+                    <p><?php echo $data['zipcode'] ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -287,7 +287,7 @@ if (isset($_SESSION['user_id'])) {
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <label>Κινητό</label>
+                    <label>Τηλέφωνο</label>
                   </div>
                   <div class="col-md-6">
                     <p><?php echo $data['phone'] ?></p>
@@ -300,7 +300,7 @@ if (isset($_SESSION['user_id'])) {
                 <?php
                   // We should fetch the books of current secretary, i.e: secretary with id == $_SESSION['user_id']
                   $connect    = mysqli_connect("localhost", "root", "root", "sdi1400109");
-                  $query      = "SELECT * FROM book ORDER BY semester ";
+                  $query      = "SELECT b.title,a.name,p.name,b.course,b.semester,b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN publisher AS p ON b.publisher_id=p.id  ORDER BY b.semester ";
                   $result     = mysqli_query($connect, $query);
                   ?>
                   <table class="table table-hover table-bordered">
@@ -325,8 +325,8 @@ if (isset($_SESSION['user_id'])) {
                         <tr>
                           <th class="align-middle" scope="row"> <?php echo $book_counter; ?></th>
                           <td class="align-middle"><?php echo $row["title"]; ?></td>
-                          <td class="align-middle"><?php echo $row["author"]; ?></td>
-                          <td class="align-middle"><?php echo $row["publisher"]; ?></td>
+                          <td class="align-middle"><?php echo $row[1]; ?></td>
+                          <td class="align-middle"><?php echo $row[2]; ?></td>
                           <td class="align-middle"><?php echo $row["course"]; ?></td>
                           <td class="align-middle"><?php echo $row["semester"]; ?></td>
                           <td class="align-middle"><?php echo $row["eudoxus_code"]; ?></td>
