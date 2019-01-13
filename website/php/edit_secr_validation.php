@@ -216,7 +216,7 @@ if (!empty($_POST)) {
         //if we are here we have to update
         if ($data_main['username'] != $username) {
           $queryf ="UPDATE user SET username = '$username' WHERE id = '$curr_id'";
-
+          echo 'apadawwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww';
           if ($connect->query($queryf) === TRUE) {
               $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
               //header("location:./edit_student.php");
