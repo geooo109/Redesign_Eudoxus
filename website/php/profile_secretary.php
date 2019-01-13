@@ -210,7 +210,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Όνομα</label>
                   </div>
                   <div class="col-md-6">
-                    <p><?php echo $data['name'] ?></p>
+                    <p><?php echo $data['name']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -218,7 +218,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Επώνυμο</label>
                   </div>
                   <div class="col-md-6">
-                    <p><?php echo $data['surname'] ?></p>
+                    <p><?php echo $data['surname']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -226,7 +226,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Ίδρυμα</label>
                   </div>
                   <div class="col-md-6">
-                    <p><?php echo $data['uni'] ?></p>
+                    <p><?php echo $data['uni']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -234,7 +234,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Σχολή</label>
                   </div>
                   <div class="col-md-6">
-                    <p><?php echo $data['school'] ?></p>
+                    <p><?php echo $data['school']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -242,7 +242,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Τμήμα</label>
                   </div>
                   <div class="col-md-6">
-                    <p><?php echo $data['dep'] ?></p>
+                    <p><?php echo $data['dep']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -250,7 +250,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Εξάμηνα Σπουδών</label>
                   </div>
                   <div class="col-md-6">
-                    <p><?php echo $data['semesters'] ?></p>
+                    <p><?php echo $data['semesters']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -258,7 +258,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Νομός</label>
                   </div>
                   <div class="col-md-6">
-                      <p><?php echo $data['state'] ?></p>
+                      <p><?php echo $data['state']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -266,7 +266,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Πόλη</label>
                   </div>
                   <div class="col-md-6">
-                      <p><?php echo $data['city'] ?></p>
+                      <p> <?php echo $data['city']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -282,7 +282,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Ηλ.Διεύθυνση</label>
                   </div>
                   <div class="col-md-6">
-                    <p><?php echo $data['email'] ?></p>
+                    <p><?php echo $data['email']; ?></p>
                   </div>
                 </div>
                 <div class="row">
@@ -290,7 +290,7 @@ if (isset($_SESSION['user_id'])) {
                     <label>Τηλέφωνο</label>
                   </div>
                   <div class="col-md-6">
-                    <p><?php echo $data['phone'] ?></p>
+                    <p><?php echo $data['phone']; ?></p>
                   </div>
                 </div>
               </div>
