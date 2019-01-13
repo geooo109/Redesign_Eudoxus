@@ -175,7 +175,7 @@ if (isset($_SESSION['user_id'])) {
         <div class="col-md-6">
           <div class="head">
             <h5>
-                Αναστάσιος Σκραμπράς
+              <?php echo $data['name'].' '.$data['surname']; ?>
             </h5>
             <h6>
                 Φοιτητής
@@ -199,24 +199,24 @@ if (isset($_SESSION['user_id'])) {
             <!-- Profile Settings Tab -->
             <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="container" id="cont">
-                <form>
-
+                <form action="edit_student_validation.php" method="post">
+                  <input type="hidden" id="custId" name="update_type" value="0">
                   <div class="form-row">
                     <div class="col form-group">
                       <label for="inputName">Όνομα</label>
-                      <input type="text" class="form-control" value="Αναστάσιος">
+                      <input type="text" name="name" class="form-control" value= <?php echo $data['name'] ?>>
                     </div>
                     <div class="col form-group">
                       <label for="inputName">Επώνυμο</label>
-                      <input type="text" class="form-control" value="Μαντάς">
+                      <input type="text" name="surname" class="form-control" value= <?php echo $data['surname'] ?>>
                     </div>
                   </div>
 
                   <div class="form-row">
                     <div class="col form-group">
                       <label for="inputUni">Ίδρυμα</label>
-                      <select id="inputUni" name="uni" class="form-control">\
-                        <option selected>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</option>
+                      <select id="inputUni" name="uni" class="form-control">
+                        <option selected> <?php echo $data['uni'] ?> </option>
                         <option>Ανωτάτη Σχολή Καλών Τεχνών</option>
                         <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
                         <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
@@ -227,8 +227,8 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Σχολή</label>
-                      <select id="inputUni" name="uni" class="form-control">
-                        <option selected>Θετικών Επιστημών</option>
+                      <select id="inputUni" name="school" class="form-control">
+                        <option selected> <?php echo $data['school'] ?> </option>
                         <option>Επιστημών Αγωγής</option>
                         <option>Επιστημών Υγείας</option>
                         <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>
@@ -243,7 +243,7 @@ if (isset($_SESSION['user_id'])) {
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Τμήμα</label>
                       <select id="inputDep" name="dep" class="form-control">
-                        <option selected>Πληροφορικής και Τηλεπικοινωνιών</option>
+                        <option selected><?php echo $data['dep'] ?></option>
                         <option>Βιολογίας</option>
                         <option>Γεωλογίας και Γεωπεριβάλλοντος</option>
                         <option>Ιστορίας και Φιλοσοφίας της Επιστήμης</option>
@@ -254,48 +254,48 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
-                      <input type="text" class="form-control" maxlength="13" value="1115201500087"/>
+                      <input type="text" name="register_num" class="form-control" maxlength="13" value=<?php echo $data['register_num'] ?>>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
-                      <input type="text" class="form-control" value="6972222222"/>
+                      <input type="text" name="phone" class="form-control" value=<?php echo $data['phone'] ?>>
                     </div>
                   </div>
 
-                </form>
                 <div class=" container col-md-3 align-items-center text-center">
                   <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
               </div>
             </div>
+            </form>
 
             <!-- Account Settings Tab -->
             <div class="tab-pane fade show" id="account" role="tabpanel" aria-labelledby="account-tab">
+              <form action="edit_student_validation.php" method="post">
               <div class="container" id="cont">
-                <form>
-
+                  <input type="hidden" id="custId" name="update_type" value="1">
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                      <input type="text" class="form-control"/>
+                      <input type="text" name="username" class="form-control" value=<?php echo $data['username'] ?>>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Ηλ.Διεύθυνση</label>
-                      <input type="text" class="form-control" value="skrabas@smiggol.gr"/>
+                      <input type="text" name="email" class="form-control" value=<?php echo $data['email'] ?>>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κωδικός</label>
-                      <input type="pass" class="form-control"/>
+                      <input type="pass" name="password" class="form-control"/>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Επανάληψη Κωδικού</label>
-                      <input type="pass" class="form-control"/>
+                      <input type="pass" name="re_password" class="form-control"/>
                     </div>
                   </div>
 
@@ -303,6 +303,7 @@ if (isset($_SESSION['user_id'])) {
                 <div class=" container col-md-3 align-items-center text-center">
                   <input class="btn btn-success btn-block" type="submit" value="Αποθήκευση">
                 </div>
+              </form>
               </div>
             </div>
           </div>
