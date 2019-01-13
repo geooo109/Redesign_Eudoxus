@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<html lang="el">
+
 <?php
 session_start();
 require_once '../../con_db.php';
@@ -18,7 +20,6 @@ if (isset($_SESSION['user_id'])) {
 }
 ?>
 
-<html lang="el">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -204,11 +205,11 @@ if (isset($_SESSION['user_id'])) {
                   <div class="form-row">
                     <div class="col form-group">
                       <label for="inputName">Όνομα</label>
-                      <input type="text" name="name" class="form-control" value= <?php echo $data['name'] ?>>
+                      <input type="text" name="name" class="form-control" value= <?php echo $data['name']; ?>>
                     </div>
                     <div class="col form-group">
                       <label for="inputName">Επώνυμο</label>
-                      <input type="text" name="surname" class="form-control" value= <?php echo $data['surname'] ?>>
+                      <input type="text" name="surname" class="form-control" value= <?php echo $data['surname']; ?>>
                     </div>
                   </div>
 
@@ -216,7 +217,7 @@ if (isset($_SESSION['user_id'])) {
                     <div class="col form-group">
                       <label for="inputUni">Ίδρυμα</label>
                       <select id="inputUni" name="uni" class="form-control">
-                        <option selected> <?php echo $data['uni'] ?> </option>
+                        <option selected> <?php echo $data['uni']; ?> </option>
                         <option>Ανωτάτη Σχολή Καλών Τεχνών</option>
                         <option>Αριστοτέλειο Πανεπιστήμιο Θεσσαλονίκης</option>
                         <option>Γεωπονικό Πανεπιστήμιο Αθηνών</option>
@@ -228,7 +229,7 @@ if (isset($_SESSION['user_id'])) {
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Σχολή</label>
                       <select id="inputUni" name="school" class="form-control">
-                        <option selected> <?php echo $data['school'] ?> </option>
+                        <option selected> <?php echo $data['school']; ?> </option>
                         <option>Επιστημών Αγωγής</option>
                         <option>Επιστημών Υγείας</option>
                         <option>Επιστήμης Φυσικής Αγωγής και Αθλητισμού</option>
@@ -243,7 +244,7 @@ if (isset($_SESSION['user_id'])) {
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Τμήμα</label>
                       <select id="inputDep" name="dep" class="form-control">
-                        <option selected><?php echo $data['dep'] ?></option>
+                        <option selected><?php echo $data['dep']; ?></option>
                         <option>Βιολογίας</option>
                         <option>Γεωλογίας και Γεωπεριβάλλοντος</option>
                         <option>Ιστορίας και Φιλοσοφίας της Επιστήμης</option>
@@ -254,14 +255,14 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Αριθμός Μητρώου</label>
-                      <input type="text" name="register_num" class="form-control" maxlength="13" value=<?php echo $data['register_num'] ?>>
+                      <input type="text" name="register_num" class="form-control" maxlength="13" value=<?php echo $data['register_num']; ?>>
                     </div>
                   </div>
 
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κινητό Τηλέφωνο</label>
-                      <input type="text" name="phone" class="form-control" value=<?php echo $data['phone'] ?>>
+                      <input type="text" name="phone" class="form-control" value=<?php echo $data['phone']; ?>>
                     </div>
                   </div>
 
@@ -280,11 +281,11 @@ if (isset($_SESSION['user_id'])) {
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Όνομα Χρήστη</label>
-                      <input type="text" name="username" class="form-control" value=<?php echo $data['username'] ?>>
+                      <input type="text" name="username" class="form-control" value=<?php echo $data['username']; ?>>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Ηλ.Διεύθυνση</label>
-                      <input type="text" name="email" class="form-control" value=<?php echo $data['email'] ?>>
+                      <input type="text" name="email" class="form-control" value=<?php echo $data['email']; ?>>
                     </div>
                   </div>
 

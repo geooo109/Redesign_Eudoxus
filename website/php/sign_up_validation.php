@@ -106,11 +106,12 @@ if (!empty($_POST)) {
                 $school   = mysqli_real_escape_string($connect,$_POST["school"]);
                 $dep      = mysqli_real_escape_string($connect,$_POST["dep"]);
                 $register_num = mysqli_real_escape_string($connect,$_POST["register_num"]);
+                $phone = mysqli_real_escape_string($connect,$_POST["phone"]);
                 //rememebr 0 -> stud , 1 -> secr
                 $user_type = 0;
 
-                $queryf ="INSERT INTO user(username,password,email,name,surname,uni,school,dep,register_num,user_type)
-                VALUES('$username','$password','$email','$name','$surname','$uni','$school','$dep','$resgiser_num','$user_type')";
+                $queryf ="INSERT INTO user(username,password,email,name,surname,uni,school,dep,register_num,user_type,phone)
+                VALUES('$username','$password','$email','$name','$surname','$uni','$school','$dep','$resgiser_num','$user_type','$phone')";
 
                 if ($connect->query($queryf) === TRUE) {
                     $_SESSION["msg"] = "Η Εγγραφή σας έγινε με επιτυχία";
@@ -205,15 +206,16 @@ if (!empty($_POST)) {
               $uni      = mysqli_real_escape_string($connect,$_POST["uni"]);
               $school   = mysqli_real_escape_string($connect,$_POST["school"]);
               $dep      = mysqli_real_escape_string($connect,$_POST["dep"]);
-              $semester_num = mysqli_real_escape_string($connect,$_POST["semester_num"]);
+              $semesters = mysqli_real_escape_string($connect,$_POST["semesters"]);
               $state = mysqli_real_escape_string($connect,$_POST["state"]);
               $city = mysqli_real_escape_string($connect,$_POST["city"]);
               $postal_address = mysqli_real_escape_string($connect,$_POST["postal_address"]);
+              //$phone = mysqli_real_escape_string($connect,$_POST["phone"]);
               //rememebr 0 -> stud , 1 -> secr
               $user_type = 1;
 
-              $queryff ="INSERT INTO user (username,password,email,name,surname,uni,school,dep,postal_address,state,city,user_type)
-              VALUES('$username','$password','$email','$name','$surname','$uni','$school','$dep','$postal_address','$state','$city','$user_type')";
+              $queryff ="INSERT INTO user (username,password,email,name,surname,uni,school,dep,postal_address,state,city,user_type,semesters)
+              VALUES('$username','$password','$email','$name','$surname','$uni','$school','$dep','$postal_address','$state','$city','$user_type,$semesters')";
 
               if ($connect->query($queryff) === TRUE) {
                   $_SESSION["msg"] = "Η Εγγραφή σας έγινε με επιτυχία";

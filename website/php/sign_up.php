@@ -326,7 +326,7 @@
               </div>
               <div class="form-group">
                 <label for="inputSemester">Εξάμηνα Σπουδών</label>
-                <select id="inputSemester" name="semester_num" class="form-control">
+                <select id="inputSemester" name="semesters" class="form-control">
                   <option selected>1</option>
                   <option>2</option>
                   <option>3</option>
