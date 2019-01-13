@@ -368,18 +368,18 @@ session_start();
             </div>
             <div class="form-group col-md-2">
               <label for="inputZip">T.K.</label>
-              <input type="text" class="form-control required" name="zipcode" maxlength="5" id="inputZip" required>
+              <input type="text" class="form-control" name="zipcode" maxlength="5" id="inputZip" required>
             </div>
           </div>
           <div class="form-row">
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Όνομα</label>
-                <input type="text" class="form-control required" name="name" placeholder="Όνομα *"  required>
+                <input type="text" class="form-control" name="name" placeholder="Όνομα *"  required>
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Τηλέφωνο</label>
-                <input type="text" class="form-control required" name="phone" placeholder="Τηλέφωνο *"  maxlength="10"  minlength="10" required>
+                <input type="text" class="form-control" name="phone" placeholder="Τηλέφωνο *"  maxlength="10"  minlength="10" required>
               </div>
               <div class="custom-control custom-checkbox mb-3 form-group">
                 <input type="checkbox" class="custom-control-input" id="customCheck3" required>
@@ -389,7 +389,7 @@ session_start();
             <div class="col-md-6">
               <div class="form-group">
                 <label for="exampleInputEmail1">Επώνυμο</label>
-                <input type="text" class="form-control required" name="surname" placeholder="Επώνυμο *"  required>
+                <input type="text" class="form-control" name="surname" placeholder="Επώνυμο *"  required>
               </div>
             </div>
           </div>

@@ -205,24 +205,24 @@ if (!empty($_POST)) {
 
           if (isset($_POST["password"]) && isset($_POST["re_password"])) {
             if ($_POST["password"] == $_POST["re_password"]) {
-              $username     = mysqli_real_escape_string($connect,$_POST["username"]);
-              $password     = mysqli_real_escape_string($connect,$_POST["password"]);
-              $email        = mysqli_real_escape_string($connect,$_POST["email"]);
-              $name         = mysqli_real_escape_string($connect,$_POST["name"]);
-              $surname      = mysqli_real_escape_string($connect,$_POST["surname"]);
-              $uni          = mysqli_real_escape_string($connect,$_POST["uni"]);
-              $school       = mysqli_real_escape_string($connect,$_POST["school"]);
-              $dep          = mysqli_real_escape_string($connect,$_POST["dep"]);
-              $semester_num = mysqli_real_escape_string($connect,$_POST["semester_num"]);
-              $state        = mysqli_real_escape_string($connect,$_POST["state"]);
-              $city         = mysqli_real_escape_string($connect,$_POST["city"]);
-              $zipcode      = mysqli_real_escape_string($connect,$_POST["zipcode"]);
-              $phone        = mysqli_real_escape_string($connect,$_POST["phone"]);
+              $username  = mysqli_real_escape_string($connect,$_POST["username"]);
+              $password  = mysqli_real_escape_string($connect,$_POST["password"]);
+              $email     = mysqli_real_escape_string($connect,$_POST["email"]);
+              $name      = mysqli_real_escape_string($connect,$_POST["name"]);
+              $surname   = mysqli_real_escape_string($connect,$_POST["surname"]);
+              $uni       = mysqli_real_escape_string($connect,$_POST["uni"]);
+              $school    = mysqli_real_escape_string($connect,$_POST["school"]);
+              $dep       = mysqli_real_escape_string($connect,$_POST["dep"]);
+              $semesters = mysqli_real_escape_string($connect,$_POST["semesters"]);
+              $state     = mysqli_real_escape_string($connect,$_POST["state"]);
+              $city      = mysqli_real_escape_string($connect,$_POST["city"]);
+              $zipcode   = mysqli_real_escape_string($connect,$_POST["zipcode"]);
+              $phone     = mysqli_real_escape_string($connect,$_POST["phone"]);
               //rememebr 0 -> stud , 1 -> secr
               $user_type = 1;
 
               $queryff ="INSERT INTO user (username,password,email,name,surname,uni,school,dep,semesters,zipcode,state,city,phone,user_type)
-              VALUES('$username','$password','$email','$name','$surname','$uni','$school','$dep','$semester_num','$zipcode','$state','$city','$phone','$user_type')";
+              VALUES('$username','$password','$email','$name','$surname','$uni','$school','$dep','$semesters','$zipcode','$state','$city','$phone','$user_type')";
 
               if ($connect->query($queryff) === TRUE) {
                 $_SESSION["msg"]     = "Η Εγγραφή σας έγινε με επιτυχία";
@@ -234,7 +234,8 @@ if (!empty($_POST)) {
               }
               else {
                   echo "Error: " . $queryff . "<br>" . $connect->error;
-                  $_SESSION["msg"] = "<br>Η Εγγραφή απέτυχε <br/>";
+                  $_SESSION["msg"] = "<br>Η Εγγραφή απέτυχε <br/>" . " " . $username . " " . $password . " " . $email . " " . $name . " " . $surname . " " . $uni . " " . $school . " " .
+                  $dep . " " . $semester_num . " " . $state . " " . $city . " " . $zipcode . " " . $phone ;
                   header('location:./sign_up.php?success=0');
                   die();
               }
