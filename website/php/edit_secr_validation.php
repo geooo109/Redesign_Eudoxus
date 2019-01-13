@@ -1,8 +1,8 @@
 <?php
 /*
 -----------------------------INFO----------------------------
-update_type 0 -> student + update basic stuff
-update_type 1 -> student + update email (more db queries)
+update_type 0 -> secretary + update basic stuff
+update_type 1 -> secretary + update email (more db queries)
 
 update_type 2 -> secretary + basic
 update_type 3 -> secretary + update email (etc)
@@ -28,7 +28,7 @@ echo "<br />\n";
 echo "<br />\n";
 */
 
-//check if we have student
+//check if we have secretary
 if (!empty($_POST)) {
   $_SESSION["msg"] = "";
   // create con + error check for error
@@ -40,18 +40,20 @@ if (!empty($_POST)) {
   }
   $curr_id = $_SESSION['user_id'];
 
-  // this means we have a student + basic stuff
+  // this means we have a secretary + basic stuff
   if ($_POST["update_type"] == 2) {
       // get info from db
-      $name     = mysqli_real_escape_string($connect,$_POST["name"]);
-      $surname  = mysqli_real_escape_string($connect,$_POST["surname"]);
-      $uni      = mysqli_real_escape_string($connect,$_POST["uni"]);
-      $school   = mysqli_real_escape_string($connect,$_POST["school"]);
-      $dep      = mysqli_real_escape_string($connect,$_POST["dep"]);
+      $name      = mysqli_real_escape_string($connect,$_POST["name"]);
+      $surname   = mysqli_real_escape_string($connect,$_POST["surname"]);
+      $uni       = mysqli_real_escape_string($connect,$_POST["uni"]);
+      $school    = mysqli_real_escape_string($connect,$_POST["school"]);
+      $dep       = mysqli_real_escape_string($connect,$_POST["dep"]);
       $semesters = mysqli_real_escape_string($connect,$_POST["semesters"]);
-      $state = mysqli_real_escape_string($connect,$_POST["state"]);
-      $city = mysqli_real_escape_string($connect,$_POST["city"]);
-      $postal_address = mysqli_real_escape_string($connect,$_POST["postal_address"]);
+      $state     = mysqli_real_escape_string($connect,$_POST["state"]);
+      $city      = mysqli_real_escape_string($connect,$_POST["city"]);
+      $zipcode   = mysqli_real_escape_string($connect,$_POST["zipcode"]);
+      $phone     = mysqli_real_escape_string($connect,$_POST["phone"]);
+
       // must be unique
       $queryrn   = "SELECT * from user WHERE id = '$curr_id'";
       $result  = $connect->query($queryrn);
@@ -64,7 +66,7 @@ if (!empty($_POST)) {
       // means we found a username in our db
       if (mysqli_num_rows($result) && $data['id'] != $_SESSION['user_id']) {
         $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν";
-        //header('location:./sign_up.php');
+        header('location:./edit_secretary.php?success=0');
         echo "<br>".$_SESSION["msg"]."<br/>";
         die();
       }
@@ -73,11 +75,12 @@ if (!empty($_POST)) {
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
 
       }
@@ -87,11 +90,12 @@ if (!empty($_POST)) {
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
       }
 
@@ -100,11 +104,12 @@ if (!empty($_POST)) {
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
       }
 
@@ -113,11 +118,12 @@ if (!empty($_POST)) {
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
       }
 
@@ -126,11 +132,12 @@ if (!empty($_POST)) {
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
       }
       if ($semesters != '' && $data['semesters'] != $semesters) {
@@ -138,11 +145,12 @@ if (!empty($_POST)) {
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
       }
       if ($state != '' && $data['state'] != $state) {
@@ -150,11 +158,12 @@ if (!empty($_POST)) {
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
       }
       if ($city != '' && $data['city'] != $city) {
@@ -162,23 +171,25 @@ if (!empty($_POST)) {
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
       }
-      if ($postal_address != '' && $data['postal_address'] != $postal_address) {
-        $queryf ="UPDATE user SET  postal_address = '$postal_address' WHERE id = '$curr_id'";
+      if ($zipcode != '' && $data['zipcode'] != $zipcode) {
+        $queryf ="UPDATE user SET  zipcode = '$zipcode' WHERE id = '$curr_id'";
 
         if ($connect->query($queryf) === TRUE) {
             $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-            //header("location:./edit_student.php");
+            header("location:./edit_secretary.php?success=1");
         }
         else {
             echo "Error: " . $queryf . "<br>" . $connect->error;
             $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+            header('location:./edit_secretary.php?success=0');
         }
       }
     }
@@ -208,7 +219,7 @@ if (!empty($_POST)) {
         $data  =  mysqli_fetch_array($result);
         if (mysqli_num_rows($result) && $curr_id != $data['id']) {
           $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν, Υπάρχει ήδη αυτό το username";
-          //header('location:./sign_up.php');
+          header('location:./edit_secretary.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";
           die();
         }
@@ -219,11 +230,12 @@ if (!empty($_POST)) {
           echo 'apadawwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww';
           if ($connect->query($queryf) === TRUE) {
               $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-              //header("location:./edit_student.php");
+              header("location:./edit_secretary.php?success=1");
           }
           else {
               echo "Error: " . $queryf . "<br>" . $connect->error;
               $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+              header('location:./edit_secretary.php?success=0');
           }
         }
       }
@@ -238,7 +250,7 @@ if (!empty($_POST)) {
         $data  =  mysqli_fetch_array($result);
         if (mysqli_num_rows($result) && $curr_id != $data['id']) {
           $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν, Υπάρχει ήδη αυτό το email";
-          //header('location:./sign_up.php');
+          header('location:./edit_secretary.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";
           die();
         }
@@ -249,11 +261,12 @@ if (!empty($_POST)) {
 
           if ($connect->query($queryf) === TRUE) {
               $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-              //header("location:./edit_student.php");
+              header("location:./edit_secretary.php?success=1");
           }
           else {
               echo "Error: " . $queryf . "<br>" . $connect->error;
               $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+              header('location:./edit_secretary.php?success=0');
           }
         }
       }
@@ -261,7 +274,7 @@ if (!empty($_POST)) {
       if ($password != '') {
         if ($password != $re_passowrd) {
           $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν, Οι κωδικοί που δώσατε δεν ταιριάζουν";
-          //header('location:./sign_up.php');
+          header('location:./edit_secretary.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";
           die();
         }
@@ -275,7 +288,7 @@ if (!empty($_POST)) {
         $data  =  mysqli_fetch_array($result);
         if (mysqli_num_rows($result) && $curr_id != $data['id']) {
           $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν, Υπάρχει ήδη αυτός ο κωδικός";
-          //header('location:./sign_up.php');
+          header('location:./edit_secretary.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";
           die();
         }
@@ -286,11 +299,12 @@ if (!empty($_POST)) {
 
           if ($connect->query($queryf) === TRUE) {
               $_SESSION["msg"] = "Τα στοιχεία σας άλλαξαν με επιτυχία";
-              //header("location:./edit_student.php");
+              header("location:./edit_secretary.php?success=1");
           }
           else {
               echo "Error: " . $queryf . "<br>" . $connect->error;
               $_SESSION["msg"] = "Η αλλαγή στοιχείων απέτυχε";
+              header('location:./edit_secretary.php?success=0');
           }
         }
       }

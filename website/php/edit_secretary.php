@@ -202,7 +202,7 @@ if (isset($_SESSION['user_id'])) {
             <!-- Profile Settings Tab -->
             <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="container" id="cont">
-                <form action="edit_secr_validation.php" method="post" novalidate>
+                <form class="editform" action="edit_secr_validation.php" method="post" novalidate>
                   <input type="hidden" id="custId" name="update_type" value="2">
                   <div class="form-row">
                     <div class="col form-group">
@@ -294,7 +294,7 @@ if (isset($_SESSION['user_id'])) {
                     </div>
                     <div class="col-md-2 form-group">
                       <label for="inputZip">T.K.</label>
-                      <input type="text" class="form-control" name="postal_address" id="inputZip" value=<?php echo $data['postal_address']; ?> required>
+                      <input type="text" class="form-control" name="zipcode" id="inputZip" value=<?php echo $data['zipcode']; ?> required>
                     </div>
                   </div>
                 <div class=" container col-md-3 align-items-center text-center">
@@ -323,11 +323,11 @@ if (isset($_SESSION['user_id'])) {
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κωδικός</label>
-                      <input type="pass" class="form-control"required>
+                      <input type="password" class="form-control"required>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Επανάληψη Κωδικού</label>
-                      <input type="pass" class="form-control"required>
+                      <input type="password" class="form-control"required>
                     </div>
                   </div>
 
@@ -514,7 +514,35 @@ if (isset($_SESSION['user_id'])) {
       </div>
     </div>
 
+    <!-- Modal shown after edit -->
+    <?php
+    session_start();
+    if ( isset($_GET['success'])){
+        echo
+        '    <div class="modal fade" id="editresult" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body text-center">'
+                    . $_SESSION["msg"] .
+                  '</div>
+                  <div class="modal-footer">
+                    <div class="col-md-12 text-center">';
 
+                      if($_GET['success']==0){
+                        echo '<button name="singlebutton" class="btn btn-sm btn-primary"data-dismiss="modal">Δοκιμάστε Ξανά</button>';
+                      }
+                      else {
+                        echo '<button name="singlebutton" class="btn btn-sm btn-success"data-dismiss="modal">Συνέχεια</button>';
+                      }
+
+                      echo
+                    '</div>
+                  </div>
+                </div>
+              </div>
+            </div>';
+      }
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -547,6 +575,14 @@ if (isset($_SESSION['user_id'])) {
         }, false);
     })();
     </script>
+
+    <!-- Modal shown after edit -->
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $('#editresult').modal('show');
+      });
+    </script>
+
 
   </body>
 

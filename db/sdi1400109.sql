@@ -60,13 +60,24 @@ CREATE TABLE IF NOT EXISTS `sdi1400109`.`book` (
   `title` varchar(45) NOT NULL,
   `author_id` int NOT NULL,
   `publisher_id` int NOT NULL,
-  `course` varchar(45) NOT NULL,
+  `course_id` int NOT NULL,
   `professor` varchar(45) NOT NULL,
   `semester` int NOT NULL,
   `eudoxus_code` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
+  FOREIGN KEY (course_id) REFERENCES course(id),
   FOREIGN KEY (author_id) REFERENCES author(id),
   FOREIGN KEY (publisher_id) REFERENCES publisher(id)
+) ENGINE = InnoDB;
+
+--
+-- Δομή πίνακα για τον πίνακα `course`
+--
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE IF NOT EXISTS `sdi1400109`.`course` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
 --
@@ -120,13 +131,14 @@ CREATE TABLE IF NOT EXISTS `sdi1400109`.`book_point` (
 
 
 --
--- δομή πίνακα για τον πίνακα `user_book` (Junction table between `user` and `book`)
+-- δομή πίνακα για τον πίνακα `statement` (Junction table between `user` and `book`)
 --
-DROP TABLE IF EXISTS `user_book`;
-CREATE TABLE IF NOT EXISTS `sdi1400109`.`user_book` (
+DROP TABLE IF EXISTS `statement`;
+CREATE TABLE IF NOT EXISTS `sdi1400109`.`statement` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `book_id` int NOT NULL,
+  `date` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES user(`id`)  ON DELETE CASCADE,
   FOREIGN KEY (`book_id`) REFERENCES book(`id`) ON DELETE CASCADE
@@ -153,19 +165,24 @@ INSERT INTO publisher (name) VALUES
 ('TSELIKIS TSELIKAS'),('KLEIDARITHMOS'),('NKUA'),('PAPASOTIRIOU'),('KRITIS'),('Diaulos'),('PAPASOTIRIOU'),('Themelio'),('TZIOLA');
 UNLOCK TABLES;
 
+LOCK TABLES course WRITE;
+INSERT INTO course (title) VALUES
+('Introduction to Programming'),('Logic Design'),('Calculus I'),('Signals and Systems'),('Computer Architecture I'),('Data Mining');
+UNLOCK TABLES;
+
 
 LOCK TABLES book WRITE;
-INSERT INTO book (title,author_id,publisher_id,course,professor,semester,eudoxus_code) VALUES
-('C From theory to Practice',1,1,'Introduction to Programming','P.Stamatopoulos',1,68383623),
-('C in depth',4,2,'Introduction to Programming','P.Stamatopoulos',1,68384925),
-('Programming with C',2,3,'Introduction to Programming','P.Stamatopoulos',1,68403081),
-('C Programming Language',3,8,'Introduction to Programming','P.Stamatopoulos',1,13956),
-('Digital Design',5,7,'Logic Design','Antonis Paschalis',1,68406394),
-('Logic Design Principles',10,2,'Logic Design','Antonis Paschalis',1,13946),
-('Calculus',7,5,'Calculus I','Kotta-Athanasiadou',2,22689021),
-('Introduction to Data Mining',11,9,'Data Mining','D.Gounopoulos',6,18549105),
-('Signals and Algorithms',6,6,'Signals and Systems','A.Karampogias',3,13946),
-('Computer Architecture 5th Edition',12,2,'Computer Architecture I','D.Gkizopoulos',2,12561945);
+INSERT INTO book (title,author_id,publisher_id,course_id,professor,semester,eudoxus_code) VALUES
+('C From theory to Practice',1,1,1,'P.Stamatopoulos',1,68383623),
+('C in depth',4,2,1,'P.Stamatopoulos',1,68384925),
+('Programming with C',2,3,1,'P.Stamatopoulos',1,68403081),
+('C Programming Language',3,8,1,'P.Stamatopoulos',1,13956),
+('Digital Design',5,7,2,'Antonis Paschalis',1,68406394),
+('Logic Design Principles',10,2,2,'Antonis Paschalis',1,13946),
+('Calculus',7,5,3,'Kotta-Athanasiadou',2,22689021),
+('Introduction to Data Mining',11,9,6,'D.Gounopoulos',6,18549105),
+('Signals and Algorithms',6,6,4,'A.Karampogias',3,13946),
+('Computer Architecture 5th Edition',12,2,5,'D.Gkizopoulos',2,12561945);
 UNLOCK TABLES;
 
 LOCK TABLES point WRITE;
