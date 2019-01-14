@@ -322,7 +322,11 @@
                         <i class="fas fa-chevron-right"></i>Μάθημα 3
                       </a>
                       <div class="list-group collapse" id="course3">
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> dd4ea1fa906a3f75fc5f29c32bb5de38b781583c
                       </div>
 
                     </div>
