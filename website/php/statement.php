@@ -374,6 +374,25 @@
     </div>
 
 
+    <!-- Modal for showing point info -->
+    <div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="validationModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-primary" id="validationModalLabel">Μήνυμα Δήλωσης</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="validationModalBody">
+            <!-- Will be filled via Javascript AJAX and PHP -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Πίσω</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -485,6 +504,9 @@
             type:"post",
             data:{book_ids:book_ids},
             success:function(data){
+              // Construct the body of the modal and show it
+              $("#validationModalBody").html(data);
+              $("#validationModal").modal('show');
             }
           });
         }

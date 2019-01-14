@@ -7,20 +7,25 @@
     die("Connection failed: " . $connect->connect_error);
   }
 
-  if ((isset($_SESSION['user_id'])) && ($_SESSION['user_type']==0)) {
-    $userid  = $_SESSION['user_id'];
+  if (isset($_SESSION['user_id'])) {
+    if ($_SESSION['user_type']==0) {
+      $userid  = $_SESSION['user_id'];
 
-    if(isset($_REQUEST['book_ids'])){
-      echo "LOL";
-      $books_ids = $_REQUEST['book_ids'];
-      foreach($books_ids as $id) {
-        $date  = date("m.d.y");
-        $query = "INSERT INTO statement(user_id,book_id,date) VALUES('$userid','$id','$date')";
+      if(isset($_REQUEST['book_ids'])){
+        $books_ids = $_REQUEST['book_ids'];
+        foreach($books_ids as $id) {
+          $date  = date("m.d.y");
+          $query = "INSERT INTO statement(user_id,book_id,date) VALUES('$userid','$id','$date')";
+          mysqli_query($connect,$query);
+        }
+        echo "Επιτυχής Δήλωση Μαθημάτων :)";
       }
-      echo "Επιτυχής Δήλωση Μαθημάτων !!!";
+    }
+    else {
+      echo "Δεν είστε φοιτητής :(";
     }
   }
   else {
-    header('location:./sign_in.php');
+    echo "Ανεπιτυχής Δήλωση Μαθημάτων :(";
   }
 ?>
