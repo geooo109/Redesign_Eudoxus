@@ -61,8 +61,6 @@ CREATE TABLE IF NOT EXISTS `sdi1400109`.`book` (
   `author_id` int NOT NULL,
   `publisher_id` int NOT NULL,
   `course_id` int NOT NULL,
-  `professor` varchar(45) NOT NULL,
-  `semester` int NOT NULL,
   `eudoxus_code` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   FOREIGN KEY (course_id) REFERENCES course(id),
@@ -77,6 +75,8 @@ DROP TABLE IF EXISTS `course`;
 CREATE TABLE IF NOT EXISTS `sdi1400109`.`course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) NOT NULL,
+  `semester` int NOT NULL,
+  `professor` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
 
@@ -156,33 +156,39 @@ UNLOCK TABLES;
 LOCK TABLES author WRITE;
 INSERT INTO author (name) VALUES
 ('TSELIKIS TSELIKAS'),('Nikolaos Misirlis'),('BRIAN W. KERNIGHAN, DENNIS M. RITCHIE'),('N.Hatzigiannakis'),('Mano Morris - Ciletti Michael'),
-('Kalouptsidis'),('FINNEY R.L., WEIR M.D., GIORDANO F.R.'),('Thomas H. Cormen'),('Alfred Aho'),('JOHN F. WAKERLY'),('Tan Pang - Ning'),('David A. Patterson');
+('Kalouptsidis'),('FINNEY R.L., WEIR M.D., GIORDANO F.R.'),('Thomas H. Cormen'),('Alfred Aho'),('JOHN F. WAKERLY'),('Tan Pang - Ning'),('David A. Patterson'),
+('Dimitrios Varsos');
 UNLOCK TABLES;
 
 
 LOCK TABLES publisher WRITE;
 INSERT INTO publisher (name) VALUES
-('TSELIKIS TSELIKAS'),('KLEIDARITHMOS'),('NKUA'),('PAPASOTIRIOU'),('KRITIS'),('Diaulos'),('PAPASOTIRIOU'),('Themelio'),('TZIOLA');
+('TSELIKIS TSELIKAS'),('KLEIDARITHMOS'),('NKUA'),('PAPASOTIRIOU'),('KRITIS'),('Diaulos'),('PAPASOTIRIOU'),('Themelio'),('TZIOLA'),('Sofia');
 UNLOCK TABLES;
 
 LOCK TABLES course WRITE;
-INSERT INTO course (title) VALUES
-('Introduction to Programming'),('Logic Design'),('Calculus I'),('Signals and Systems'),('Computer Architecture I'),('Data Mining');
+INSERT INTO course (title,semester,professor) VALUES
+('Introduction to Programming',1,'P.Stamatopoulos'),
+('Logic Design',1,'Antonis Paschalis'),
+('Calculus I',2,'Kotta-Athanasiadou'),
+('Signals and Systems',3,'A.Karampogias'),
+('Computer Architecture I',2,'D.Gkizopoulos'),
+('Linear Algebra',1,'P.Raptis');
 UNLOCK TABLES;
 
 
 LOCK TABLES book WRITE;
-INSERT INTO book (title,author_id,publisher_id,course_id,professor,semester,eudoxus_code) VALUES
-('C From theory to Practice',1,1,1,'P.Stamatopoulos',1,68383623),
-('C in depth',4,2,1,'P.Stamatopoulos',1,68384925),
-('Programming with C',2,3,1,'P.Stamatopoulos',1,68403081),
-('C Programming Language',3,8,1,'P.Stamatopoulos',1,13956),
-('Digital Design',5,7,2,'Antonis Paschalis',1,68406394),
-('Logic Design Principles',10,2,2,'Antonis Paschalis',1,13946),
-('Calculus',7,5,3,'Kotta-Athanasiadou',2,22689021),
-('Introduction to Data Mining',11,9,6,'D.Gounopoulos',6,18549105),
-('Signals and Algorithms',6,6,4,'A.Karampogias',3,13946),
-('Computer Architecture 5th Edition',12,2,5,'D.Gkizopoulos',2,12561945);
+INSERT INTO book (title,author_id,publisher_id,course_id,eudoxus_code) VALUES
+('C From theory to Practice',1,1,1,68383623),
+('C in depth',4,2,1,68384925),
+('Programming with C',2,3,1,68403081),
+('C Programming Language',3,8,1,13956),
+('Digital Design',5,7,2,68406394),
+('Logic Design Principles',10,2,2,13946),
+('Calculus',7,5,3,22689021),
+('Signals and Algorithms',6,6,4,13946),
+('Computer Architecture 5th Edition',12,2,5,12561945),
+('Introduction to Linear Algebra',13,10,6,22768417);
 UNLOCK TABLES;
 
 LOCK TABLES point WRITE;

@@ -28,9 +28,11 @@ if (!empty($_POST)) {
       // when "Profile" button is clicked.
       if ($user->user_type == '0'){
         $_SESSION['profile'] = 'profile_student.php';
+        $_SESSION['user_type'] = '0';
       }
       else {
         $_SESSION['profile'] = 'profile_secretary.php';
+        $_SESSION['user_type'] = '1';
       }
       $msg = 'Logged in Successful';
       $_SESSION["msg"] = "Η Σύνδεσή σας έγινε με επιτυχία";

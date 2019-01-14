@@ -11,7 +11,7 @@
   $title        = mysqli_real_escape_string($connect, $_POST["title"]);
   $author       = mysqli_real_escape_string($connect, $_POST["author"]); // The author name given by the user
   $publisher    = mysqli_real_escape_string($connect, $_POST["publisher"]); // The publisher name given by the user
-  $course       = mysqli_real_escape_string($connect, $_POST["course"]);
+  $course       = mysqli_real_escape_string($connect, $_POST["course"]); // The course name given by the user
   $professor    = mysqli_real_escape_string($connect, $_POST["professor"]);
   $semester     = mysqli_real_escape_string($connect, $_POST["semester"]);
   $eudoxus_code = mysqli_real_escape_string($connect, $_POST["eudoxus_code"]);
@@ -39,8 +39,20 @@
     $publisherid = mysqli_fetch_array(mysqli_query($connect,"SELECT publisher.id FROM publisher WHERE publisher.name='$publisher'"))['id'];
   }
 
+  $result = mysqli_query($connect,"SELECT course.id FROM course WHERE course.title='$course'");
+  if(mysqli_num_rows($result)==1){
+    $courseid = mysqli_fetch_array($result)['id'];
+  }
+  else {
+    // In case the given course does not exist in our DB , we need to add it first
+    mysqli_query($connect,"INSERT INTO course(title,semester,professor) VALUES('$course','$semester','$professor')");
+    // Retrieve its id
+    $courseid = mysqli_fetch_array(mysqli_query($connect,"SELECT course.id FROM course WHERE course.title='$course'"))['id'];
+  }
+
+
   $query   = "UPDATE book
-  SET title = '$title',  author_id = '$authorid', publisher_id = '$publisherid', course = '$course', professor = '$professor', semester = '$semester', eudoxus_code = '$eudoxus_code'
+  SET title = '$title',  author_id = '$authorid', publisher_id = '$publisherid', course_id = '$courseid', eudoxus_code = '$eudoxus_code'
   WHERE id='$edit_id'";
   $result  = mysqli_query($connect, $query);
 

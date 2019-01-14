@@ -315,7 +315,7 @@ if (isset($_SESSION['user_id'])) {
             <?php
               // We should fetch the books of current student, i.e: student with id == $_SESSION['user_id']
                $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
-               $query = "SELECT b.id, b.title, a.name, b.course, b.professor, b.semester, b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id ORDER BY b.id";
+               $query = "SELECT b.id, b.title, a.name, c.title, c.professor, c.semester, b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN course AS c ON b.course_id=c.id ORDER BY c.semester";
                $result = mysqli_query($connect, $query);
              ?>
             <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-tab">
@@ -339,9 +339,9 @@ if (isset($_SESSION['user_id'])) {
                     ?>
                     <tr>
                       <th class="align-middle" scope="row"> <?php echo $row['id']; ?></th>
-                      <td class="align-middle"><?php echo $row["course"]; ?></td>
-                      <td class="align-middle"><?php echo $row["professor"]; ?></td>
-                      <td class="align-middle"><?php echo $row["semester"]; ?></td>
+                      <td class="align-middle"><?php echo $row[3]; ?></td>
+                      <td class="align-middle"><?php echo $row[4]; ?></td>
+                      <td class="align-middle"><?php echo $row[5]; ?></td>
                       <td class="align-middle"><?php echo $row["title"]; ?></td>
                       <td class="align-middle"><?php echo $row[2]; ?></td>
                       <td class="align-middle"><?php echo $row["eudoxus_code"]; ?></td>

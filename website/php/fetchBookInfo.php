@@ -6,10 +6,10 @@
     die("Connection failed: " . $connect->connect_error);
   }
 
-  if(isset($_POST['del_id'])){
+  if(isset($_POST['info_id'])){
 
-    $del_id = mysqli_real_escape_string($connect, $_POST['del_id']);
-    $query   = "SELECT * from book WHERE id = '$del_id'";
+    $info_id = mysqli_real_escape_string($connect, $_POST['info_id']);
+    $query   = "SELECT * from book WHERE id = '$info_id'";
     $result  = mysqli_query($connect, $query);
     while ($data = mysqli_fetch_array($result)) {
       $title             = $data['title'];
@@ -38,34 +38,25 @@
  ?>
 
 
- <input hidden name="del_id" id="del_id" value="<?php echo $del_id ?>">
+ <input hidden name="info_id" id="info_id" value="<?php echo $info_id ?>">
 
 
- <div class="form-group">
-   <label><strong>Τίτλος</strong>: <?php echo $title; ?></label>
- </div>
+   <label><strong>Τίτλος</strong>: <?php echo $title; ?> </label>
+   <br>
 
+   <label><strong>Συγγραφέας</strong>: <?php echo $author; ?> </label>
+   <br>
 
- <div class="form-group">
-   <label><strong>Συγγραφέας</strong>: <?php echo $author; ?></label>
- </div>
+   <label><strong>Εκδόσεις</strong>: <?php echo $publisher; ?>  </label>
+   <br>
 
- <div class="form-group">
-   <label><strong>Εκδόσεις</strong>: <?php echo $publisher; ?></label>
- </div>
+   <label><strong>Μάθημα</strong>: <?php echo $course; ?>   </label>
+   <br>
 
- <div class="form-group">
-   <label><strong>Μάθημα</strong>: <?php echo $course; ?></label>
- </div>
+   <label><strong>Καθηγητής</strong>: <?php echo $professor; ?>  </label>
+   <br>
 
- <div class="form-group">
-   <label><strong>Καθηγητής</strong>: <?php echo $professor; ?></label>
- </div>
+   <label><strong>Εξάμηνο</strong>: <?php echo $semester; ?> </label>
+   <br>
 
- <div class="form-group">
-   <label><strong>Εξάμηνο</strong>: <?php echo $semester; ?></label>
- </div>
-
- <div class="form-group">
    <label><strong>Κωδικός Ευδόξου</strong>: <?php echo $eudoxus_code; ?></label>
- </div>

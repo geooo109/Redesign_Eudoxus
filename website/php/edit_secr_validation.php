@@ -196,12 +196,12 @@ if (!empty($_POST)) {
 
     // secretary + email etc
     else if ($_POST["update_type"] == 3) {
-      $username = mysqli_real_escape_string($connect,$_POST["username"]);
-      $password = mysqli_real_escape_string($connect,$_POST["password"]);
+      $username    = mysqli_real_escape_string($connect,$_POST["username"]);
+      $password    = mysqli_real_escape_string($connect,$_POST["password"]);
       $re_passowrd = mysqli_real_escape_string($connect,$_POST["re_password"]);
-      $email    = mysqli_real_escape_string($connect,$_POST["email"]);
-      $queryrn   = "SELECT username,password,email from user WHERE id = '$curr_id'";
-      $result  = $connect->query($queryrn);
+      $email       = mysqli_real_escape_string($connect,$_POST["email"]);
+      $queryrn     = "SELECT username,password,email from user WHERE id = '$curr_id'";
+      $result      = $connect->query($queryrn);
       // error check
       if (!$result) {
         ($connect->error);

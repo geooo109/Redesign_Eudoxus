@@ -28,9 +28,16 @@
       $temp              = mysqli_query($connect,"SELECT publisher.name FROM publisher WHERE publisher.id='$prev_publisher_id'");
       $publisher         = mysqli_fetch_array($temp)['name'];
 
-      $course            = $data['course'];
-      $professor         = $data['professor'];
-      $semester          = $data['semester'];
+      $prev_course_id    = $data['course_id']; // Id of the course before the update
+      $temp              = mysqli_query($connect,"SELECT course.title FROM course WHERE course.id='$prev_course_id'");
+      $course            = mysqli_fetch_array($temp)['title'];
+
+      $temp              = mysqli_query($connect,"SELECT course.professor  FROM course WHERE course.id='$prev_course_id'");
+      $professor         = mysqli_fetch_array($temp)['professor'];
+
+      $temp              = mysqli_query($connect,"SELECT course.semester FROM course WHERE course.id='$prev_course_id'");
+      $semester          = mysqli_fetch_array($temp)['semester'];
+
       $eudoxus_code      = $data['eudoxus_code'];
     }
   }

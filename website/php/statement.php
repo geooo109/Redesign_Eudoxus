@@ -181,13 +181,13 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" role="tab" aria-controls="pills-summary" aria-selected="false">
+          <a class="nav-link summaryPane" id="pills-summary-tab" data-toggle="pill" href="#pills-summary" role="tab" aria-controls="pills-summary" aria-selected="false">
             <i class="fas fa-list-ul"></i>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" id="pills-point-tab" data-toggle="pill" href="#pills-point" role="tab" aria-controls="pills-point" aria-selected="false">
+          <a class="nav-link pointsPane" id="pills-point-tab" data-toggle="pill" href="#pills-point" role="tab" aria-controls="pills-point" aria-selected="false">
             <i class="fas fa-map-marked-alt"></i>
           </a>
         </li>
@@ -241,9 +241,12 @@
         </div>
 
         <!-- Select Semester,Courses-Books pane -->
-        <div class="tab-pane fade" id="pills-book" role="tabpanel" aria-labelledby="pills-booktab">
+        <div class="tab-pane fade bookselection" id="pills-book" role="tabpanel" aria-labelledby="pills-booktab">
           <h4> Επιλογή Συγγραμμάτων </h4>
           <div id="accordion">
+
+
+          <!-- Εξαμηνο 1 -->
             <div class="card">
               <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
@@ -260,138 +263,66 @@
                       <?php
 
                         // Firstly, we should fetch each course
-                        // $connect    = mysqli_connect("localhost", "root", "root", "sdi1400109");
-                        // $query      = "SELECT course.title FROM course";
-                        // $result     = mysqli_query($connect, $query);
-                        //
-                        // while($row = mysqli_fetch_array($result))
-                        // {
+                        $connect      = mysqli_connect("localhost", "root", "root", "sdi1400109");
+                        $query        = "SELECT course.id,course.title,course.professor FROM course WHERE course.semester=1";
+                        $courseresult = mysqli_query($connect, $query);
 
-                        ?>
+                        while($row = mysqli_fetch_array($courseresult))
+                        {
+                          $courseid    = $row['id'];
+                          $coursetitle = $row['title'];
+                          $professor   = $row['professor'];
+                      ?>
+                          <a href="<?php echo "#course".$courseid; ?>" class="list-group-item" data-toggle="collapse">
+                          <i class="fas fa-chevron-right"></i><?php echo $coursetitle." [".$professor."]"; ?>
+                          </a>
+                          <div class="list-group collapse" id="<?php echo "course".$courseid; ?>">
+                          <?php
+                            // Then, we should fetch every book related to that course
+                            $query      = "SELECT book.id,book.title,author.name FROM book JOIN author ON book.author_id=author.id WHERE book.course_id='$courseid'";
+                            $bookresult = mysqli_query($connect, $query);
+
+                            while($row2 = mysqli_fetch_array($bookresult))
+                            {
+                              $bookid     = $row2[0];
+                              $booktitle  = $row2[1];
+                              $bookauthor = $row2[2];
+                              ?>
+                              <div class="custom-control custom-radio list-group-item">
+                                <input type="radio" id="<?php echo "customRadio".$courseid.$bookid; ?>" name="<?php echo $courseid; ?>" class="custom-control-input">
+                                <label class="custom-control-label" for="<?php echo "customRadio".$courseid.$bookid; ?>">
+                                  <?php echo $booktitle." - ".$bookauthor; ?>
+                                  <i id="<?php echo $bookid;?>" class="info fas fa-info-circle" data-toggle="modal" data-target="#infoModal"></i>
+                                </label>
+                              </div>
+                              <?php
+                            }
+                              ?>
+                          </div>
                         <?php
-                        // Then, inside each course, we should fetch the related books and create a radio menu
-                         ?>
-
-                      <a href="#course1" class="list-group-item" data-toggle="collapse">
-                        <i class="fas fa-chevron-right"></i>Μάθημα 1
-                      </a>
-                      <div class="list-group collapse" id="course1">
-
-                        <div class="custom-control custom-radio list-group-item">
-                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                          <label class="custom-control-label" for="customRadio1">
-                            Βιβλίο Α
-                            <i class="fas fa-info-circle" data-toggle="modal" data-target="#exampleModal"></i>
-                          </label>
-                        </div>
-
-                        <div class="custom-control custom-radio list-group-item">
-                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                          <label class="custom-control-label" for="customRadio2">
-                            Βιβλίο B
-                            <i class="fas fa-info-circle" data-toggle="modal" data-target="#exampleModal"></i>
-                          </label>
-                        </div>
-
-                      </div>
-
-                      <a href="#course2" class="list-group-item" data-toggle="collapse">
-                        <i class="fas fa-chevron-right"></i>Μάθημα 2
-                      </a>
-                      <div class="list-group collapse" id="course2">
-
-                        <div class="custom-control custom-radio list-group-item">
-                          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                          <label class="custom-control-label" for="customRadio1">
-                            Βιβλίο Α
-                            <i class="fas fa-info-circle" data-toggle="modal" data-target="#exampleModal"></i>
-                          </label>
-                        </div>
-
-                        <div class="custom-control custom-radio list-group-item">
-                          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                          <label class="custom-control-label" for="customRadio2">
-                            Βιβλίο B
-                            <i class="fas fa-info-circle" data-toggle="modal" data-target="#exampleModal"></i>
-                          </label>
-                        </div>
-
-                      </div>
-
-                      <a href="#course3" class="list-group-item" data-toggle="collapse">
-                        <i class="fas fa-chevron-right"></i>Μάθημα 3
-                      </a>
-                      <div class="list-group collapse" id="course3">
-<<<<<<< HEAD
-
-=======
-
->>>>>>> dd4ea1fa906a3f75fc5f29c32bb5de38b781583c
-                      </div>
-
+                      }
+                      ?>
                     </div>
+                  </div>
+                </div>
+            </div>
 
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Εξάμηνο 2
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" >
-                <div class="card-body">
-                  Μαθήματα Εξαμηνου 2
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h5 class="mb-0">
-                  <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Εξάμηνο 3
-                  </button>
-                </h5>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" >
-                <div class="card-body">
-                  Μαθήματα Εξαμηνου 3
-                </div>
-              </div>
-            </div>
-          </div>
+
+
+      </div>
           <button class="btn btn-primary btn-md next float-right">Επόμενο</button>
           <button class="btn btn-secondary btn-md previous float-right">Πίσω</button>
-        </div>
-
+    </div>
 
         <!-- Statement Summary pane -->
-        <div class="tab-pane fade" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
-          <h4> Σύνοψη Επιλογών </h4>
-          <div class="card">
-            <div class="card-header text-primary">
-              <strong>Τίτλος Βιβλιου</strong>
-            </div>
-            <div class="card-body">
-              <p class="card-text">Σχετικές Πληροφορίες</p>
-            </div>
+        <div class="tab-pane fade summary" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
+          <!-- Will be filled via Javascript AJAX and PHP -->
         </div>
-          <button class="btn btn-primary btn-md next float-right">Επόμενο</button>
-          <button class="btn btn-secondary btn-md previous float-right">Πίσω</button>
-        </div>
-
 
         <!-- Select reception points pane -->
         <div class="tab-pane fade" id="pills-point" role="tabpanel" aria-labelledby="pills-point-tab">
-          <h4> Σημεία Διανομής </h4>
-          ποιντσ
-          <button class="btn btn-success btn-md float-right">Ολοκλήρωση</button>
-          <button class="btn btn-secondary btn-md previous float-right">Πίσω</button>
+          <!-- Will be filled via Javascript AJAX and PHP -->
         </div>
-
       </div>
 
     </div>
@@ -402,17 +333,17 @@
       <a href="../../index.php">eudoxus.gr</a>
     </div>
 
-    <!-- Modal for book info -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal for showing book info -->
+    <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Πληροφορίες Βιβλίου</h5>
+            <h5 class="modal-title text-primary" id="infoModalLabel">Πληροφορίες Βιβλίου</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" id="infoModalBody">
             <!-- Will be filled via Javascript AJAX and PHP -->
           </div>
           <div class="modal-footer">
@@ -421,6 +352,27 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal for showing point info -->
+    <div class="modal fade" id="pointModal" tabindex="-1" role="dialog" aria-labelledby="pointModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-primary" id="pointModalLabel">Πληροφορίες Σημείου Διανομής</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" id="pointModalBody">
+            <!-- Will be filled via Javascript AJAX and PHP -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Πίσω</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
     <!-- Optional JavaScript -->
@@ -452,17 +404,93 @@
             .toggleClass('fa-chevron-down');
         });
     });
-  </script>
+    </script>
 
-  <!-- Fetch book info -->
-  <script type="text/javascript">
+    <!-- Fetch book info -->
+    <script type="text/javascript">
 
+      // Fetch book info and show them on the infoModal
+      $(document).on('click','.info',function(){
+        // id of the book we're gonna show
+        var info_id = $(this).attr('id');
+        $.ajax({
+          url :"fetchBookInfo.php",
+          type:"post",
+          data:{info_id:info_id},
+          success:function(data){
+            // Construct the body of the modal and show it
+            $("#infoModalBody").html(data);
+            $("#infoModal").modal('show');
+            }
+        });
+      });
+      </script>
 
+    <!-- Select all radio inputs and display the "summary" pane -->
+    <script type="text/javascript">
+      $(document).on('click','.summaryPane',function(){
+        var book_ids = [];
+        $(':input[type="radio"]:checked').each(function(){
+          var label = $("label[for='" + $(this).attr('id') + "']");
+          var book_id = label.children('.info').attr('id');
+          book_ids.push(book_id);
+        });
+        if(book_ids.length > 0){
+          $.ajax({
+            url :"fetchSummary.php",
+            type:"post",
+            data:{book_ids:book_ids},
+            success:function(data){
+              $("#pills-summary").html(data);
+            }
+          });
+        }
+      });
+    </script>
 
-  </script>
+    <!-- Select all radio inputs and display the "points" pane -->
+    <script type="text/javascript">
+    $(document).on('click','.pointsPane',function(){
+      var book_ids = [];
+      $(':input[type="radio"]:checked').each(function(){
+        var label = $("label[for='" + $(this).attr('id') + "']");
+        var book_id = label.children('.info').attr('id');
+        book_ids.push(book_id);
+      });
+      if(book_ids.length > 0){
+        $.ajax({
+          url :"fetchPoints.php",
+          type:"post",
+          data:{book_ids:book_ids},
+          success:function(data){
+            $("#pills-point").html(data);
+          }
+        });
+      }
+    });
+    </script>
 
+    <!-- Select all radio inputs and go to statement_validation.php -->
+    <script type="text/javascript">
+      $(document).on('click','.save',function(){
+        var book_ids = [];
+        $(':input[type="radio"]:checked').each(function(){
+          var label = $("label[for='" + $(this).attr('id') + "']");
+          var book_id = label.children('.info').attr('id');
+          book_ids.push(book_id);
+        });
+        if(book_ids.length > 0){
+          $.ajax({
+            url :"statement_validation.php",
+            type:"post",
+            data:{book_ids:book_ids},
+            success:function(data){
+            }
+          });
+        }
+      });
+    </script>
 
   </body>
-
 
 </html>

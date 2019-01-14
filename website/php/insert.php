@@ -40,13 +40,25 @@
    }
 
 
+   $result = mysqli_query($connect,"SELECT course.id FROM course WHERE course.title='$course'");
+   if(mysqli_num_rows($result)==1){
+     $courseid = mysqli_fetch_array($result)['id'];
+   }
+   else {
+     // In case the given course does not exist in our DB , we need to add it first
+     mysqli_query($connect,"INSERT INTO course(title,semester,professor) VALUES('$course','$semester','$professor')");
+     // Retrieve its id
+     $courseid = mysqli_fetch_array(mysqli_query($connect,"SELECT course.id FROM course WHERE course.title='$course'"))['id'];
+   }
+
+
    // Check connection
    if ($connect->connect_error) {
      die("Connection failed: " . $connect->connect_error);
    }
 
-   $query1 = "INSERT INTO book(title,author_id,publisher_id,course,professor,semester,eudoxus_code)
-   VALUES('$title' , '$authorid' , '$publisherid' , '$course' , '$professor' , '$semester' , '$eudoxus_code');";
+   $query1 = "INSERT INTO book(title,author_id,publisher_id,course_id,eudoxus_code)
+   VALUES('$title' , '$authorid' , '$publisherid' , '$courseid' ,  '$eudoxus_code');";
 
    $save_data = mysqli_query($connect, $query1);
  }

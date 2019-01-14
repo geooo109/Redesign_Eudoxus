@@ -323,11 +323,11 @@ if (isset($_SESSION['user_id'])) {
                   <div class="row">
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Κωδικός</label>
-                      <input type="password" class="form-control"required>
+                      <input type="password" class="form-control" name="password"required>
                     </div>
                     <div class="col form-group">
                       <label for="exampleInputEmail1">Επανάληψη Κωδικού</label>
-                      <input type="password" class="form-control"required>
+                      <input type="password" class="form-control" name="re_password" required>
                     </div>
                   </div>
 
@@ -344,7 +344,7 @@ if (isset($_SESSION['user_id'])) {
                 <?php
                   // We should fetch the books of current secretary, i.e: secretary with id == $_SESSION['user_id']
                   $connect    = mysqli_connect("localhost", "root", "root", "sdi1400109");
-                  $query      = "SELECT b.id,b.title,a.name,p.name,b.course,b.semester,b.professor,b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN publisher AS p ON b.publisher_id=p.id  ORDER BY b.semester ";
+                  $query      = "SELECT b.id,b.title,a.name,p.name,c.title,c.professor,c.semester,b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN publisher AS p ON b.publisher_id=p.id JOIN course AS c ON b.course_id=c.id ORDER BY c.semester ";
                   $result     = mysqli_query($connect, $query);
                   ?>
                   <button id="addButton" type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
@@ -374,12 +374,12 @@ if (isset($_SESSION['user_id'])) {
                         ?>
                         <tr id="<?php echo $row['id']; ?>">
                           <th class="align-middle" scope="row"> <?php echo $book_counter; ?></th>
-                          <td class="align-middle"><?php echo $row["title"]; ?></td>
+                          <td class="align-middle"><?php echo $row[1]; ?></td>
                           <td class="align-middle"><?php echo $row[2]; ?></td>
                           <td class="align-middle"><?php echo $row[3]; ?></td>
-                          <td class="align-middle"><?php echo $row["course"]; ?></td>
-                          <td class="align-middle"><?php echo $row["professor"]; ?></td>
-                          <td class="align-middle"><?php echo $row["semester"]; ?></td>
+                          <td class="align-middle"><?php echo $row[4]; ?></td>
+                          <td class="align-middle"><?php echo $row[5]; ?></td>
+                          <td class="align-middle"><?php echo $row[6]; ?></td>
                           <td class="align-middle"><?php echo $row["eudoxus_code"]; ?></td>
                           <td class="align-middle">
                             <a data-toggle="modal" data-target="#editModal" id="<?php echo $row["id"]; ?>" class="editData"><i class="far fa-edit"></i></a>

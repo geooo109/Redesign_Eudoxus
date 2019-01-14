@@ -53,3 +53,11 @@
 .fa-info-circle:hover{
   cursor: pointer;
 }
+
+.summarycard{
+  margin-bottom: 20px;
+}
+
+.summary > h4,.bookselection > h4{
+  margin-bottom: 40px;
+}
