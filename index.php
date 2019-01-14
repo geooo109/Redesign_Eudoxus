@@ -93,7 +93,7 @@
                 Φοιτητές
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <a class="dropdown-item" href="#">Δήλωση Συγγραμμάτων</a>
+                  <a class="dropdown-item" href="website/php/statement.php">Δήλωση Συγγραμμάτων</a>
                   <a class="dropdown-item" href="#">Ανταλλαγή Συγγραμμάτων</a>
                   <a class="dropdown-item" href="#">Διάθεση Ηλ.Σημειώσεων</a>
               </div>
