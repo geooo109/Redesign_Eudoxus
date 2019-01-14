@@ -87,7 +87,7 @@ if (isset($_SESSION['user_id'])) {
                 Φοιτητές<span></span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <a class="dropdown-item" href="#">Δήλωση Συγγραμμάτων</a>
+                  <a class="dropdown-item" href="statement.php">Δήλωση Συγγραμμάτων</a>
                   <a class="dropdown-item" href="#">Ανταλλαγή Συγγραμμάτων</a>
                   <a class="dropdown-item" href="#">Διάθεση Ηλ.Σημειώσεων</a>
               </div>

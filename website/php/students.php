@@ -91,7 +91,7 @@
                 Φοιτητές<span></span>
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <a class="dropdown-item" href="#">Δήλωση Συγγραμμάτων</a>
+                  <a class="dropdown-item" href="statement.php">Δήλωση Συγγραμμάτων</a>
                   <a class="dropdown-item" href="#">Ανταλλαγή Συγγραμμάτων</a>
                   <a class="dropdown-item" href="#">Διάθεση Ηλ.Σημειώσεων</a>
               </div>
@@ -173,7 +173,7 @@
           <img class="card-img-top" src="../pics/statement.jpg" alt="Card image cap">
           <div class="card-body">
             <p class="card-text">Δηλώστε τα συγγράμματα της αρεσκείας σας και επιλέξτε το κοντινότερο σε εσάς σημείο παραλαβής.</p>
-            <a href="statement1.php" class="btn btn-primary">Δήλωση Συγγραμμάτων</a>
+            <a href="statement.php" class="btn btn-primary">Δήλωση Συγγραμμάτων</a>
           </div>
         </div>
         <div class="card bg-light text-left">

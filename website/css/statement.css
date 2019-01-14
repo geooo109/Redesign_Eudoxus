@@ -1,0 +1,55 @@
+.nav-pills{
+  margin-top: -50px;
+  padding-top: 60px
+}
+
+/* Increase icon size on stepper */
+.nav-item > a > i{
+  font-size: 150%;'
+}
+
+.nav-pills > li > a:hover{
+  background-color: #f2f2f2 !important;
+}
+
+.tab-pane > h4{
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+
+.form-group{
+  margin-top: 50px
+}
+
+.next,.previous,.btn-success{
+    margin-top: 30px;
+}
+.previous{
+  margin-right: 10px;
+}
+
+.footer-copyright{
+  clear: right;
+}
+
+/************** Nested List styling ***************/
+
+.list-group.list-group-root .list-group {
+    margin-bottom: 0;
+}
+
+
+.list-group.list-group-root > .list-group > .list-group-item {
+    padding-left: 50px;
+    /* color: grey; */
+}
+
+.list-group > a > i{
+  padding-right: 5px;
+}
+
+.fa-info-circle:hover{
+  cursor: pointer;
+}
