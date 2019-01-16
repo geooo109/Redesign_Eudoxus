@@ -256,7 +256,7 @@
                 </h5>
               </div>
 
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
                 <div class="card-body">
 
                     <div class="list-group list-group-root well">
@@ -307,7 +307,127 @@
                 </div>
             </div>
 
+            <!-- Εξαμηνο 2 -->
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    Εξάμηνο 2
+                  </button>
+                </h5>
+              </div>
 
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo">
+                <div class="card-body">
+
+                    <div class="list-group list-group-root well">
+                      <?php
+
+                        // Firstly, we should fetch each course
+                        $connect      = mysqli_connect("localhost", "root", "root", "sdi1400109");
+                        $query        = "SELECT course.id,course.title,course.professor FROM course WHERE course.semester=2";
+                        $courseresult = mysqli_query($connect, $query);
+
+                        while($row = mysqli_fetch_array($courseresult))
+                        {
+                          $courseid    = $row['id'];
+                          $coursetitle = $row['title'];
+                          $professor   = $row['professor'];
+                      ?>
+                          <a href="<?php echo "#course".$courseid; ?>" class="list-group-item" data-toggle="collapse">
+                          <i class="fas fa-chevron-right"></i><?php echo $coursetitle." [".$professor."]"; ?>
+                          </a>
+                          <div class="list-group collapse" id="<?php echo "course".$courseid; ?>">
+                          <?php
+                            // Then, we should fetch every book related to that course
+                            $query      = "SELECT book.id,book.title,author.name FROM book JOIN author ON book.author_id=author.id WHERE book.course_id='$courseid'";
+                            $bookresult = mysqli_query($connect, $query);
+
+                            while($row2 = mysqli_fetch_array($bookresult))
+                            {
+                              $bookid     = $row2[0];
+                              $booktitle  = $row2[1];
+                              $bookauthor = $row2[2];
+                              ?>
+                              <div class="custom-control custom-radio list-group-item">
+                                <input type="radio" id="<?php echo "customRadio".$courseid.$bookid; ?>" name="<?php echo $courseid; ?>" class="custom-control-input">
+                                <label class="custom-control-label" for="<?php echo "customRadio".$courseid.$bookid; ?>">
+                                  <?php echo $booktitle." - ".$bookauthor; ?>
+                                  <i id="<?php echo $bookid;?>" class="info fas fa-info-circle" data-toggle="modal" data-target="#infoModal"></i>
+                                </label>
+                              </div>
+                              <?php
+                            }
+                              ?>
+                          </div>
+                        <?php
+                      }
+                      ?>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- Εξαμηνο 3 -->
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    Εξάμηνο 3
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree">
+                <div class="card-body">
+
+                    <div class="list-group list-group-root well">
+                      <?php
+
+                        // Firstly, we should fetch each course
+                        $connect      = mysqli_connect("localhost", "root", "root", "sdi1400109");
+                        $query        = "SELECT course.id,course.title,course.professor FROM course WHERE course.semester=3";
+                        $courseresult = mysqli_query($connect, $query);
+
+                        while($row = mysqli_fetch_array($courseresult))
+                        {
+                          $courseid    = $row['id'];
+                          $coursetitle = $row['title'];
+                          $professor   = $row['professor'];
+                      ?>
+                          <a href="<?php echo "#course".$courseid; ?>" class="list-group-item" data-toggle="collapse">
+                          <i class="fas fa-chevron-right"></i><?php echo $coursetitle." [".$professor."]"; ?>
+                          </a>
+                          <div class="list-group collapse" id="<?php echo "course".$courseid; ?>">
+                          <?php
+                            // Then, we should fetch every book related to that course
+                            $query      = "SELECT book.id,book.title,author.name FROM book JOIN author ON book.author_id=author.id WHERE book.course_id='$courseid'";
+                            $bookresult = mysqli_query($connect, $query);
+
+                            while($row2 = mysqli_fetch_array($bookresult))
+                            {
+                              $bookid     = $row2[0];
+                              $booktitle  = $row2[1];
+                              $bookauthor = $row2[2];
+                              ?>
+                              <div class="custom-control custom-radio list-group-item">
+                                <input type="radio" id="<?php echo "customRadio".$courseid.$bookid; ?>" name="<?php echo $courseid; ?>" class="custom-control-input">
+                                <label class="custom-control-label" for="<?php echo "customRadio".$courseid.$bookid; ?>">
+                                  <?php echo $booktitle." - ".$bookauthor; ?>
+                                  <i id="<?php echo $bookid;?>" class="info fas fa-info-circle" data-toggle="modal" data-target="#infoModal"></i>
+                                </label>
+                              </div>
+                              <?php
+                            }
+                              ?>
+                          </div>
+                        <?php
+                      }
+                      ?>
+                    </div>
+                  </div>
+                </div>
+            </div>
 
       </div>
           <button class="btn btn-primary btn-md next float-right">Επόμενο</button>

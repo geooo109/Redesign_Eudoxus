@@ -314,9 +314,10 @@ if (isset($_SESSION['user_id'])) {
             <!-- History tab -->
             <?php
               // We should fetch the books of current student, i.e: student with id == $_SESSION['user_id']
+               $id      = $_SESSION['user_id'];
                $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
-               $query = "SELECT b.id, b.title, a.name, c.title, c.professor, c.semester, b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN course AS c ON b.course_id=c.id ORDER BY c.semester";
-               $result = mysqli_query($connect, $query);
+               $query   = "SELECT b.id, b.title, a.name, c.title, c.professor, c.semester, b.eudoxus_code,st.date FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN course AS c ON b.course_id=c.id JOIN statement AS st WHERE b.id=st.book_id AND '$id'=st.user_id ORDER BY c.semester";
+               $result  = mysqli_query($connect, $query);
              ?>
             <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-tab">
               <table class="table table-striped">
@@ -334,18 +335,19 @@ if (isset($_SESSION['user_id'])) {
                 </thead>
                 <tbody class="text-center">
                   <?php
+                  $cnt = 0;
                   while($row = mysqli_fetch_array($result))
-                  {
+                  {$cnt++;
                     ?>
                     <tr>
-                      <th class="align-middle" scope="row"> <?php echo $row['id']; ?></th>
+                      <th class="align-middle" scope="row"> <?php echo $cnt; ?></th>
                       <td class="align-middle"><?php echo $row[3]; ?></td>
                       <td class="align-middle"><?php echo $row[4]; ?></td>
                       <td class="align-middle"><?php echo $row[5]; ?></td>
                       <td class="align-middle"><?php echo $row["title"]; ?></td>
                       <td class="align-middle"><?php echo $row[2]; ?></td>
                       <td class="align-middle"><?php echo $row["eudoxus_code"]; ?></td>
-                      <td class="align-middle">DD/MM/YYYY</td>
+                      <td class="align-middle"><?php echo $row[7]; ?></td>
                     </tr>
                     <?php
                   }

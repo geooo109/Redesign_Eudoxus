@@ -182,7 +182,7 @@
 
         if(isset($_GET['search'])){
           ?>
-          <h5>Συγγράμματα</h5>
+          <h5 class="text-primary"><br>Συγγράμματα</h5>
           <?php
           $searchvalue = $_GET['search'];
           $query = "SELECT b.id, b.title, a.name,  p.name FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN course AS c ON b.course_id=c.id JOIN publisher AS p ON b.publisher_id=p.id WHERE b.title LIKE '%$searchvalue%'";
@@ -215,11 +215,11 @@
             </tbody>
           </table>
 
-          <h5>Μαθήματα</h5>
+          <h5 class="text-primary"><br>Μαθήματα</h5>
           <?php
           // $searchvalue = $_GET['search'];
-          $query = "SELECT c.id,c.title,c.professor,c.semester  FROM course AS c WHERE c.title LIKE '%$searchvalue%'";
-          $result      = mysqli_query($connect, $query);
+          $query  = "SELECT c.id,c.title,c.professor,c.semester FROM course AS c WHERE c.title LIKE '%$searchvalue%'";
+          $result = mysqli_query($connect, $query);
           ?>
           <table class="table table-striped">
             <thead class="text-center">
