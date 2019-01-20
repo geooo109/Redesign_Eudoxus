@@ -1,13 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.6.6deb5
--- https://www.phpmyadmin.net/
---
--- Φιλοξενητής: localhost:3306
--- Χρόνος δημιουργίας: 31 Δεκ 2018 στις 02:26:05
--- Έκδοση διακομιστή: 5.7.24-0ubuntu0.18.04.1
--- Έκδοση PHP: 7.2.10-0ubuntu0.18.04.1
-
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
