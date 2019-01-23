@@ -46,7 +46,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="input-group col-md-4">
-            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="searchinput">
             <span class="input-group-append">
               <a href="#">
                 <button id="searchbutton" class="btn btn-outline-secondary border-left-0 border" type="button">
@@ -578,6 +578,13 @@
     <script type="text/javascript">
       $(document).ready(function () {
           $('#editresult').modal('show');
+      });
+    </script>
+    <!-- Search -->
+    <script type="text/javascript">
+      $(document).on('click','#searchbutton',function(){
+        var searchvalue = $('#searchinput').val();
+        window.location = "./search.php?search=" + searchvalue;
       });
     </script>
 

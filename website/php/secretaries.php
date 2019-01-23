@@ -29,7 +29,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="input-group col-md-4">
-            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="searchinput">
             <span class="input-group-append">
               <a href="#">
                 <button id="searchbutton" class="btn btn-outline-secondary border-left-0 border" type="button">
@@ -197,6 +197,17 @@
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- Search -->
+    <script type="text/javascript">
+      $(document).on('click','#searchbutton',function(){
+        var searchvalue = $('#searchinput').val();
+        window.location = "./search.php?search=" + searchvalue;
+      });
+    </script>
 
   </body>
 
