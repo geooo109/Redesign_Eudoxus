@@ -32,7 +32,7 @@
             <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
             <span class="input-group-append">
               <a href="#">
-                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                <button id="searchbutton" class="btn btn-outline-secondary border-left-0 border" type="button">
                     <i class="fas fa-search"></i>
                 </button>
               </a>
@@ -197,6 +197,7 @@
     <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="../../index.php">eudoxus.gr</a>
     </div>
+
   </body>
 
 

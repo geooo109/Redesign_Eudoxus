@@ -16,7 +16,7 @@
         foreach($books_ids as $id) {
           $date  = date("m.d.y");
           $query = "INSERT INTO statement(user_id,book_id,date) VALUES('$userid','$id','$date')";
-          mysqli_query($connect,$query);
+          $connect->query($query);
         }
         echo "Επιτυχής Δήλωση Μαθημάτων :)";
       }

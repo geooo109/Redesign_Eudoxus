@@ -33,7 +33,7 @@ if (!empty($_POST)) {
   $_SESSION["msg"] = "";
   // create con + error check for error
   $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-  mysqli_set_charset($connect,'utf8');
+  $connect->set_charset("utf8");
 
   if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
@@ -62,9 +62,9 @@ if (!empty($_POST)) {
         ($connect->error);
         die();
       }
-      $data  =  mysqli_fetch_array($result);
+      $data  =  $result->fetch_array();
       // means we found a username in our db
-      if (mysqli_num_rows($result) && $data['id'] != $_SESSION['user_id']) {
+      if ($result->num_rows && $data['id'] != $_SESSION['user_id']) {
         $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν";
         header('location:./edit_secretary.php?success=0');
         echo "<br>".$_SESSION["msg"]."<br/>";
@@ -207,7 +207,7 @@ if (!empty($_POST)) {
         ($connect->error);
         die();
       }
-      $data_main  =  mysqli_fetch_array($result);
+      $data_main  =  $result->fetch_array();
       if ($username != '') {
         $queryrn   = "SELECT id from user WHERE username = '$username'";
         $result  = $connect->query($queryrn);
@@ -216,8 +216,8 @@ if (!empty($_POST)) {
           ($connect->error);
           die();
         }
-        $data  =  mysqli_fetch_array($result);
-        if (mysqli_num_rows($result) && $curr_id != $data['id']) {
+        $data  =  $result->fetch_array();
+        if ($result->num_rows && $curr_id != $data['id']) {
           $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν, Υπάρχει ήδη αυτό το username";
           header('location:./edit_secretary.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";
@@ -247,8 +247,8 @@ if (!empty($_POST)) {
           ($connect->error);
           die();
         }
-        $data  =  mysqli_fetch_array($result);
-        if (mysqli_num_rows($result) && $curr_id != $data['id']) {
+        $data  =  $result->fetch_array();
+        if ($result->num_rows && $curr_id != $data['id']) {
           $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν, Υπάρχει ήδη αυτό το email";
           header('location:./edit_secretary.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";
@@ -285,8 +285,8 @@ if (!empty($_POST)) {
           ($connect->error);
           die();
         }
-        $data  =  mysqli_fetch_array($result);
-        if (mysqli_num_rows($result) && $curr_id != $data['id']) {
+        $data  =  $result->fetch_array();
+        if ($result->num_rows && $curr_id != $data['id']) {
           $_SESSION["msg"] = "Τα στοιχεία δεν άλλαξαν, Υπάρχει ήδη αυτός ο κωδικός";
           header('location:./edit_secretary.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";

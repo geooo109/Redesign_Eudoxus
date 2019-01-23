@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="el">
 <?php
-session_start();
-require_once '../../con_db.php';
-if (isset($_SESSION['user_id'])) {
-  //connect to the db to fetch data
-  $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-  mysqli_set_charset($connect,'utf8');
-  if ($connect->connect_error) {
-    die("Connection failed: " . $connect->connect_error);
+  session_start();
+  require_once '../../con_db.php';
+  if (isset($_SESSION['user_id'])) {
+    //connect to the db to fetch data
+    $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+    $connect->set_charset("utf8");
+    if ($connect->connect_error) {
+      die("Connection failed: " . $connect->connect_error);
+    }
+    //fetch the data
+    $id      = $_SESSION['user_id'];
+    $queryf  = "SELECT * from user WHERE id =  '$id'";
+    $data    =  mysqli_fetch_array($connect->query($queryf));
   }
-  //fetch the data
-  $id      = $_SESSION['user_id'];
-  $queryf  = "SELECT * from user WHERE id =  '$id'";
-  $result  = mysqli_query($connect, $query);
-  $data    =  mysqli_fetch_array($connect->query($queryf));
-}
 ?>
   <head>
     <meta charset="utf-8">
@@ -49,7 +48,7 @@ if (isset($_SESSION['user_id'])) {
             <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
             <span class="input-group-append">
               <a href="#">
-                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                <button id="searchbutton" class="btn btn-outline-secondary border-left-0 border" type="button">
                     <i class="fas fa-search"></i>
                 </button>
               </a>
@@ -315,9 +314,8 @@ if (isset($_SESSION['user_id'])) {
             <?php
               // We should fetch the books of current student, i.e: student with id == $_SESSION['user_id']
                $id      = $_SESSION['user_id'];
-               $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
                $query   = "SELECT b.id, b.title, a.name, c.title, c.professor, c.semester, b.eudoxus_code,st.date FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN course AS c ON b.course_id=c.id JOIN statement AS st WHERE b.id=st.book_id AND '$id'=st.user_id ORDER BY c.semester";
-               $result  = mysqli_query($connect, $query);
+               $result  = $connect->query($query);
              ?>
             <div class="tab-pane fade show" id="history" role="tabpanel" aria-labelledby="history-tab">
               <table class="table table-striped">
@@ -336,7 +334,7 @@ if (isset($_SESSION['user_id'])) {
                 <tbody class="text-center">
                   <?php
                   $cnt = 0;
-                  while($row = mysqli_fetch_array($result))
+                  while($row = $result->fetch_array())
                   {$cnt++;
                     ?>
                     <tr>

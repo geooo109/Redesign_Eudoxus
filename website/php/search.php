@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="el" dir="ltr">
+<?php
+
+  session_start();
+  require_once '../../con_db.php';
+
+  // Connect to the db
+  $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+  $connect->set_charset("utf8");
+
+  // Check connection
+  if ($connect->connect_error) {
+    die("Connection failed: " . $connect->connect_error);
+  }
+
+?>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +58,6 @@
           <!-- ####check if the user is already logged in#### -->
           <?php
           // Always start this first
-          session_start();
           if ( isset( $_SESSION['user_id'] ) ) {
             echo
             '<li class="nav-item">
@@ -172,9 +187,6 @@
         Αποτελέσματα Αναζήτησης
       </h4>
       <?php
-
-        session_start();
-        $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
         // Check connection
         if ($connect->connect_error) {
           die("Connection failed: " . $connect->connect_error);
@@ -185,8 +197,8 @@
           <h5 class="text-primary"><br>Συγγράμματα</h5>
           <?php
           $searchvalue = $_GET['search'];
-          $query = "SELECT b.id, b.title, a.name,  p.name FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN course AS c ON b.course_id=c.id JOIN publisher AS p ON b.publisher_id=p.id WHERE b.title LIKE '%$searchvalue%'";
-          $result      = mysqli_query($connect, $query);
+          $query       = "SELECT b.id, b.title, a.name, p.name FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN course AS c ON b.course_id=c.id JOIN publisher AS p ON b.publisher_id=p.id WHERE b.title LIKE '%$searchvalue%'";
+          $result      = $connect->query($query);
           ?>
           <table class="table table-striped">
             <thead class="text-center">
@@ -200,7 +212,7 @@
             <tbody class="text-center">
               <?php
               $counter=0;
-              while($row = mysqli_fetch_array($result))
+              while($row = $result->fetch_array())
               {$counter++;
                 ?>
                 <tr>
@@ -217,9 +229,8 @@
 
           <h5 class="text-primary"><br>Μαθήματα</h5>
           <?php
-          // $searchvalue = $_GET['search'];
           $query  = "SELECT c.id,c.title,c.professor,c.semester FROM course AS c WHERE c.title LIKE '%$searchvalue%'";
-          $result = mysqli_query($connect, $query);
+          $result = $connect->query($query);
           ?>
           <table class="table table-striped">
             <thead class="text-center">
@@ -233,7 +244,7 @@
             <tbody class="text-center">
               <?php
               $counter=0;
-              while($row = mysqli_fetch_array($result))
+              while($row = $result->fetch_array())
               {$counter++;
                 ?>
                 <tr>
