@@ -13,8 +13,8 @@ We propose a brand new implementation of [eudoxus.gr](https://eudoxus.gr/) websi
 
 ## Contributors
 
-  * George Michas @geooo109
-  * George Panagiotopoulos @giorgospan
+  * George Michas [@geooo109](https://github.com/geooo109)
+  * George Panagiotopoulos [@giorgospan](https://github.com/giorgospan)
   * Tasos Mantas
 
 ## Photos
