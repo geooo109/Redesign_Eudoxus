@@ -10,6 +10,7 @@ We propose a brand new implementation of [eudoxus.gr](https://eudoxus.gr/) websi
   * HTML/CSS/Bootstrap
   * PHP
   * JavaScript
+  * MySQL
 
 ## Contributors
 
