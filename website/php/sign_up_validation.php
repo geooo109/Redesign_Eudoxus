@@ -40,7 +40,7 @@ if (!empty($_POST)) {
     if ($_POST["user_type"] == 0) {
       // create con + error check for error
       $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-      mysqli_set_charset($connect,'utf8');
+      $connect->set_charset("utf8");
 
       if ($connect->connect_error) {
         die("Connection failed: " . $connect->connect_error);
@@ -49,14 +49,14 @@ if (!empty($_POST)) {
       if (isset($_POST["username"])) {
         $username = $_POST["username"];
         $query   = "SELECT username from user WHERE username = '$username'";
-        $result  = mysqli_query($connect, $query);
+        $result  = $connect->query($query);
 
         // error check
         if (!$result) {
           ($connect->error);
         }
         // means we found a username in our db
-        if (mysqli_num_rows($result)) {
+        if ($result->num_rows) {
           $_SESSION["msg"] = "Υπάρχει ήδη αυτό το Όνομα Χρήστη";
           header('location:./sign_up.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";
@@ -66,13 +66,13 @@ if (!empty($_POST)) {
         if (isset($_POST["email"])) {
           $email = $_POST["email"];
           $query   = "SELECT email from user WHERE email = '$email'";
-          $result  = mysqli_query($connect, $query);
+          $result  = $connect->query($query);
           // error check
           if (!$result) {
             ($connect->error);
           }
           // means we found a username in our db
-          if (mysqli_num_rows($result)) {
+          if ($result->num_rows) {
             $_SESSION["msg"] = "Υπάρχει ήδη αυτή η Ηλεκτρονική Διεύθυνση";
             header('location:./sign_up.php?success=0');
             echo "<br>".$_SESSION["msg"]."<br/>";
@@ -83,13 +83,13 @@ if (!empty($_POST)) {
           if (isset($_POST["register_num"])) {
             $register_num = $_POST["register_num"];
             $query   = "SELECT register_num from user WHERE register_num = '$register_num'";
-            $result  = mysqli_query($connect, $query);
+            $result  = $connect->query($query);
             // error check
             if (!$result) {
               ($connect->error);
             }
             // means we found a username in our db
-            if (mysqli_num_rows($result)) {
+            if ($result->num_rows) {
               $_SESSION["msg"] = "Υπάρχει ήδη αυτός ο Αριθμός Μητρώου";
               header('location:./sign_up.php?success=0');
               echo "<br>".$_SESSION["msg"]."<br/>";
@@ -116,8 +116,8 @@ if (!empty($_POST)) {
                 if ($connect->query($queryf) === TRUE) {
                     $_SESSION["msg"]     = "Η Εγγραφή σας έγινε με επιτυχία";
                     $_SESSION['profile'] = 'profile_student.php';
-                    $result              = mysqli_query($connect,"SELECT id from user WHERE email = '$email'");
-                    $_SESSION['user_id'] = mysqli_fetch_array($result)["id"];
+                    $result              = $connect->query("SELECT id from user WHERE email = '$email'");
+                    $_SESSION['user_id'] = $result->fetch_array()["id"];
                     header('location:../../index.php?success=1');
                     die();
                 }
@@ -164,7 +164,7 @@ if (!empty($_POST)) {
     else if ($_POST["user_type"] == 1) {
       // create con + error check for error
       $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-      mysqli_set_charset($connect,'utf8');
+      $connect->set_charset("utf8");
 
       if ($connect->connect_error) {
         die("Connection failed: " . $connect->connect_error);
@@ -173,14 +173,14 @@ if (!empty($_POST)) {
       if (isset($_POST["username"])) {
         $username = $_POST["username"];
         $query   = "SELECT username from user WHERE username = '$username'";
-        $result  = mysqli_query($connect, $query);
+        $result  = $connect->query($query);
 
         // error check
         if (!$result) {
           ($connect->error);
         }
         // means we found a username in our db
-        if (mysqli_num_rows($result)) {
+        if ($result->num_rows) {
           $_SESSION["msg"] = "Υπάρχει ήδη αυτό το Όνομα Χρήστη";
           header('location:./sign_up.php?success=0');
           echo "<br>".$_SESSION["msg"]."<br/>";
@@ -190,13 +190,13 @@ if (!empty($_POST)) {
         if (isset($_POST["email"])) {
           $email = $_POST["email"];
           $query   = "SELECT email from user WHERE email = '$email'";
-          $result  = mysqli_query($connect, $query);
+          $result  = $connect->query($query);
           // error check
           if (!$result) {
             ($connect->error);
           }
           // means we found a username in our db
-          if (mysqli_num_rows($result)) {
+          if ($result->num_rows) {
             $_SESSION["msg"] = "Υπάρχει ήδη αυτή η Ηλεκτρονική Διεύθυνση";
             header('location:./sign_up.php?success=0');
             echo "<br>".$_SESSION["msg"]."<br/>";
@@ -227,8 +227,8 @@ if (!empty($_POST)) {
               if ($connect->query($queryff) === TRUE) {
                 $_SESSION["msg"]     = "Η Εγγραφή σας έγινε με επιτυχία";
                 $_SESSION['profile'] = 'profile_secretary.php';
-                $result              = mysqli_query($connect,"SELECT id from user WHERE email = '$email'");
-                $_SESSION['user_id'] = mysqli_fetch_array($result)["id"];
+                $result              = $connect->query("SELECT id from user WHERE email = '$email'");
+                $_SESSION['user_id'] = $result->fetch_array()["id"];
                 header('location:../../index.php?success=1');
                 die();
               }

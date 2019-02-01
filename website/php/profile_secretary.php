@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="el">
 <?php
-session_start();
-require_once '../../con_db.php';
-if (isset($_SESSION['user_id'])) {
-  //connect to the db to fetch data
-  $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-  mysqli_set_charset($connect,'utf8');
-  if ($connect->connect_error) {
-    die("Connection failed: " . $connect->connect_error);
+  session_start();
+  require_once '../../con_db.php';
+  if (isset($_SESSION['user_id'])) {
+    //connect to the db to fetch data
+    $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+    $connect->set_charset("utf8");
+    if ($connect->connect_error) {
+      die("Connection failed: " . $connect->connect_error);
+    }
+    //fetch the data
+    $id      = $_SESSION['user_id'];
+    $queryf  = "SELECT * from user WHERE id =  '$id'";
+    $data    =  mysqli_fetch_array($connect->query($queryf));
   }
-  //fetch the data
-  $id      = $_SESSION['user_id'];
-  $queryf  = "SELECT * from user WHERE id =  '$id'";
-  $result  = mysqli_query($connect, $query);
-  $data    =  mysqli_fetch_array($connect->query($queryf));
-}
 ?>
   <head>
     <meta charset="utf-8">
@@ -46,10 +45,10 @@ if (isset($_SESSION['user_id'])) {
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="input-group col-md-4">
-            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="searchinput">
             <span class="input-group-append">
               <a href="#">
-                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                <button id="searchbutton" class="btn btn-outline-secondary border-left-0 border" type="button">
                     <i class="fas fa-search"></i>
                 </button>
               </a>
@@ -299,9 +298,8 @@ if (isset($_SESSION['user_id'])) {
             <div class="tab-pane fade show" id="books" role="tabpanel" aria-labelledby="books-tab">
                 <?php
                   // We should fetch the books of current secretary, i.e: secretary with id == $_SESSION['user_id']
-                  $connect    = mysqli_connect("localhost", "root", "root", "sdi1400109");
                   $query      = "SELECT b.title,a.name,p.name,c.title,c.professor,c.semester,b.eudoxus_code FROM book AS b JOIN author AS a ON b.author_id=a.id JOIN publisher AS p ON b.publisher_id=p.id JOIN course AS c ON b.course_id=c.id ORDER BY c.semester ";
-                  $result     = mysqli_query($connect, $query);
+                  $result     = $connect->query($query);
                   ?>
                   <table class="table table-hover table-bordered">
                     <thead class="text-center">
@@ -319,7 +317,7 @@ if (isset($_SESSION['user_id'])) {
                     <tbody class="text-center">
                       <?php
                       $book_counter = 0;
-                      while($row = mysqli_fetch_array($result))
+                      while($row = $result->fetch_array())
                       {
                         $book_counter++;
                         ?>
@@ -394,6 +392,14 @@ if (isset($_SESSION['user_id'])) {
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- Search -->
+    <script type="text/javascript">
+      $(document).on('click','#searchbutton',function(){
+        var searchvalue = $('#searchinput').val();
+        window.location = "./search.php?search=" + searchvalue;
+      });
+    </script>
+
   </body>
 
 </html>

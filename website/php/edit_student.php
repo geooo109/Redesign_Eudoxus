@@ -8,14 +8,14 @@ require_once '../../con_db.php';
 if (isset($_SESSION['user_id'])) {
   //connect to the db to fetch data
   $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
-  mysqli_set_charset($connect,'utf8');
+  $connect->set_charset("utf8");
   if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
   }
   //fetch the data
   $id      = $_SESSION['user_id'];
   $queryf  = "SELECT * from user WHERE id =  '$id'";
-  $result  = mysqli_query($connect, $query);
+  $result  = $connect->query($query);
   $data    =  mysqli_fetch_array($connect->query($queryf));
 }
 ?>
@@ -49,10 +49,10 @@ if (isset($_SESSION['user_id'])) {
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="input-group col-md-4">
-            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="searchinput">
             <span class="input-group-append">
               <a href="#">
-                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                <button id="searchbutton" class="btn btn-outline-secondary border-left-0 border" type="button">
                     <i class="fas fa-search"></i>
                 </button>
               </a>
@@ -377,6 +377,14 @@ if (isset($_SESSION['user_id'])) {
     <script type="text/javascript">
       $(document).ready(function () {
           $('#editresult').modal('show');
+      });
+    </script>
+    
+    <!-- Search -->
+    <script type="text/javascript">
+      $(document).on('click','#searchbutton',function(){
+        var searchvalue = $('#searchinput').val();
+        window.location = "./search.php?search=" + searchvalue;
       });
     </script>
 

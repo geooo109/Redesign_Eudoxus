@@ -1,6 +1,12 @@
 <?php
+
   session_start();
-  $connect = mysqli_connect("localhost", "root", "root", "sdi1400109");
+  require_once '../../con_db.php';
+
+  // Connect to the db
+  $connect = new mysqli($db_host, $db_user, $db_pass, $db_name);
+  $connect->set_charset("utf8");
+
   // Check connection
   if ($connect->connect_error) {
     die("Connection failed: " . $connect->connect_error);
@@ -8,10 +14,10 @@
 
   if(isset($_POST['info_id'])){
 
-    $info_id = mysqli_real_escape_string($connect, $_POST['info_id']);
+    $info_id = $connect->real_escape_string($_POST['info_id']);
     $query   = "SELECT * from point WHERE id = '$info_id'";
-    $result  = mysqli_query($connect, $query);
-    while ($data = mysqli_fetch_array($result)) {
+    $result  = $connect->query($query);
+    while ($data = $result->fetch_array()) {
       $name    = $data['name'];
       $zipcode = $data['zipcode'];
       $state   = $data['state'];

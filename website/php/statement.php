@@ -28,10 +28,10 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="input-group col-md-4">
-            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="example-search-input">
+            <input class="form-control py-2 border-right-0 border" type="search" value="Αναζήτηση" id="searchinput">
             <span class="input-group-append">
               <a href="#">
-                <button class="btn btn-outline-secondary border-left-0 border" type="button">
+                <button id="searchbutton" class="btn btn-outline-secondary border-left-0 border" type="button">
                     <i class="fas fa-search"></i>
                 </button>
               </a>
@@ -265,7 +265,7 @@
                         // Firstly, we should fetch each course
                         $connect      = mysqli_connect("localhost", "root", "root", "sdi1400109");
                         $query        = "SELECT course.id,course.title,course.professor FROM course WHERE course.semester=1";
-                        $courseresult = mysqli_query($connect, $query);
+                        $courseresult = $connect->query($query);
 
                         while($row = mysqli_fetch_array($courseresult))
                         {
@@ -280,7 +280,7 @@
                           <?php
                             // Then, we should fetch every book related to that course
                             $query      = "SELECT book.id,book.title,author.name FROM book JOIN author ON book.author_id=author.id WHERE book.course_id='$courseid'";
-                            $bookresult = mysqli_query($connect, $query);
+                            $bookresult = $connect->query($query);
 
                             while($row2 = mysqli_fetch_array($bookresult))
                             {
@@ -326,7 +326,7 @@
                         // Firstly, we should fetch each course
                         $connect      = mysqli_connect("localhost", "root", "root", "sdi1400109");
                         $query        = "SELECT course.id,course.title,course.professor FROM course WHERE course.semester=2";
-                        $courseresult = mysqli_query($connect, $query);
+                        $courseresult = $connect->query($query);
 
                         while($row = mysqli_fetch_array($courseresult))
                         {
@@ -341,7 +341,7 @@
                           <?php
                             // Then, we should fetch every book related to that course
                             $query      = "SELECT book.id,book.title,author.name FROM book JOIN author ON book.author_id=author.id WHERE book.course_id='$courseid'";
-                            $bookresult = mysqli_query($connect, $query);
+                            $bookresult = $connect->query($query);
 
                             while($row2 = mysqli_fetch_array($bookresult))
                             {
@@ -387,7 +387,7 @@
                         // Firstly, we should fetch each course
                         $connect      = mysqli_connect("localhost", "root", "root", "sdi1400109");
                         $query        = "SELECT course.id,course.title,course.professor FROM course WHERE course.semester=3";
-                        $courseresult = mysqli_query($connect, $query);
+                        $courseresult = $connect->query($query);
 
                         while($row = mysqli_fetch_array($courseresult))
                         {
@@ -402,7 +402,7 @@
                           <?php
                             // Then, we should fetch every book related to that course
                             $query      = "SELECT book.id,book.title,author.name FROM book JOIN author ON book.author_id=author.id WHERE book.course_id='$courseid'";
-                            $bookresult = mysqli_query($connect, $query);
+                            $bookresult = $connect->query($query);
 
                             while($row2 = mysqli_fetch_array($bookresult))
                             {
@@ -630,6 +630,14 @@
             }
           });
         }
+      });
+    </script>
+
+    <!-- Search -->
+    <script type="text/javascript">
+      $(document).on('click','#searchbutton',function(){
+        var searchvalue = $('#searchinput').val();
+        window.location = "./search.php?search=" + searchvalue;
       });
     </script>
 
